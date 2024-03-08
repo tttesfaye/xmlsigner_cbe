@@ -16,12 +16,7 @@ import java.util.Date;
 
 @Service
 public class JwtSigningUtils {
-    @Value("${security.pki.privatekey.file.location}")
-    private String userName;
-
-    @Value("${security.pki.publickey.file.location}")
-    private String password;
-    @Value("${ips.participant.bic}")
+       @Value("${ips.participant.bic}")
     private String participantBic;
     @Autowired
     CerteficateAndKeysUtility certeficateAndKeysUtility;

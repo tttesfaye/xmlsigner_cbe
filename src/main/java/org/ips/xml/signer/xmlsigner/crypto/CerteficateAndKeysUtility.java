@@ -49,9 +49,6 @@ public class CerteficateAndKeysUtility {
     @Value("${security.pki.privatekey.file.location}")
     private String privateKeyPath;
 
-    @Value("${security.pki.publickey.file.location}")
-    private String publicKeyPath;
-
     @Value("${security.pki.certificate.file.location}")
     private String certificateKeyPath;
 
@@ -121,21 +118,7 @@ public class CerteficateAndKeysUtility {
 
     }
 
-    public RSAPublicKey loadPublicKey() {
-        RSAPublicKey publicKey = null;
 
-        File file = new File(publicKeyPath);
-
-        try {
-            publicKey = readX509PublicKey(file);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-
-
-        return publicKey;
-
-    }
 
     public PrivateKey readPKCS8PrivateKey(File file) throws Exception {
         KeyFactory factory = KeyFactory.getInstance("RSA");
