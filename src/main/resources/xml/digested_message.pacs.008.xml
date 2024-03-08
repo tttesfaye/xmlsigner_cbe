@@ -1,0 +1,166 @@
+<FPEnvelope xmlns="urn:iso:std:iso:20022:tech:xsd:payment_request" 
+xmlns:document="urn:iso:std:iso:20022:tech:xsd:pacs.008.001.10" 
+xmlns:header="urn:iso:std:iso:20022:tech:xsd:head.001.001.03">
+	<header:AppHdr>
+		<header:Fr>
+			<header:FIId>
+				<header:FinInstnId>
+					<header:Othr>
+						<header:Id>WEGAETAAXXX</header:Id>
+					</header:Othr>
+				</header:FinInstnId>
+			</header:FIId>
+		</header:Fr>
+		<header:To>
+			<header:FIId>
+				<header:FinInstnId>
+					<header:Othr>
+						<header:Id>FP</header:Id>
+					</header:Othr>
+				</header:FinInstnId>
+			</header:FIId>
+		</header:To>
+		<header:BizMsgIdr>WEGAETAAXXX2023062004453654400000</header:BizMsgIdr>
+		<header:MsgDefIdr>pacs.008.001.10</header:MsgDefIdr>
+		<header:CreDt>2023-06-20T00:00:00.000Z</header:CreDt>
+		<document:Sgntr xmlns:document="urn:iso:std:iso:20022:tech:xsd:head.001.001.03">
+			<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+				<ds:SignedInfo>
+					<ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+					<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+					<ds:Reference>
+						<ds:Transforms>
+							<ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+						</ds:Transforms>
+						<ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+						<ds:DigestValue>fxJOBJbCTCUyvk2bQ5MQWTYx3POHsu4E1axUxMRQfHw=</ds:DigestValue>
+					</ds:Reference>
+					<ds:Reference Type="http://uri.etsi.org/01903/v1.3.2#SignedProperties" URI="#_6176c525-9a85-4f04-ae31-16e430f8861f-signedprops">
+						<ds:Transforms>
+							<ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+						</ds:Transforms>
+						<ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+						<ds:DigestValue>d+RcOl6GlnXwBKOlyTYqYnFi2eOPbMpbrF7ZZ/d6/is=</ds:DigestValue>
+					</ds:Reference>
+					<ds:Reference>
+						<ds:Transforms>
+							<ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+						</ds:Transforms>
+						<ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+						<ds:DigestValue>YHou23UvZQFs5if5eYLErU/+IOraaYAf61dWqMJZfQo=</ds:DigestValue>
+					</ds:Reference>
+				</ds:SignedInfo>
+				<ds:SignatureValue>NnMLOIn8Pvn2UVF8bhm+wmRQeDSzZF6IrPCvrUJZaGf5GwxNCIqlZwzJZg+bzj8Ujks7/rDsCFui+F4hORFXIPF4tv4RWZ1rVN7C7quwkm2paixb9eIqTML2H0CDAAxLsRFdMN6QTjLIAYyQLviqyL3mGd8yW16Z+SrQLS7ofnu6xa+QIfvxPq/AmzDqy8Eb8oEcTPNIAB0qfPY5J6Cp8HJoDutuBm1KgG9RQTZCbb4dULXqA7Z2t2hskg3TgL7ygaMpNlLmMCAK9yk71EdmGEncpAbTHyv2q+uQQFV1MCXH6rMzW4J21P8e435Jwr52Qn/zeulX/4mT/E9dLzcG6g==</ds:SignatureValue>
+				<ds:KeyInfo Id="_a604aa97-cef1-49c5-87d8-e79c1812c727">
+					<ds:X509Data>
+						<ds:X509IssuerSerial>
+							<ds:X509IssuerName>CN=test_user, OU=test_unit, O=bpc_test, L=Budapest, ST=Unknown, C=HU</ds:X509IssuerName>
+							<ds:X509SerialNumber>1807027036</ds:X509SerialNumber>
+						</ds:X509IssuerSerial>
+					</ds:X509Data>
+				</ds:KeyInfo>
+				<ds:Object>
+					<xades:QualifyingProperties xmlns:xades="http://uri.etsi.org/01903/v1.3.2#">
+						<xades:SignedProperties Id="_6176c525-9a85-4f04-ae31-16e430f8861f-signedprops">
+							<xades:SignedSignatureProperties>
+								<xades:SigningTime>2023-06-20T14:15:25Z</xades:SigningTime>
+							</xades:SignedSignatureProperties>
+						</xades:SignedProperties>
+					</xades:QualifyingProperties>
+				</ds:Object>
+			</ds:Signature>
+		</document:Sgntr>
+	</header:AppHdr>
+	<document:Document>
+		<document:FIToFICstmrCdtTrf>
+			<document:GrpHdr>
+				<document:MsgId>WEGAETAAXXX2023062004453654400000</document:MsgId>
+				<document:CreDtTm>2023-06-20T00:00:00.000+03:00</document:CreDtTm>
+				<document:NbOfTxs>1</document:NbOfTxs>
+				<document:SttlmInf>
+					<document:SttlmMtd>CLRG</document:SttlmMtd>
+					<document:ClrSys>
+						<document:Prtry>FP</document:Prtry>
+					</document:ClrSys>
+				</document:SttlmInf>
+				<document:PmtTpInf>
+					<document:LclInstrm>
+						<document:Prtry>P2P</document:Prtry>
+					</document:LclInstrm>
+				</document:PmtTpInf>
+				<document:InstgAgt>
+					<document:FinInstnId>
+						<document:Othr>
+							<document:Id>WEGAETAAXXX</document:Id>
+						</document:Othr>
+					</document:FinInstnId>
+				</document:InstgAgt>
+				<document:InstdAgt>
+					<document:FinInstnId>
+						<document:Othr>
+							<document:Id>BUNAETAAXXX</document:Id>
+						</document:Othr>
+					</document:FinInstnId>
+				</document:InstdAgt>
+			</document:GrpHdr>
+			<document:CdtTrfTxInf>
+				<document:PmtId>
+					<document:EndToEndId>-</document:EndToEndId>
+					<document:TxId>WEGAETAAXXX315213100000249276</document:TxId>
+				</document:PmtId>
+				<document:IntrBkSttlmAmt Ccy="USD">10</document:IntrBkSttlmAmt>
+				<document:AccptncDtTm>2023-06-20T17:42:39.071+06:00</document:AccptncDtTm>
+				<document:InstdAmt Ccy="USD">10</document:InstdAmt>
+				<document:ChrgBr>SLEV</document:ChrgBr>
+				<document:Dbtr>
+					<document:Nm>MSCWT</document:Nm>
+					<document:PstlAdr>
+						<document:AdrLine>MOSCOW</document:AdrLine>
+					</document:PstlAdr>
+				</document:Dbtr>
+				<document:DbtrAcct>
+					<document:Id>
+						<document:Othr>
+							<document:Id>131234567890</document:Id>
+							<document:SchmeNm>
+								<document:Prtry>ACCT</document:Prtry>
+							</document:SchmeNm>
+							<document:Issr>C</document:Issr>
+						</document:Othr>
+					</document:Id>
+				</document:DbtrAcct>
+				<document:DbtrAgt>
+					<document:FinInstnId>
+						<document:Othr>
+							<document:Id>WEGAETAAXXX</document:Id>
+							<document:Issr>ATM</document:Issr>
+						</document:Othr>
+					</document:FinInstnId>
+				</document:DbtrAgt>
+				<document:CdtrAgt>
+					<document:FinInstnId>
+						<document:Othr>
+							<document:Id>BUNAETAAXXX</document:Id>
+						</document:Othr>
+					</document:FinInstnId>
+				</document:CdtrAgt>
+				<document:Cdtr>
+					<document:Nm>test</document:Nm>
+				</document:Cdtr>
+				<document:CdtrAcct>
+					<document:Id>
+						<document:Othr>
+							<document:Id>13123456789000</document:Id>
+							<document:SchmeNm>
+								<document:Prtry>ACCT</document:Prtry>
+							</document:SchmeNm>
+						</document:Othr>
+					</document:Id>
+				</document:CdtrAcct>
+				<document:RmtInf>
+					<document:Ustrd>Transferring my funds</document:Ustrd>
+				</document:RmtInf>
+			</document:CdtTrfTxInf>
+		</document:FIToFICstmrCdtTrf>
+	</document:Document>
+</FPEnvelope>

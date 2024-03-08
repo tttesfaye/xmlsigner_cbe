@@ -1,0 +1,33 @@
+<npgAcsCards xmlns="http://cardfileupload.ets.acs.com/v1/types">
+    <fileInformation
+            fileName="test_doc"
+            fileId="10004567we78899"
+            messageCrtDate="08/08/2023"
+            bic="CBETAXXX"
+            messageDig="ey45safsdfasdfasdg7cddfsdfasdf8002efdccjhdiadasdfsdfasdfads"/>
+
+
+    <cardRegistryRecords xmlns="http://cardRegistry.acs.bpcbt.com/v2/types">
+
+        <add id="1" cardNumber="0311451234562673217" profileId="ASKARI_BANK" cardStatus="ACTIVE">
+            <oneTimePasswordSMS phoneNumber="0311451234562673217"/>
+            <oneTimePasswordEmail email="fil1e1@file.com"/>
+        </add>
+        <add id="2" cardNumber="0311451234562673218" profileId="ASKARI_BANK" cardStatus="ACTIVE">
+            <oneTimePasswordSMS phoneNumber="03111234567"/>
+            <oneTimePasswordEmail email="file11@file.com"/>
+        </add>
+        <add id="3" cardNumber="0311451234562673219" profileId="ASKARI_BANK" cardStatus="ACTIVE">
+            <oneTimePasswordSMS phoneNumber="03111234567"/>
+            <oneTimePasswordEmail email="file111@file.com"/>
+        </add>
+        <add id="4" cardNumber="0311451234562673220" profileId="ASKARI_BANK" cardStatus="ACTIVE">
+            <oneTimePasswordSMS phoneNumber="923111234567"/>
+            <oneTimePasswordEmail email="file1110@file.com"/>
+        </add>
+        <add id="5" cardNumber="0311451234562673221" profileId="ASKARI_BANK" cardStatus="ACTIVE">
+            <oneTimePasswordSMS phoneNumber="31112345678"/>
+            <oneTimePasswordEmail email="file1111@file.com"/>
+        </add>
+    </cardRegistryRecords>
+</npgAcsCards>

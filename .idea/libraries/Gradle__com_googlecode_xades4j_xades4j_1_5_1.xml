@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.googlecode.xades4j:xades4j:1.5.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/.gradle/caches/modules-2/files-2.1/com.googlecode.xades4j/xades4j/1.5.1/6f32f053eeef95681be6bad1bd19109baebebb59/xades4j-1.5.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/.gradle/caches/modules-2/files-2.1/com.googlecode.xades4j/xades4j/1.5.1/c0897ac5ca9e972ae016477aef106041529aeed4/xades4j-1.5.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

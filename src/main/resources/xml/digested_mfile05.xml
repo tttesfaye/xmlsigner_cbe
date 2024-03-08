@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><npgAcsCards xmlns="http://cardfileupload.ets.acs.com/v1/types">
+    <fileInformation bic="CBETAXXX" fileId="10004567we78899" fileName="test_doc" messageCrtDate="08/08/2023" messageDig="ey45safsdfasdfasdg7cddfsdfasdf8002efdccjhdiadasdfsdfasdfads"/>
+
+
+    <cardRegistryRecords xmlns="http://cardRegistry.acs.bpcbt.com/v2/types">
+
+        <add cardNumber="0311451234562673217" cardStatus="ACTIVE" id="1" profileId="ASKARI_BANK">
+            <oneTimePasswordSMS phoneNumber="0311451234562673217"/>
+            <oneTimePasswordEmail email="fil1e1@file.com"/>
+        </add>
+        <add cardNumber="0311451234562673218" cardStatus="ACTIVE" id="2" profileId="ASKARI_BANK">
+            <oneTimePasswordSMS phoneNumber="03111234567"/>
+            <oneTimePasswordEmail email="file11@file.com"/>
+        </add>
+        <add cardNumber="0311451234562673219" cardStatus="ACTIVE" id="3" profileId="ASKARI_BANK">
+            <oneTimePasswordSMS phoneNumber="03111234567"/>
+            <oneTimePasswordEmail email="file111@file.com"/>
+        </add>
+        <add cardNumber="0311451234562673220" cardStatus="ACTIVE" id="4" profileId="ASKARI_BANK">
+            <oneTimePasswordSMS phoneNumber="923111234567"/>
+            <oneTimePasswordEmail email="file1110@file.com"/>
+        </add>
+        <add cardNumber="0311451234562673221" cardStatus="ACTIVE" id="5" profileId="ASKARI_BANK">
+            <oneTimePasswordSMS phoneNumber="31112345678"/>
+            <oneTimePasswordEmail email="file1111@file.com"/>
+        </add>
+    </cardRegistryRecords>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><DigestValue>hmXvJ5jaNjhDUzivemkcAlnGvhsoJPVCRd6kfVLmPt4=</DigestValue></Reference></SignedInfo><SignatureValue>ojlIAIMiK6BZi+wO3MzcofzLVH8MzH4fl42jgKwgI51GwGnVaa2KIeJePs+jBy4Vi+/Kz6c9pPAY&#xD;
+AqAJOe77XOUb/kGOfgacd5CWMYVYyzbcNgSr2LV/66yympYFcTkPQBeooS+OlXAV5Zj0dLjf27/x&#xD;
+cavz0UBsMHv9MwsxbRs=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>vnxRqvHnQ5vzpaOCw9bXVV5ZCicPESHT99no438xITa0rmvwtxB8OWziYyK7/n1GPvTPvrOwWhaA&#xD;
+uX+lxK/EN41p5NJta98UVLygwrSZeIAhBaxqrsPj0dlaHUqzk9HL+jQ6fB9+FKSQ9IWDVpmcMdMK&#xD;
+JxcEy2dOHykyBJk/tBk=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue></KeyInfo></Signature></npgAcsCards>

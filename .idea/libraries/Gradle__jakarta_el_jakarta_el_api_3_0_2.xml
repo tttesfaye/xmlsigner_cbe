@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: jakarta.el:jakarta.el-api:3.0.2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/.gradle/caches/modules-2/files-2.1/jakarta.el/jakarta.el-api/3.0.2/c0583250cc88769556525aa2072b4e7dd65804b1/jakarta.el-api-3.0.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/.gradle/caches/modules-2/files-2.1/jakarta.el/jakarta.el-api/3.0.2/969258e7f3e58e2463b2538e25df985653a5e2ed/jakarta.el-api-3.0.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

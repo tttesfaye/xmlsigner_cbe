@@ -1,0 +1,55 @@
+plugins {
+    id 'java'
+    id 'war'
+    id 'org.springframework.boot' version '1.5.0.RELEASE'
+    id 'io.spring.dependency-management' version '1.1.0'
+}
+group = 'ips-client-v1'
+version = '0.1'
+java {
+    sourceCompatibility = 'VERSION_1_8'
+}
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+repositories {
+    mavenCentral()
+    maven { url 'https://repo.spring.io/milestone' }
+    maven { url 'https://repo.spring.io/snapshot' }
+}
+dependencies {
+//
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation('org.springframework.boot:spring-boot-starter-web') {
+        exclude group: 'org.glassfish', module: 'jakarta.el'
+    }
+
+    implementation 'javax.validation:validation-api:2.0.1.Final'
+    implementation 'org.hibernate.validator:hibernate-validator:6.1.0.Final'
+    implementation 'org.apache.tomcat.embed:tomcat-embed-el'
+    implementation 'jakarta.el:jakarta.el-api:3.0.2'
+    implementation group: 'org.apache.santuario', name: 'xmlsec', version: '2.1.2'
+    implementation 'net.sf.saxon:Saxon-HE:9.9.1-1'
+    implementation  'ch.qos.logback:logback-core'
+    implementation 'wsdl4j:wsdl4j'
+    implementation group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.12.3'
+    testImplementation 'junit:junit:4.13.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+    runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.12.3'
+    runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.12.3'
+    implementation group: 'com.auth0', name: 'java-jwt', version: '4.4.0'
+    testImplementation 'org.slf4j:slf4j-api'
+    implementation 'com.googlecode.xades4j:xades4j:1.5.1'
+    implementation 'org.apache.commons:commons-lang3:3.13.0'
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api'
+}
+//tasks.named('testClasses') {
+//    useJUnitPlatform()
+//}
