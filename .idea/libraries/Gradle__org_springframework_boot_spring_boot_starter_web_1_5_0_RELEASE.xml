@@ -1,11 +1,11 @@
 <component name="libraryTable">
   <library name="Gradle: org.springframework.boot:spring-boot-starter-web:1.5.0.RELEASE">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-web/1.5.0.RELEASE/c3adcdf50ca7c1d1e4cfa0a21cf4ee403c069f2e/spring-boot-starter-web-1.5.0.RELEASE.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/IPS/gradle-7.4.2-bin/gradle-7.4.2/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-web/1.5.0.RELEASE/c3adcdf50ca7c1d1e4cfa0a21cf4ee403c069f2e/spring-boot-starter-web-1.5.0.RELEASE.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$PROJECT_DIR$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-web/1.5.0.RELEASE/360e7704e6ae425cceb089729c25cf13ed23d5e/spring-boot-starter-web-1.5.0.RELEASE-sources.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/IPS/gradle-7.4.2-bin/gradle-7.4.2/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-web/1.5.0.RELEASE/360e7704e6ae425cceb089729c25cf13ed23d5e/spring-boot-starter-web-1.5.0.RELEASE-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

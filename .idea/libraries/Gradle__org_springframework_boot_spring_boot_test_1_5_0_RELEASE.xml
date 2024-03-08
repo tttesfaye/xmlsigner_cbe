@@ -1,11 +1,11 @@
 <component name="libraryTable">
   <library name="Gradle: org.springframework.boot:spring-boot-test:1.5.0.RELEASE">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-test/1.5.0.RELEASE/f5d6fb2ce6e53abb95dccbc76cc842fc83a6892/spring-boot-test-1.5.0.RELEASE.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/IPS/gradle-7.4.2-bin/gradle-7.4.2/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-test/1.5.0.RELEASE/f5d6fb2ce6e53abb95dccbc76cc842fc83a6892/spring-boot-test-1.5.0.RELEASE.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$PROJECT_DIR$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-test/1.5.0.RELEASE/1b2f24a8a1448c47d0ede87c1acb4a76398b13dd/spring-boot-test-1.5.0.RELEASE-sources.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/IPS/gradle-7.4.2-bin/gradle-7.4.2/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-test/1.5.0.RELEASE/1b2f24a8a1448c47d0ede87c1acb4a76398b13dd/spring-boot-test-1.5.0.RELEASE-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
