@@ -1,426 +1,489 @@
-2024-03-07 03:59:09,936 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter [main] ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-03-07 03:59:09,992 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] 5 mappings in 'requestMappingHandlerMapping'
-2024-03-07 03:59:10,016 DEBUG o.s.w.s.h.SimpleUrlHandlerMapping [main] Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-03-07 03:59:10,024 DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver [main] ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-03-07 13:41:26,538 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter [main] ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-03-07 13:41:26,640 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] 5 mappings in 'requestMappingHandlerMapping'
-2024-03-07 13:41:26,675 DEBUG o.s.w.s.h.SimpleUrlHandlerMapping [main] Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-03-07 13:41:26,692 DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver [main] ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-03-07 13:43:22,378 INFO o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Initializing Servlet 'dispatcherServlet'
-2024-03-07 13:43:22,386 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Detected StandardServletMultipartResolver
-2024-03-07 13:43:22,387 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Detected AcceptHeaderLocaleResolver
-2024-03-07 13:43:22,387 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Detected FixedThemeResolver
-2024-03-07 13:43:22,407 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@50385465
-2024-03-07 13:43:22,407 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Detected org.springframework.web.servlet.support.SessionFlashMapManager@7502ee4c
-2024-03-07 13:43:22,407 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
-2024-03-07 13:43:22,407 INFO o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Completed initialization in 24 ms
-2024-03-07 13:43:22,437 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] POST "/api/digest", parameters={}
-2024-03-07 13:43:22,454 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [http-nio-9181-exec-2] Mapped to org.ips.xml.signer.xmlsigner.controller.DigestController#handleXmlRequest(String)
-2024-03-07 13:43:22,503 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-2] Read "application/xml;charset=UTF-8" to ["<?xml version="1.0" encoding="UTF-8" standalone="yes"?><EOL><EOL><FPEnvelope xmlns:header="urn:iso:std:iso:2 (truncated)..."]
-2024-03-07 13:43:22,553 DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver [http-nio-9181-exec-2] Using @ExceptionHandler org.ips.xml.signer.xmlsigner.exceptions.GlobalExceptionHandler#handleAllUncaughtException(Exception, WebRequest)
-2024-03-07 13:43:22,559 ERROR GLOBAL_EXCEPTION_HANDLER [http-nio-9181-exec-2] Unknown error occurred
-java.lang.RuntimeException: java.io.FileNotFoundException: C:\Users\Admin1\Desktop\iPS\Cert\xml\xml\JWT_Private.key (The system cannot find the path specified)
-	at org.ips.xml.signer.xmlsigner.crypto.CerteficateAndKeysUtility.loadPrivateKey(CerteficateAndKeysUtility.java:116)
-	at org.ips.xml.signer.xmlsigner.utils.XMLFileUtility.buildSignaturePrivateKeyInfo(XMLFileUtility.java:63)
-	at org.ips.xml.signer.xmlsigner.service.DigestServiceImpl.signDocument(DigestServiceImpl.java:59)
-	at org.ips.xml.signer.xmlsigner.controller.DigestController.handleXmlRequest(DigestController.java:29)
+2024-05-11 10:01:09,928 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-5] DispatcherServlet with name 'dispatcherServlet' processing POST request for [/api/jwt]
+2024-05-11 10:01:09,928 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [http-nio-9181-exec-5] Looking up handler method for path /api/jwt
+2024-05-11 10:01:09,928 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [http-nio-9181-exec-5] Returning handler method [public java.lang.String org.ips.xml.signer.xmlsigner.controller.DigestController.getJwt(java.lang.String)]
+2024-05-11 10:01:09,929 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-5] Read [class java.lang.String] as "application/xml;charset=UTF-8" with [org.springframework.http.converter.StringHttpMessageConverter@5990e6c5]
+2024-05-11 10:01:09,932 DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver [http-nio-9181-exec-5] Resolving exception from handler [public java.lang.String org.ips.xml.signer.xmlsigner.controller.DigestController.getJwt(java.lang.String)]: org.springframework.web.util.NestedServletException: Handler dispatch failed; nested exception is java.lang.NoClassDefFoundError: Could not initialize class com.auth0.jwt.JWTCreator
+2024-05-11 10:01:09,933 DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver [http-nio-9181-exec-5] Invoking @ExceptionHandler method: public org.springframework.http.ResponseEntity<java.lang.Object> org.ips.xml.signer.xmlsigner.exceptions.GlobalExceptionHandler.handleAllUncaughtException(java.lang.Exception,org.springframework.web.context.request.WebRequest)
+2024-05-11 10:01:09,933 ERROR GLOBAL_EXCEPTION_HANDLER [http-nio-9181-exec-5] Unknown error occurred
+org.springframework.web.util.NestedServletException: Handler dispatch failed; nested exception is java.lang.NoClassDefFoundError: Could not initialize class com.auth0.jwt.JWTCreator
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:897)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:872)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:648)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:230)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:105)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
+	at org.springframework.boot.web.support.ErrorPageFilter.doFilter(ErrorPageFilter.java:115)
+	at org.springframework.boot.web.support.ErrorPageFilter.access$000(ErrorPageFilter.java:59)
+	at org.springframework.boot.web.support.ErrorPageFilter$1.doFilterInternal(ErrorPageFilter.java:90)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.boot.web.support.ErrorPageFilter.doFilter(ErrorPageFilter.java:108)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:192)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:165)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:474)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:349)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:783)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:798)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1434)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.auth0.jwt.JWTCreator
+	at com.auth0.jwt.JWT.create(JWT.java:72)
+	at org.ips.xml.signer.xmlsigner.utils.JwtSigningUtils.generateAccessToken(JwtSigningUtils.java:31)
+	at org.ips.xml.signer.xmlsigner.controller.DigestController.getJwt(DigestController.java:45)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:498)
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:359)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:889)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1735)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.lang.Thread.run(Thread.java:748)
-Caused by: java.io.FileNotFoundException: C:\Users\Admin1\Desktop\iPS\Cert\xml\xml\JWT_Private.key (The system cannot find the path specified)
-	at java.io.FileInputStream.open0(Native Method)
-	at java.io.FileInputStream.open(FileInputStream.java:195)
-	at java.io.FileInputStream.<init>(FileInputStream.java:138)
-	at java.io.FileReader.<init>(FileReader.java:72)
-	at org.ips.xml.signer.xmlsigner.crypto.CerteficateAndKeysUtility.readPKCS8PrivateKey(CerteficateAndKeysUtility.java:142)
-	at org.ips.xml.signer.xmlsigner.crypto.CerteficateAndKeysUtility.loadPrivateKey(CerteficateAndKeysUtility.java:114)
-	... 53 common frames omitted
-2024-03-07 13:43:22,660 DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor [http-nio-9181-exec-2] Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2024-03-07 13:43:22,663 DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor [http-nio-9181-exec-2] Writing [org.ips.xml.signer.xmlsigner.exceptions.ErrorResponse@564bf30f]
-2024-03-07 13:43:22,693 DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver [http-nio-9181-exec-2] Resolved [java.lang.RuntimeException: java.io.FileNotFoundException: C:\Users\Admin1\Desktop\iPS\Cert\xml\xml\JWT_Private.key (The system cannot find the path specified)]
-2024-03-07 13:43:22,693 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Completed 500 INTERNAL_SERVER_ERROR
-2024-03-07 14:06:32,945 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter [main] ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-03-07 14:06:33,023 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] 5 mappings in 'requestMappingHandlerMapping'
-2024-03-07 14:06:33,063 DEBUG o.s.w.s.h.SimpleUrlHandlerMapping [main] Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-03-07 14:06:33,082 DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver [main] ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-03-07 14:06:38,608 INFO o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Initializing Servlet 'dispatcherServlet'
-2024-03-07 14:06:38,609 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Detected StandardServletMultipartResolver
-2024-03-07 14:06:38,609 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Detected AcceptHeaderLocaleResolver
-2024-03-07 14:06:38,609 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Detected FixedThemeResolver
-2024-03-07 14:06:38,610 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@9b6c078
-2024-03-07 14:06:38,611 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Detected org.springframework.web.servlet.support.SessionFlashMapManager@41747e66
-2024-03-07 14:06:38,611 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
-2024-03-07 14:06:38,611 INFO o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Completed initialization in 2 ms
-2024-03-07 14:06:38,636 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] POST "/api/digest", parameters={}
-2024-03-07 14:06:38,647 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [http-nio-9181-exec-2] Mapped to org.ips.xml.signer.xmlsigner.controller.DigestController#handleXmlRequest(String)
-2024-03-07 14:06:38,691 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-2] Read "application/xml;charset=UTF-8" to ["<?xml version="1.0" encoding="UTF-8" standalone="yes"?><EOL><EOL><FPEnvelope xmlns:header="urn:iso:std:iso:2 (truncated)..."]
-2024-03-07 14:06:40,009 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-2] Using 'application/xml', given [*/*] and supported [application/xml]
-2024-03-07 14:06:40,010 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-2] Writing ["<?xml version="1.0" encoding="UTF-8"?><FPEnvelope xmlns="urn:iso:std:iso:20022:tech:xsd:verification (truncated)..."]
-2024-03-07 14:06:40,017 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Completed 200 OK
-2024-03-07 14:07:59,890 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-5] POST "/api/verify", parameters={}
-2024-03-07 14:07:59,891 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [http-nio-9181-exec-5] Mapped to org.ips.xml.signer.xmlsigner.controller.DigestController#verifyXml(String)
-2024-03-07 14:07:59,893 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-5] Read "application/xml;charset=UTF-8" to ["<?xml version="1.0" encoding="UTF-8"?><FPEnvelope xmlns="urn:iso:std:iso:20022:tech:xsd:verification (truncated)..."]
-2024-03-07 14:07:59,963 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-5] HTTP POST http://172.30.6.117:36487/v1/token
-2024-03-07 14:08:00,077 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-5] Accept=[application/json, application/*+json]
-2024-03-07 14:08:00,081 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-5] Writing [{username=[cbe], password=[cbe1], grant_type=[password]}] as "application/x-www-form-urlencoded"
-2024-03-07 14:08:21,152 ERROR o.i.x.s.x.s.XMLDigestVerifierImpl [http-nio-9181-exec-5] I/O error on POST request for "http://172.30.6.117:36487/v1/token": Connection timed out: connect; nested exception is java.net.ConnectException: Connection timed out: connect
-2024-03-07 14:08:21,178 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-5] Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
-2024-03-07 14:08:21,180 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-5] Writing ["false"]
-2024-03-07 14:08:21,184 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-5] Completed 200 OK
-2024-03-07 14:08:24,502 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-6] POST "/api/verify", parameters={}
-2024-03-07 14:08:24,502 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [http-nio-9181-exec-6] Mapped to org.ips.xml.signer.xmlsigner.controller.DigestController#verifyXml(String)
-2024-03-07 14:08:24,504 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-6] Read "application/xml;charset=UTF-8" to ["<?xml version="1.0" encoding="UTF-8"?><FPEnvelope xmlns="urn:iso:std:iso:20022:tech:xsd:verification (truncated)..."]
-2024-03-07 14:08:24,519 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-6] HTTP POST http://172.30.6.117:36487/v1/token
-2024-03-07 14:08:24,523 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-6] Accept=[application/json, application/*+json]
-2024-03-07 14:08:24,523 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-6] Writing [{username=[cbe], password=[cbe1], grant_type=[password]}] as "application/x-www-form-urlencoded"
-2024-03-07 14:08:35,399 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-8] POST "/api/digest", parameters={}
-2024-03-07 14:08:35,400 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [http-nio-9181-exec-8] Mapped to org.ips.xml.signer.xmlsigner.controller.DigestController#handleXmlRequest(String)
-2024-03-07 14:08:35,401 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-8] Read "application/xml;charset=UTF-8" to ["<?xml version="1.0" encoding="UTF-8" standalone="yes"?><EOL><EOL><FPEnvelope xmlns:header="urn:iso:std:iso:2 (truncated)..."]
-2024-03-07 14:08:35,451 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-8] Using 'application/xml', given [*/*] and supported [application/xml]
-2024-03-07 14:08:35,451 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-8] Writing ["<?xml version="1.0" encoding="UTF-8"?><FPEnvelope xmlns="urn:iso:std:iso:20022:tech:xsd:verification (truncated)..."]
-2024-03-07 14:08:35,453 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-8] Completed 200 OK
-2024-03-07 14:08:45,564 ERROR o.i.x.s.x.s.XMLDigestVerifierImpl [http-nio-9181-exec-6] I/O error on POST request for "http://172.30.6.117:36487/v1/token": Connection timed out: connect; nested exception is java.net.ConnectException: Connection timed out: connect
-2024-03-07 14:08:45,566 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-6] Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
-2024-03-07 14:08:45,568 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-6] Writing ["false"]
-2024-03-07 14:08:45,568 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-6] Completed 200 OK
-2024-03-07 14:08:48,874 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-9] POST "/api/verify", parameters={}
-2024-03-07 14:08:48,875 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [http-nio-9181-exec-9] Mapped to org.ips.xml.signer.xmlsigner.controller.DigestController#verifyXml(String)
-2024-03-07 14:08:48,877 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-9] Read "application/xml;charset=UTF-8" to ["<?xml version="1.0" encoding="UTF-8"?><FPEnvelope xmlns="urn:iso:std:iso:20022:tech:xsd:verification (truncated)..."]
-2024-03-07 14:08:48,890 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-9] HTTP POST http://172.30.6.117:36487/v1/token
-2024-03-07 14:08:48,893 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-9] Accept=[application/json, application/*+json]
-2024-03-07 14:08:48,893 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-9] Writing [{username=[cbe], password=[cbe1], grant_type=[password]}] as "application/x-www-form-urlencoded"
-2024-03-07 14:09:09,953 ERROR o.i.x.s.x.s.XMLDigestVerifierImpl [http-nio-9181-exec-9] I/O error on POST request for "http://172.30.6.117:36487/v1/token": Connection timed out: connect; nested exception is java.net.ConnectException: Connection timed out: connect
-2024-03-07 14:09:09,954 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-9] Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
-2024-03-07 14:09:09,955 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-9] Writing ["false"]
-2024-03-07 14:09:09,956 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-9] Completed 200 OK
-2024-03-07 14:11:35,664 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter [main] ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-03-07 14:11:35,827 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] 5 mappings in 'requestMappingHandlerMapping'
-2024-03-07 14:11:35,881 DEBUG o.s.w.s.h.SimpleUrlHandlerMapping [main] Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-03-07 14:11:35,908 DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver [main] ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-03-07 14:12:06,672 INFO o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Initializing Servlet 'dispatcherServlet'
-2024-03-07 14:12:06,673 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Detected StandardServletMultipartResolver
-2024-03-07 14:12:06,673 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Detected AcceptHeaderLocaleResolver
-2024-03-07 14:12:06,673 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Detected FixedThemeResolver
-2024-03-07 14:12:06,674 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@27a92fe1
-2024-03-07 14:12:06,674 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Detected org.springframework.web.servlet.support.SessionFlashMapManager@4b2ee37e
-2024-03-07 14:12:06,674 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
-2024-03-07 14:12:06,674 INFO o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Completed initialization in 1 ms
-2024-03-07 14:12:06,693 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] POST "/api/verify", parameters={}
-2024-03-07 14:12:06,701 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [http-nio-9181-exec-1] Mapped to org.ips.xml.signer.xmlsigner.controller.DigestController#verifyXml(String)
-2024-03-07 14:12:06,740 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-1] Read "application/xml;charset=UTF-8" to ["<?xml version="1.0" encoding="UTF-8"?><FPEnvelope xmlns="urn:iso:std:iso:20022:tech:xsd:verification (truncated)..."]
-2024-03-07 14:12:06,834 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-1] HTTP POST http://192.168.20.49:9001/v1/token
-2024-03-07 14:12:06,942 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-1] Accept=[application/json, application/*+json]
-2024-03-07 14:12:06,945 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-1] Writing [{username=[cbe], password=[cbe1], grant_type=[password]}] as "application/x-www-form-urlencoded"
-2024-03-07 14:12:06,978 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-1] Response 200 OK
-2024-03-07 14:12:06,987 ERROR o.i.x.s.x.s.XMLDigestVerifierImpl [http-nio-9181-exec-1] Could not extract response: no suitable HttpMessageConverter found for response type [class org.ips.xml.signer.xmlsigner.models.TokenInfo] and content type [text/html;charset=utf-8]
-2024-03-07 14:12:07,002 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-1] Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
-2024-03-07 14:12:07,002 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-1] Writing ["false"]
-2024-03-07 14:12:07,011 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Completed 200 OK
-2024-03-07 14:12:09,618 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-3] POST "/api/verify", parameters={}
-2024-03-07 14:12:09,620 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [http-nio-9181-exec-3] Mapped to org.ips.xml.signer.xmlsigner.controller.DigestController#verifyXml(String)
-2024-03-07 14:12:09,623 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-3] Read "application/xml;charset=UTF-8" to ["<?xml version="1.0" encoding="UTF-8"?><FPEnvelope xmlns="urn:iso:std:iso:20022:tech:xsd:verification (truncated)..."]
-2024-03-07 14:12:09,652 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-3] HTTP POST http://192.168.20.49:9001/v1/token
-2024-03-07 14:12:09,657 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-3] Accept=[application/json, application/*+json]
-2024-03-07 14:12:09,657 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-3] Writing [{username=[cbe], password=[cbe1], grant_type=[password]}] as "application/x-www-form-urlencoded"
-2024-03-07 14:12:09,685 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-3] Response 200 OK
-2024-03-07 14:12:09,686 ERROR o.i.x.s.x.s.XMLDigestVerifierImpl [http-nio-9181-exec-3] Could not extract response: no suitable HttpMessageConverter found for response type [class org.ips.xml.signer.xmlsigner.models.TokenInfo] and content type [text/html;charset=utf-8]
-2024-03-07 14:12:09,687 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-3] Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
-2024-03-07 14:12:09,687 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-3] Writing ["false"]
-2024-03-07 14:12:09,688 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-3] Completed 200 OK
-2024-03-07 14:12:20,595 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-4] POST "/api/verify", parameters={}
-2024-03-07 14:12:20,597 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [http-nio-9181-exec-4] Mapped to org.ips.xml.signer.xmlsigner.controller.DigestController#verifyXml(String)
-2024-03-07 14:12:20,598 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-4] Read "application/xml;charset=UTF-8" to ["<?xml version="1.0" encoding="UTF-8"?><FPEnvelope xmlns="urn:iso:std:iso:20022:tech:xsd:verification (truncated)..."]
-2024-03-07 14:12:20,617 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-4] HTTP POST http://192.168.20.49:9001/v1/token
-2024-03-07 14:12:20,620 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-4] Accept=[application/json, application/*+json]
-2024-03-07 14:12:20,620 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-4] Writing [{username=[cbe], password=[cbe1], grant_type=[password]}] as "application/x-www-form-urlencoded"
-2024-03-07 14:12:20,630 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-4] Response 200 OK
-2024-03-07 14:12:20,631 ERROR o.i.x.s.x.s.XMLDigestVerifierImpl [http-nio-9181-exec-4] Could not extract response: no suitable HttpMessageConverter found for response type [class org.ips.xml.signer.xmlsigner.models.TokenInfo] and content type [text/html;charset=utf-8]
-2024-03-07 14:12:20,631 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-4] Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
-2024-03-07 14:12:20,631 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-4] Writing ["false"]
-2024-03-07 14:12:20,632 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-4] Completed 200 OK
-2024-03-07 14:12:34,693 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-5] POST "/api/verify", parameters={}
-2024-03-07 14:12:34,694 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [http-nio-9181-exec-5] Mapped to org.ips.xml.signer.xmlsigner.controller.DigestController#verifyXml(String)
-2024-03-07 14:12:34,694 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-5] Read "application/xml;charset=UTF-8" to ["<?xml version="1.0" encoding="UTF-8"?><FPEnvelope xmlns="urn:iso:std:iso:20022:tech:xsd:verification (truncated)..."]
-2024-03-07 14:12:34,710 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-5] HTTP POST http://192.168.20.49:9001/v1/token
-2024-03-07 14:12:34,710 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-5] Accept=[application/json, application/*+json]
-2024-03-07 14:12:34,710 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-5] Writing [{username=[cbe], password=[cbe1], grant_type=[password]}] as "application/x-www-form-urlencoded"
-2024-03-07 14:12:34,732 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-5] Response 200 OK
-2024-03-07 14:12:34,732 ERROR o.i.x.s.x.s.XMLDigestVerifierImpl [http-nio-9181-exec-5] Could not extract response: no suitable HttpMessageConverter found for response type [class org.ips.xml.signer.xmlsigner.models.TokenInfo] and content type [text/html;charset=utf-8]
-2024-03-07 14:12:34,733 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-5] Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
-2024-03-07 14:12:34,733 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-5] Writing ["false"]
-2024-03-07 14:12:34,733 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-5] Completed 200 OK
-2024-03-07 14:14:41,213 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-6] POST "/api/verify", parameters={}
-2024-03-07 14:14:41,216 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [http-nio-9181-exec-6] Mapped to org.ips.xml.signer.xmlsigner.controller.DigestController#verifyXml(String)
-2024-03-07 14:14:41,226 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-6] Read "application/xml;charset=UTF-8" to ["<?xml version="1.0" encoding="UTF-8"?><FPEnvelope xmlns="urn:iso:std:iso:20022:tech:xsd:verification (truncated)..."]
-2024-03-07 14:14:41,265 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-6] HTTP POST http://192.168.20.49:9001/v1/token
-2024-03-07 14:14:41,268 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-6] Accept=[application/json, application/*+json]
-2024-03-07 14:14:41,268 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-6] Writing [{username=[cbe], password=[cbe1], grant_type=[password]}] as "application/x-www-form-urlencoded"
-2024-03-07 14:14:41,291 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-6] Response 200 OK
-2024-03-07 14:14:41,292 ERROR o.i.x.s.x.s.XMLDigestVerifierImpl [http-nio-9181-exec-6] Could not extract response: no suitable HttpMessageConverter found for response type [class org.ips.xml.signer.xmlsigner.models.TokenInfo] and content type [text/html;charset=utf-8]
-2024-03-07 14:14:41,293 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-6] Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
-2024-03-07 14:14:41,293 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-6] Writing ["false"]
-2024-03-07 14:14:41,295 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-6] Completed 200 OK
-2024-03-07 14:19:33,015 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter [main] ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-03-07 14:19:33,109 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] 5 mappings in 'requestMappingHandlerMapping'
-2024-03-07 14:19:33,145 DEBUG o.s.w.s.h.SimpleUrlHandlerMapping [main] Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-03-07 14:19:33,160 DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver [main] ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-03-07 14:19:40,807 INFO o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Initializing Servlet 'dispatcherServlet'
-2024-03-07 14:19:40,822 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Detected StandardServletMultipartResolver
-2024-03-07 14:19:40,824 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Detected AcceptHeaderLocaleResolver
-2024-03-07 14:19:40,824 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Detected FixedThemeResolver
-2024-03-07 14:19:40,831 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@5c2cb014
-2024-03-07 14:19:40,842 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Detected org.springframework.web.servlet.support.SessionFlashMapManager@37834c99
-2024-03-07 14:19:40,842 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
-2024-03-07 14:19:40,842 INFO o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Completed initialization in 26 ms
-2024-03-07 14:19:40,895 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] POST "/api/verify", parameters={}
-2024-03-07 14:19:40,910 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [http-nio-9181-exec-2] Mapped to org.ips.xml.signer.xmlsigner.controller.DigestController#verifyXml(String)
-2024-03-07 14:19:40,981 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-2] Read "application/xml;charset=UTF-8" to ["<?xml version="1.0" encoding="UTF-8"?><FPEnvelope xmlns="urn:iso:std:iso:20022:tech:xsd:verification (truncated)..."]
-2024-03-07 14:20:04,639 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-2] HTTP POST http://192.168.20.49:9001/v1/token
-2024-03-07 14:20:04,952 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-2] Accept=[application/json, application/*+json]
-2024-03-07 14:20:04,964 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-2] Writing [{username=[cbe], password=[cbe1], grant_type=[password]}] as "application/x-www-form-urlencoded"
-2024-03-07 14:20:05,024 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-2] Response 200 OK
-2024-03-07 14:23:33,677 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter [main] ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-03-07 14:23:33,761 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] 5 mappings in 'requestMappingHandlerMapping'
-2024-03-07 14:23:33,806 DEBUG o.s.w.s.h.SimpleUrlHandlerMapping [main] Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-03-07 14:23:33,829 DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver [main] ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-03-07 14:23:47,605 INFO o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Initializing Servlet 'dispatcherServlet'
-2024-03-07 14:23:47,605 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Detected StandardServletMultipartResolver
-2024-03-07 14:23:47,606 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Detected AcceptHeaderLocaleResolver
-2024-03-07 14:23:47,606 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Detected FixedThemeResolver
-2024-03-07 14:23:47,610 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@397e2b3
-2024-03-07 14:23:47,611 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Detected org.springframework.web.servlet.support.SessionFlashMapManager@3bd426fc
-2024-03-07 14:23:47,611 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
-2024-03-07 14:23:47,612 INFO o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Completed initialization in 6 ms
-2024-03-07 14:23:47,649 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] POST "/api/verify", parameters={}
-2024-03-07 14:23:47,663 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [http-nio-9181-exec-2] Mapped to org.ips.xml.signer.xmlsigner.controller.DigestController#verifyXml(String)
-2024-03-07 14:23:47,715 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-2] Read "application/xml;charset=UTF-8" to ["<?xml version="1.0" encoding="UTF-8"?><FPEnvelope xmlns="urn:iso:std:iso:20022:tech:xsd:verification (truncated)..."]
-2024-03-07 14:23:59,260 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-2] HTTP POST http://192.168.20.49:9001/v1/token
-2024-03-07 14:23:59,952 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-2] Accept=[application/json, application/*+json]
-2024-03-07 14:23:59,995 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-2] Writing [{username=[cbe], password=[cbe1], grant_type=[password]}] as "application/x-www-form-urlencoded"
-2024-03-07 14:24:00,123 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-2] Response 200 OK
-2024-03-07 14:28:18,509 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter [main] ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-03-07 14:28:18,666 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] 5 mappings in 'requestMappingHandlerMapping'
-2024-03-07 14:28:18,723 DEBUG o.s.w.s.h.SimpleUrlHandlerMapping [main] Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-03-07 14:28:18,748 DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver [main] ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-03-07 14:28:36,705 INFO o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Initializing Servlet 'dispatcherServlet'
-2024-03-07 14:28:36,745 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Detected StandardServletMultipartResolver
-2024-03-07 14:28:36,746 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Detected AcceptHeaderLocaleResolver
-2024-03-07 14:28:36,747 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Detected FixedThemeResolver
-2024-03-07 14:28:36,753 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@2d32112
-2024-03-07 14:28:36,753 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Detected org.springframework.web.servlet.support.SessionFlashMapManager@d68665e
-2024-03-07 14:28:36,754 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
-2024-03-07 14:28:36,754 INFO o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Completed initialization in 10 ms
-2024-03-07 14:28:37,102 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] POST "/api/verify", parameters={}
-2024-03-07 14:28:37,116 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [http-nio-9181-exec-1] Mapped to org.ips.xml.signer.xmlsigner.controller.DigestController#verifyXml(String)
-2024-03-07 14:28:37,172 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-1] Read "application/xml;charset=UTF-8" to ["<?xml version="1.0" encoding="UTF-8"?><FPEnvelope xmlns="urn:iso:std:iso:20022:tech:xsd:verification (truncated)..."]
-2024-03-07 14:28:57,431 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-1] HTTP POST http://192.168.20.49:9001/v1/token
-2024-03-07 14:28:57,445 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-1] Accept=[text/plain, application/json, application/*+json, */*]
-2024-03-07 14:28:57,450 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-1] Writing [{username=[cbe], password=[cbe1], grant_type=[password]}] as "application/x-www-form-urlencoded"
-2024-03-07 14:28:57,495 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-1] Response 200 OK
-2024-03-07 14:28:57,498 DEBUG o.s.w.c.HttpMessageConverterExtractor [http-nio-9181-exec-1] Reading to [java.lang.String] as "text/html;charset=utf-8"
-2024-03-07 14:28:57,513 ERROR o.i.x.s.x.s.XMLDigestVerifierImpl [http-nio-9181-exec-1] null
-2024-03-07 14:28:57,538 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-1] Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
-2024-03-07 14:28:57,539 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-1] Writing ["false"]
-2024-03-07 14:28:57,555 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Completed 200 OK
-2024-03-07 14:29:30,052 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-3] POST "/api/verify", parameters={}
-2024-03-07 14:29:30,053 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [http-nio-9181-exec-3] Mapped to org.ips.xml.signer.xmlsigner.controller.DigestController#verifyXml(String)
-2024-03-07 14:29:30,060 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-3] Read "application/xml;charset=UTF-8" to ["<?xml version="1.0" encoding="UTF-8"?><FPEnvelope xmlns="urn:iso:std:iso:20022:tech:xsd:verification (truncated)..."]
-2024-03-07 14:29:44,636 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-3] HTTP POST http://192.168.20.49:9001/v1/token
-2024-03-07 14:29:44,641 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-3] Accept=[text/plain, application/json, application/*+json, */*]
-2024-03-07 14:29:44,644 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-3] Writing [{username=[cbe], password=[cbe1], grant_type=[password]}] as "application/x-www-form-urlencoded"
-2024-03-07 14:29:44,678 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-3] Response 200 OK
-2024-03-07 14:29:44,679 DEBUG o.s.w.c.HttpMessageConverterExtractor [http-nio-9181-exec-3] Reading to [java.lang.String] as "text/html;charset=utf-8"
-2024-03-07 14:32:44,308 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter [main] ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-03-07 14:32:44,408 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] 5 mappings in 'requestMappingHandlerMapping'
-2024-03-07 14:32:44,446 DEBUG o.s.w.s.h.SimpleUrlHandlerMapping [main] Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-03-07 14:32:44,462 DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver [main] ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-03-07 14:32:55,794 INFO o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Initializing Servlet 'dispatcherServlet'
-2024-03-07 14:32:55,796 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Detected StandardServletMultipartResolver
-2024-03-07 14:32:55,798 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Detected AcceptHeaderLocaleResolver
-2024-03-07 14:32:55,798 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Detected FixedThemeResolver
-2024-03-07 14:32:55,800 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@6520383a
-2024-03-07 14:32:55,801 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Detected org.springframework.web.servlet.support.SessionFlashMapManager@2dcaf6e0
-2024-03-07 14:32:55,802 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
-2024-03-07 14:32:55,802 INFO o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Completed initialization in 8 ms
-2024-03-07 14:32:55,852 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] POST "/api/verify", parameters={}
-2024-03-07 14:32:55,864 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [http-nio-9181-exec-2] Mapped to org.ips.xml.signer.xmlsigner.controller.DigestController#verifyXml(String)
-2024-03-07 14:32:55,940 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-2] Read "application/xml;charset=UTF-8" to ["<?xml version="1.0" encoding="UTF-8"?><FPEnvelope xmlns="urn:iso:std:iso:20022:tech:xsd:verification (truncated)..."]
-2024-03-07 14:33:19,021 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-2] HTTP POST http://192.168.20.49:9001/v1/token
-2024-03-07 14:33:19,120 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-2] Accept=[text/plain, application/json, application/*+json, */*]
-2024-03-07 14:33:19,154 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-2] Writing [{username=[cbe], password=[cbe1], grant_type=[password]}] as "application/x-www-form-urlencoded"
-2024-03-07 14:33:19,243 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-2] Response 200 OK
-2024-03-07 14:33:19,250 DEBUG o.s.w.c.HttpMessageConverterExtractor [http-nio-9181-exec-2] Reading to [java.lang.String] as "text/html;charset=utf-8"
-2024-03-07 14:38:54,929 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter [main] ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-03-07 14:38:55,013 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] 5 mappings in 'requestMappingHandlerMapping'
-2024-03-07 14:38:55,050 DEBUG o.s.w.s.h.SimpleUrlHandlerMapping [main] Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-03-07 14:38:55,069 DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver [main] ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-03-07 14:44:06,413 INFO o.s.w.s.DispatcherServlet [http-nio-9181-exec-4] Initializing Servlet 'dispatcherServlet'
-2024-03-07 14:44:06,426 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-4] Detected StandardServletMultipartResolver
-2024-03-07 14:44:06,432 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-4] Detected AcceptHeaderLocaleResolver
-2024-03-07 14:44:06,433 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-4] Detected FixedThemeResolver
-2024-03-07 14:44:06,484 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-4] Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@51731aa1
-2024-03-07 14:44:06,484 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-4] Detected org.springframework.web.servlet.support.SessionFlashMapManager@ee04633
-2024-03-07 14:44:06,485 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-4] enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
-2024-03-07 14:44:06,486 INFO o.s.w.s.DispatcherServlet [http-nio-9181-exec-4] Completed initialization in 66 ms
-2024-03-07 14:44:06,548 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-4] POST "/api/verify", parameters={}
-2024-03-07 14:44:06,576 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [http-nio-9181-exec-4] Mapped to org.ips.xml.signer.xmlsigner.controller.DigestController#verifyXml(String)
-2024-03-07 14:44:06,680 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-4] Read "application/xml;charset=UTF-8" to ["<?xml version="1.0" encoding="UTF-8"?><FPEnvelope xmlns="urn:iso:std:iso:20022:tech:xsd:verification (truncated)..."]
-2024-03-07 14:44:39,796 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-4] HTTP POST http://192.168.20.49:9001/v1/token
-2024-03-07 14:44:39,853 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-4] Accept=[text/plain, application/json, application/*+json, */*]
-2024-03-07 14:44:39,871 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-4] Writing [{username=[cbe], password=[cbe1], grant_type=[password]}] as "application/x-www-form-urlencoded"
-2024-03-07 14:44:39,938 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-4] Response 200 OK
-2024-03-07 14:44:39,941 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-4] Reading to [java.lang.String] as "text/html;charset=utf-8"
-2024-03-07 14:50:17,007 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter [main] ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-03-07 14:50:17,085 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] 5 mappings in 'requestMappingHandlerMapping'
-2024-03-07 14:50:17,120 DEBUG o.s.w.s.h.SimpleUrlHandlerMapping [main] Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-03-07 14:50:17,133 DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver [main] ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-03-07 14:50:18,836 INFO o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Initializing Servlet 'dispatcherServlet'
-2024-03-07 14:50:18,838 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Detected StandardServletMultipartResolver
-2024-03-07 14:50:18,838 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Detected AcceptHeaderLocaleResolver
-2024-03-07 14:50:18,838 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Detected FixedThemeResolver
-2024-03-07 14:50:18,840 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@3ce7114f
-2024-03-07 14:50:18,840 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Detected org.springframework.web.servlet.support.SessionFlashMapManager@168c66ac
-2024-03-07 14:50:18,840 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
-2024-03-07 14:50:18,840 INFO o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Completed initialization in 2 ms
-2024-03-07 14:50:18,861 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] POST "/api/verify", parameters={}
-2024-03-07 14:50:18,868 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [http-nio-9181-exec-1] Mapped to org.ips.xml.signer.xmlsigner.controller.DigestController#verifyXml(String)
-2024-03-07 14:50:18,909 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-1] Read "application/xml;charset=UTF-8" to ["<?xml version="1.0" encoding="UTF-8"?><FPEnvelope xmlns="urn:iso:std:iso:20022:tech:xsd:verification (truncated)..."]
-2024-03-07 14:50:18,994 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-1] HTTP POST http://192.168.20.45:9001/v1/token
-2024-03-07 14:50:19,067 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-1] Accept=[application/json, application/*+json]
-2024-03-07 14:50:19,069 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-1] Writing [{username=[cbe], password=[cbe1], grant_type=[password]}] as "application/x-www-form-urlencoded"
-2024-03-07 14:50:29,095 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-1] Response 500 INTERNAL_SERVER_ERROR
-2024-03-07 14:50:29,100 ERROR o.i.x.s.x.s.XMLDigestVerifierImpl [http-nio-9181-exec-1] 500 Server Error: [no body]
-2024-03-07 14:50:29,116 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-1] Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
-2024-03-07 14:50:29,117 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-1] Writing ["false"]
-2024-03-07 14:50:29,127 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Completed 200 OK
-2024-03-07 14:51:34,724 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-5] POST "/api/verify", parameters={}
-2024-03-07 14:51:34,754 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [http-nio-9181-exec-5] Mapped to org.ips.xml.signer.xmlsigner.controller.DigestController#verifyXml(String)
-2024-03-07 14:51:34,787 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-5] Read "application/xml;charset=UTF-8" to ["<?xml version="1.0" encoding="UTF-8"?><FPEnvelope xmlns="urn:iso:std:iso:20022:tech:xsd:verification (truncated)..."]
-2024-03-07 14:51:35,195 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-5] HTTP POST http://192.168.20.45:9001/v1/token
-2024-03-07 14:51:35,310 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-5] Accept=[application/json, application/*+json]
-2024-03-07 14:51:35,313 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-5] Writing [{username=[cbe], password=[cbe1], grant_type=[password]}] as "application/x-www-form-urlencoded"
-2024-03-07 14:51:38,865 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-5] Response 200 OK
-2024-03-07 14:51:38,874 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-5] Reading to [org.ips.xml.signer.xmlsigner.models.TokenInfo]
-2024-03-07 14:51:39,062 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-5] HTTP GET http://192.168.20.45:9001/v1/cert?cert_iss=CN%3DTEST%20ETS%20IPS%20Issuing%20CA,O%3DEthSwitch,C%3DET&cert_sn=423714158916038225117618563593098199125983259
-2024-03-07 14:51:39,065 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-5] Accept=[application/json, application/*+json]
-2024-03-07 14:51:39,067 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-5] Writing [{}] as "application/x-www-form-urlencoded"
-2024-03-07 14:51:42,003 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-5] Response 401 UNAUTHORIZED
-2024-03-07 14:51:42,201 ERROR o.i.x.s.x.s.XMLDigestVerifierImpl [http-nio-9181-exec-5] 401 Unauthorized: "{"error":"invalid_token","error_description":"Token verification failed"}"
-2024-03-07 14:51:42,204 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-5] Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
-2024-03-07 14:51:42,204 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-5] Writing ["false"]
-2024-03-07 14:51:42,228 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-5] Completed 200 OK
-2024-03-07 15:09:18,945 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter [main] ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-03-07 15:09:19,450 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] 5 mappings in 'requestMappingHandlerMapping'
-2024-03-07 15:09:19,474 DEBUG o.s.w.s.h.SimpleUrlHandlerMapping [main] Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-03-07 15:09:19,487 DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver [main] ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-03-07 15:15:03,521 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter [main] ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-03-07 15:15:03,596 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] 5 mappings in 'requestMappingHandlerMapping'
-2024-03-07 15:15:03,623 DEBUG o.s.w.s.h.SimpleUrlHandlerMapping [main] Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-03-07 15:15:03,635 DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver [main] ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-03-07 15:58:17,422 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter [main] ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-03-07 15:58:17,489 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] 5 mappings in 'requestMappingHandlerMapping'
-2024-03-07 15:58:17,518 DEBUG o.s.w.s.h.SimpleUrlHandlerMapping [main] Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-03-07 15:58:17,533 DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver [main] ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-03-07 16:02:58,527 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter [main] ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-03-07 16:02:58,663 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] 5 mappings in 'requestMappingHandlerMapping'
-2024-03-07 16:02:58,719 DEBUG o.s.w.s.h.SimpleUrlHandlerMapping [main] Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-03-07 16:02:58,744 DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver [main] ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-03-07 16:14:13,753 DEBUG o.s.w.c.ContextLoader [main] Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
-2024-03-07 16:14:13,761 INFO o.s.w.c.ContextLoader [main] Root WebApplicationContext: initialization completed in 7721 ms
-2024-03-07 16:14:14,508 DEBUG o.s.w.s.h.SimpleUrlHandlerMapping [main] Patterns [/**/favicon.ico] in 'faviconHandlerMapping'
-2024-03-07 16:14:15,024 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter [main] ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-03-07 16:14:15,260 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] 5 mappings in 'requestMappingHandlerMapping'
-2024-03-07 16:14:15,304 DEBUG o.s.w.s.h.SimpleUrlHandlerMapping [main] Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-03-07 16:14:15,329 DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver [main] ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-03-07 16:19:14,088 INFO o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Initializing Servlet 'dispatcherServlet'
-2024-03-07 16:19:14,103 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Detected StandardServletMultipartResolver
-2024-03-07 16:19:14,220 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
-2024-03-07 16:19:14,221 INFO o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Completed initialization in 125 ms
-2024-03-07 16:19:14,277 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] POST "/api/digest", parameters={}
-2024-03-07 16:19:14,320 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [http-nio-9181-exec-2] Mapped to public java.lang.String org.ips.xml.signer.xmlsigner.controller.DigestController.handleXmlRequest(java.lang.String)
-2024-03-07 16:19:14,407 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-2] Read "application/xml;charset=UTF-8" to ["<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<FPEnvelope xmlns:header="urn:iso:std:iso: (truncated)...]
-2024-03-07 16:19:15,928 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-2] Using 'application/xml', given [*/*] and supported [application/xml]
-2024-03-07 16:19:15,929 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-2] Writing ["<?xml version="1.0" encoding="UTF-8"?><FPEnvelope xmlns="urn:iso:std:iso:20022:tech:xsd:verificatio (truncated)...]
-2024-03-07 16:19:15,952 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Completed 200 OK
-2024-03-07 16:19:21,979 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-3] POST "/api/digest", parameters={}
-2024-03-07 16:19:21,982 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [http-nio-9181-exec-3] Mapped to public java.lang.String org.ips.xml.signer.xmlsigner.controller.DigestController.handleXmlRequest(java.lang.String)
-2024-03-07 16:19:21,989 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-3] Read "application/xml;charset=UTF-8" to ["<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<FPEnvelope xmlns:header="urn:iso:std:iso: (truncated)...]
-2024-03-07 16:19:22,049 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-3] Using 'application/xml', given [*/*] and supported [application/xml]
-2024-03-07 16:19:22,050 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-3] Writing ["<?xml version="1.0" encoding="UTF-8"?><FPEnvelope xmlns="urn:iso:std:iso:20022:tech:xsd:verificatio (truncated)...]
-2024-03-07 16:19:22,055 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-3] Completed 200 OK
-2024-03-07 16:19:32,471 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-4] POST "/api/verify", parameters={}
-2024-03-07 16:19:32,475 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [http-nio-9181-exec-4] Mapped to public java.lang.String org.ips.xml.signer.xmlsigner.controller.DigestController.verifyXml(java.lang.String)
-2024-03-07 16:19:32,477 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-4] Read "application/xml;charset=UTF-8" to ["<?xml version="1.0" encoding="UTF-8"?><FPEnvelope xmlns="urn:iso:std:iso:20022:tech:xsd:verificatio (truncated)...]
-2024-03-07 16:19:32,626 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-4] HTTP POST http://192.168.20.45:9001/v1/token
-2024-03-07 16:19:32,840 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-4] Accept=[application/json, application/*+json]
-2024-03-07 16:19:32,852 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-4] Writing [{username=[cbe], password=[cbe1], grant_type=[password]}] as "application/x-www-form-urlencoded"
-2024-03-07 16:19:34,950 ERROR o.i.x.s.x.s.XMLDigestVerifierImpl [http-nio-9181-exec-4] I/O error on POST request for "http://192.168.20.45:9001/v1/token": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
-2024-03-07 16:19:34,979 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-4] Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
-2024-03-07 16:19:34,980 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-4] Writing ["false"]
-2024-03-07 16:19:34,981 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-4] Completed 200 OK
-2024-03-07 16:19:38,451 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-5] POST "/api/verify", parameters={}
-2024-03-07 16:19:38,453 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [http-nio-9181-exec-5] Mapped to public java.lang.String org.ips.xml.signer.xmlsigner.controller.DigestController.verifyXml(java.lang.String)
-2024-03-07 16:19:38,455 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-5] Read "application/xml;charset=UTF-8" to ["<?xml version="1.0" encoding="UTF-8"?><FPEnvelope xmlns="urn:iso:std:iso:20022:tech:xsd:verificatio (truncated)...]
-2024-03-07 16:19:38,493 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-5] HTTP POST http://192.168.20.45:9001/v1/token
-2024-03-07 16:19:38,499 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-5] Accept=[application/json, application/*+json]
-2024-03-07 16:19:38,500 DEBUG o.s.w.c.RestTemplate [http-nio-9181-exec-5] Writing [{username=[cbe], password=[cbe1], grant_type=[password]}] as "application/x-www-form-urlencoded"
-2024-03-07 16:19:40,565 ERROR o.i.x.s.x.s.XMLDigestVerifierImpl [http-nio-9181-exec-5] I/O error on POST request for "http://192.168.20.45:9001/v1/token": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
-2024-03-07 16:19:40,570 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-5] Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
-2024-03-07 16:19:40,571 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-5] Writing ["false"]
-2024-03-07 16:19:40,573 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-5] Completed 200 OK
-2024-03-07 17:20:48,466 DEBUG o.s.w.c.ContextLoader [main] Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
-2024-03-07 17:20:48,482 INFO o.s.w.c.ContextLoader [main] Root WebApplicationContext: initialization completed in 3877 ms
-2024-03-07 17:20:48,887 DEBUG o.s.w.s.h.SimpleUrlHandlerMapping [main] Patterns [/**/favicon.ico] in 'faviconHandlerMapping'
-2024-03-07 17:20:49,089 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter [main] ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-03-07 17:20:49,180 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] 5 mappings in 'requestMappingHandlerMapping'
-2024-03-07 17:20:49,196 DEBUG o.s.w.s.h.SimpleUrlHandlerMapping [main] Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-03-07 17:20:49,228 DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver [main] ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:133)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:116)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
+	... 50 common frames omitted
+2024-05-11 10:01:09,935 DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor [http-nio-9181-exec-5] Written [org.ips.xml.signer.xmlsigner.exceptions.ErrorResponse@7808fa6d] as "application/json" using [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@56e07a08]
+2024-05-11 10:01:09,935 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-5] Null ModelAndView returned to DispatcherServlet with name 'dispatcherServlet': assuming HandlerAdapter completed request handling
+2024-05-11 10:01:09,936 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-5] Successfully completed request
+2024-05-11 10:03:49,386 DEBUG o.s.w.c.s.StandardServletEnvironment [main] Adding [servletConfigInitParams] PropertySource with lowest search precedence
+2024-05-11 10:03:49,388 DEBUG o.s.w.c.s.StandardServletEnvironment [main] Adding [servletContextInitParams] PropertySource with lowest search precedence
+2024-05-11 10:03:49,388 DEBUG o.s.w.c.s.StandardServletEnvironment [main] Adding [systemProperties] PropertySource with lowest search precedence
+2024-05-11 10:03:49,388 DEBUG o.s.w.c.s.StandardServletEnvironment [main] Adding [systemEnvironment] PropertySource with lowest search precedence
+2024-05-11 10:03:49,388 DEBUG o.s.w.c.s.StandardServletEnvironment [main] Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
+2024-05-11 10:03:54,823 DEBUG o.s.w.c.s.StandardServletEnvironment [main] Adding [applicationConfig: [classpath:/application-prod.properties]] PropertySource with search precedence immediately lower than [applicationConfigurationProperties]
+2024-05-11 10:03:54,824 DEBUG o.s.w.c.s.StandardServletEnvironment [main] Adding [applicationConfig: [classpath:/application.properties]] PropertySource with search precedence immediately lower than [applicationConfig: [classpath:/application-prod.properties]]
+2024-05-11 10:03:54,824 DEBUG o.s.w.c.s.StandardServletEnvironment [main] Removing [applicationConfigurationProperties] PropertySource
+2024-05-11 10:03:54,824 DEBUG o.s.w.c.s.StandardServletEnvironment [main] Removing [defaultProperties] PropertySource
+2024-05-11 10:03:55,899 DEBUG o.s.w.c.ContextLoader [localhost-startStop-1] Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
+2024-05-11 10:03:55,899 INFO o.s.w.c.ContextLoader [localhost-startStop-1] Root WebApplicationContext: initialization completed in 5511 ms
+2024-05-11 10:03:56,052 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [servletConfigInitParams] PropertySource with lowest search precedence
+2024-05-11 10:03:56,052 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [servletContextInitParams] PropertySource with lowest search precedence
+2024-05-11 10:03:56,053 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [systemProperties] PropertySource with lowest search precedence
+2024-05-11 10:03:56,053 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [systemEnvironment] PropertySource with lowest search precedence
+2024-05-11 10:03:56,053 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
+2024-05-11 10:03:56,058 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [servletConfigInitParams] PropertySource with lowest search precedence
+2024-05-11 10:03:56,058 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [servletContextInitParams] PropertySource with lowest search precedence
+2024-05-11 10:03:56,059 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [systemProperties] PropertySource with lowest search precedence
+2024-05-11 10:03:56,059 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [systemEnvironment] PropertySource with lowest search precedence
+2024-05-11 10:03:56,059 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
+2024-05-11 10:03:56,077 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [servletConfigInitParams] PropertySource with lowest search precedence
+2024-05-11 10:03:56,077 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [servletContextInitParams] PropertySource with lowest search precedence
+2024-05-11 10:03:56,077 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [systemProperties] PropertySource with lowest search precedence
+2024-05-11 10:03:56,078 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [systemEnvironment] PropertySource with lowest search precedence
+2024-05-11 10:03:56,078 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
+2024-05-11 10:03:56,096 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [servletConfigInitParams] PropertySource with lowest search precedence
+2024-05-11 10:03:56,096 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [servletContextInitParams] PropertySource with lowest search precedence
+2024-05-11 10:03:56,096 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [systemProperties] PropertySource with lowest search precedence
+2024-05-11 10:03:56,096 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [systemEnvironment] PropertySource with lowest search precedence
+2024-05-11 10:03:56,096 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
+2024-05-11 10:03:56,107 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [servletConfigInitParams] PropertySource with lowest search precedence
+2024-05-11 10:03:56,107 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [servletContextInitParams] PropertySource with lowest search precedence
+2024-05-11 10:03:56,107 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [systemProperties] PropertySource with lowest search precedence
+2024-05-11 10:03:56,107 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [systemEnvironment] PropertySource with lowest search precedence
+2024-05-11 10:03:56,107 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
+2024-05-11 10:03:56,214 DEBUG o.s.w.c.s.StandardServletEnvironment [main] Replacing [servletContextInitParams] PropertySource with [servletContextInitParams]
+2024-05-11 10:03:56,685 INFO o.s.w.s.m.m.a.RequestMappingHandlerAdapter [main] Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2fb0623e: startup date [Sat May 11 10:03:50 EAT 2024]; root of context hierarchy
+2024-05-11 10:03:56,764 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] Looking for request mappings in application context: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2fb0623e: startup date [Sat May 11 10:03:50 EAT 2024]; root of context hierarchy
+2024-05-11 10:03:56,777 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] 3 request handler methods found on class org.ips.xml.signer.xmlsigner.controller.DigestController: {public java.lang.String org.ips.xml.signer.xmlsigner.controller.DigestController.handleXmlRequest(java.lang.String)={[/api/digest],methods=[POST],consumes=[application/xml],produces=[application/xml]}, public java.lang.String org.ips.xml.signer.xmlsigner.controller.DigestController.getJwt(java.lang.String)={[/api/jwt],methods=[POST]}, public java.lang.String org.ips.xml.signer.xmlsigner.controller.DigestController.verifyXml(java.lang.String)={[/api/verify],methods=[POST],consumes=[application/xml]}}
+2024-05-11 10:03:56,778 INFO o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] Mapped "{[/api/digest],methods=[POST],consumes=[application/xml],produces=[application/xml]}" onto public java.lang.String org.ips.xml.signer.xmlsigner.controller.DigestController.handleXmlRequest(java.lang.String)
+2024-05-11 10:03:56,779 INFO o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] Mapped "{[/api/jwt],methods=[POST]}" onto public java.lang.String org.ips.xml.signer.xmlsigner.controller.DigestController.getJwt(java.lang.String)
+2024-05-11 10:03:56,779 INFO o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] Mapped "{[/api/verify],methods=[POST],consumes=[application/xml]}" onto public java.lang.String org.ips.xml.signer.xmlsigner.controller.DigestController.verifyXml(java.lang.String)
+2024-05-11 10:03:56,780 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] 2 request handler methods found on class org.springframework.boot.autoconfigure.web.BasicErrorController: {public org.springframework.http.ResponseEntity org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)={[/error]}, public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)={[/error],produces=[text/html]}}
+2024-05-11 10:03:56,780 INFO o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2024-05-11 10:03:56,780 INFO o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2024-05-11 10:03:56,795 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Looking for URL mappings in application context: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2fb0623e: startup date [Sat May 11 10:03:50 EAT 2024]; root of context hierarchy
+2024-05-11 10:03:56,795 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor': no URL paths identified
+2024-05-11 10:03:56,795 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor': no URL paths identified
+2024-05-11 10:03:56,795 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.context.annotation.internalRequiredAnnotationProcessor': no URL paths identified
+2024-05-11 10:03:56,795 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.context.annotation.internalCommonAnnotationProcessor': no URL paths identified
+2024-05-11 10:03:56,795 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.context.event.internalEventListenerProcessor': no URL paths identified
+2024-05-11 10:03:56,795 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.context.event.internalEventListenerFactory': no URL paths identified
+2024-05-11 10:03:56,795 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'xmlSignerApplication': no URL paths identified
+2024-05-11 10:03:56,795 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.internalCachingMetadataReaderFactory': no URL paths identified
+2024-05-11 10:03:56,795 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'digestController': no URL paths identified
+2024-05-11 10:03:56,795 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'certeficateAndKeysUtility': no URL paths identified
+2024-05-11 10:03:56,795 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'globalExceptionHandler': no URL paths identified
+2024-05-11 10:03:56,795 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'restResponse': no URL paths identified
+2024-05-11 10:03:56,795 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'certeficatClientService': no URL paths identified
+2024-05-11 10:03:56,795 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'digestServiceImpl': no URL paths identified
+2024-05-11 10:03:56,795 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'XMLDigestVerifierImpl': no URL paths identified
+2024-05-11 10:03:56,795 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'jwtSigningUtils': no URL paths identified
+2024-05-11 10:03:56,795 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'XMLFileUtility': no URL paths identified
+2024-05-11 10:03:56,796 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'xmlSignUtil': no URL paths identified
+2024-05-11 10:03:56,796 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.web.support.SpringBootServletInitializer$ErrorPageFilterConfiguration': no URL paths identified
+2024-05-11 10:03:56,796 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'errorPageFilter': no URL paths identified
+2024-05-11 10:03:56,796 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.AutoConfigurationPackages': no URL paths identified
+2024-05-11 10:03:56,796 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.context.PropertyPlaceholderAutoConfiguration': no URL paths identified
+2024-05-11 10:03:56,796 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.condition.BeanTypeRegistry': no URL paths identified
+2024-05-11 10:03:56,796 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'propertySourcesPlaceholderConfigurer': no URL paths identified
+2024-05-11 10:03:56,796 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$Jackson2ObjectMapperBuilderCustomizerConfiguration': no URL paths identified
+2024-05-11 10:03:56,796 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'standardJacksonObjectMapperBuilderCustomizer': no URL paths identified
+2024-05-11 10:03:56,796 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'spring.jackson-org.springframework.boot.autoconfigure.jackson.JacksonProperties': no URL paths identified
+2024-05-11 10:03:56,796 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor': no URL paths identified
+2024-05-11 10:03:56,796 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor.store': no URL paths identified
+2024-05-11 10:03:56,796 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$JacksonObjectMapperBuilderConfiguration': no URL paths identified
+2024-05-11 10:03:56,796 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'jacksonObjectMapperBuilder': no URL paths identified
+2024-05-11 10:03:56,796 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$JacksonObjectMapperConfiguration': no URL paths identified
+2024-05-11 10:03:56,796 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'jacksonObjectMapper': no URL paths identified
+2024-05-11 10:03:56,796 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration': no URL paths identified
+2024-05-11 10:03:56,796 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'jsonComponentModule': no URL paths identified
+2024-05-11 10:03:56,796 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.websocket.WebSocketAutoConfiguration$TomcatWebSocketConfiguration': no URL paths identified
+2024-05-11 10:03:56,796 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'websocketContainerCustomizer': no URL paths identified
+2024-05-11 10:03:56,796 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.websocket.WebSocketAutoConfiguration': no URL paths identified
+2024-05-11 10:03:56,796 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.EmbeddedServletContainerAutoConfiguration$EmbeddedTomcat': no URL paths identified
+2024-05-11 10:03:56,796 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'tomcatEmbeddedServletContainerFactory': no URL paths identified
+2024-05-11 10:03:56,796 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.EmbeddedServletContainerAutoConfiguration': no URL paths identified
+2024-05-11 10:03:56,796 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'embeddedServletContainerCustomizerBeanPostProcessor': no URL paths identified
+2024-05-11 10:03:56,796 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'errorPageRegistrarBeanPostProcessor': no URL paths identified
+2024-05-11 10:03:56,796 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.DispatcherServletAutoConfiguration$DispatcherServletConfiguration': no URL paths identified
+2024-05-11 10:03:56,796 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'dispatcherServlet': no URL paths identified
+2024-05-11 10:03:56,796 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'spring.mvc-org.springframework.boot.autoconfigure.web.WebMvcProperties': no URL paths identified
+2024-05-11 10:03:56,796 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.DispatcherServletAutoConfiguration$DispatcherServletRegistrationConfiguration': no URL paths identified
+2024-05-11 10:03:56,796 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'dispatcherServletRegistration': no URL paths identified
+2024-05-11 10:03:56,796 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.DispatcherServletAutoConfiguration': no URL paths identified
+2024-05-11 10:03:56,796 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration': no URL paths identified
+2024-05-11 10:03:56,796 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'error': no URL paths identified
+2024-05-11 10:03:56,796 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'beanNameViewResolver': no URL paths identified
+2024-05-11 10:03:56,796 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration$DefaultErrorViewResolverConfiguration': no URL paths identified
+2024-05-11 10:03:56,796 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'conventionErrorViewResolver': no URL paths identified
+2024-05-11 10:03:56,796 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration': no URL paths identified
+2024-05-11 10:03:56,796 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'errorAttributes': no URL paths identified
+2024-05-11 10:03:56,797 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'basicErrorController': no URL paths identified
+2024-05-11 10:03:56,797 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'errorPageCustomizer': no URL paths identified
+2024-05-11 10:03:56,797 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'preserveErrorControllerTargetClassPostProcessor': no URL paths identified
+2024-05-11 10:03:56,797 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'spring.resources-org.springframework.boot.autoconfigure.web.ResourceProperties': no URL paths identified
+2024-05-11 10:03:56,797 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration$EnableWebMvcConfiguration': no URL paths identified
+2024-05-11 10:03:56,797 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'requestMappingHandlerAdapter': no URL paths identified
+2024-05-11 10:03:56,797 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'requestMappingHandlerMapping': no URL paths identified
+2024-05-11 10:03:56,797 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'mvcPathMatcher': no URL paths identified
+2024-05-11 10:03:56,797 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'mvcUrlPathHelper': no URL paths identified
+2024-05-11 10:03:56,797 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'mvcContentNegotiationManager': no URL paths identified
+2024-05-11 10:03:56,797 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'viewControllerHandlerMapping': no URL paths identified
+2024-05-11 10:03:56,797 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'beanNameHandlerMapping': no URL paths identified
+2024-05-11 10:03:56,797 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'resourceHandlerMapping': no URL paths identified
+2024-05-11 10:03:56,797 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'mvcResourceUrlProvider': no URL paths identified
+2024-05-11 10:03:56,797 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'defaultServletHandlerMapping': no URL paths identified
+2024-05-11 10:03:56,797 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'mvcConversionService': no URL paths identified
+2024-05-11 10:03:56,797 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'mvcValidator': no URL paths identified
+2024-05-11 10:03:56,797 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'mvcUriComponentsContributor': no URL paths identified
+2024-05-11 10:03:56,797 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'httpRequestHandlerAdapter': no URL paths identified
+2024-05-11 10:03:56,797 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'simpleControllerHandlerAdapter': no URL paths identified
+2024-05-11 10:03:56,797 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'handlerExceptionResolver': no URL paths identified
+2024-05-11 10:03:56,797 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'mvcViewResolver': no URL paths identified
+2024-05-11 10:03:56,797 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter$FaviconConfiguration': no URL paths identified
+2024-05-11 10:03:56,797 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'faviconHandlerMapping': no URL paths identified
+2024-05-11 10:03:56,797 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'faviconRequestHandler': no URL paths identified
+2024-05-11 10:03:56,797 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'defaultViewResolver': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'viewResolver': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'welcomePageHandlerMapping': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'requestContextFilter': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'hiddenHttpMethodFilter': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'httpPutFormContentFilter': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.jmx.JmxAutoConfiguration': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'mbeanExporter': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'objectNamingStrategy': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'mbeanServer': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.context.ConfigurationPropertiesAutoConfiguration': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'validator': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'methodValidationPostProcessor': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.HttpMessageConvertersAutoConfiguration$StringHttpMessageConverterConfiguration': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'stringHttpMessageConverter': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'spring.http.encoding-org.springframework.boot.autoconfigure.web.HttpEncodingProperties': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.JacksonHttpMessageConvertersConfiguration$MappingJackson2HttpMessageConverterConfiguration': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'mappingJackson2HttpMessageConverter': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.JacksonHttpMessageConvertersConfiguration': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.HttpMessageConvertersAutoConfiguration': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'messageConverters': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.info.ProjectInfoAutoConfiguration': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'spring.info-org.springframework.boot.autoconfigure.info.ProjectInfoProperties': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.HttpEncodingAutoConfiguration': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'characterEncodingFilter': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'localeCharsetMappingsCustomizer': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.MultipartAutoConfiguration': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'multipartConfigElement': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'multipartResolver': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'spring.http.multipart-org.springframework.boot.autoconfigure.web.MultipartProperties': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.ServerPropertiesAutoConfiguration': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'serverProperties': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'duplicateServerPropertiesDetector': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.WebClientAutoConfiguration$RestTemplateConfiguration': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'restTemplateBuilder': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.WebClientAutoConfiguration': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'autoConfigurationReport': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'springApplicationArguments': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'springBootBanner': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'springBootLoggingSystem': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'environment': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'systemProperties': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'systemEnvironment': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importRegistry': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'messageSource': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'applicationEventMulticaster': no URL paths identified
+2024-05-11 10:03:56,798 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'servletContext': no URL paths identified
+2024-05-11 10:03:56,799 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'contextParameters': no URL paths identified
+2024-05-11 10:03:56,799 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'contextAttributes': no URL paths identified
+2024-05-11 10:03:56,806 INFO o.s.w.s.h.SimpleUrlHandlerMapping [main] Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2024-05-11 10:03:56,806 INFO o.s.w.s.h.SimpleUrlHandlerMapping [main] Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2024-05-11 10:03:56,819 DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver [main] Looking for exception mappings: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2fb0623e: startup date [Sat May 11 10:03:50 EAT 2024]; root of context hierarchy
+2024-05-11 10:03:56,822 INFO o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver [main] Detected @ExceptionHandler methods in globalExceptionHandler
+2024-05-11 10:03:56,865 INFO o.s.w.s.h.SimpleUrlHandlerMapping [main] Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2024-05-11 10:03:57,111 DEBUG o.s.w.s.r.ResourceUrlProvider [main] Looking for resource handler mappings
+2024-05-11 10:03:57,113 DEBUG o.s.w.s.r.ResourceUrlProvider [main] Found resource handler mapping: URL pattern="/**/favicon.ico", locations=[ServletContext resource [/], class path resource [META-INF/resources/], class path resource [resources/], class path resource [static/], class path resource [public/], class path resource []], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@77eb5790]
+2024-05-11 10:03:57,113 DEBUG o.s.w.s.r.ResourceUrlProvider [main] Found resource handler mapping: URL pattern="/webjars/**", locations=[class path resource [META-INF/resources/webjars/]], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@68e7c8c3]
+2024-05-11 10:03:57,113 DEBUG o.s.w.s.r.ResourceUrlProvider [main] Found resource handler mapping: URL pattern="/**", locations=[ServletContext resource [/], class path resource [META-INF/resources/], class path resource [resources/], class path resource [static/], class path resource [public/]], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@319c3a25]
+2024-05-11 10:03:57,273 DEBUG o.s.w.c.s.StandardServletEnvironment [main] Adding [server.ports] PropertySource with highest search precedence
+2024-05-11 10:04:43,687 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Initializing servlet 'dispatcherServlet'
+2024-05-11 10:04:43,688 INFO o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] FrameworkServlet 'dispatcherServlet': initialization started
+2024-05-11 10:04:43,688 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Using MultipartResolver [org.springframework.web.multipart.support.StandardServletMultipartResolver@756d3d6f]
+2024-05-11 10:04:43,702 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Unable to locate LocaleResolver with name 'localeResolver': using default [org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver@5519dc39]
+2024-05-11 10:04:43,713 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Unable to locate ThemeResolver with name 'themeResolver': using default [org.springframework.web.servlet.theme.FixedThemeResolver@78f6bdfc]
+2024-05-11 10:04:43,720 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Unable to locate RequestToViewNameTranslator with name 'viewNameTranslator': using default [org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@2010d0d4]
+2024-05-11 10:04:43,727 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Unable to locate FlashMapManager with name 'flashMapManager': using default [org.springframework.web.servlet.support.SessionFlashMapManager@17cd5ecc]
+2024-05-11 10:04:43,728 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Published WebApplicationContext of servlet 'dispatcherServlet' as ServletContext attribute with name [org.springframework.web.servlet.FrameworkServlet.CONTEXT.dispatcherServlet]
+2024-05-11 10:04:43,728 INFO o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] FrameworkServlet 'dispatcherServlet': initialization completed in 40 ms
+2024-05-11 10:04:43,728 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Servlet 'dispatcherServlet' configured successfully
+2024-05-11 10:04:43,760 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] DispatcherServlet with name 'dispatcherServlet' processing POST request for [/api/jwt]
+2024-05-11 10:04:43,763 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [http-nio-9181-exec-1] Looking up handler method for path /api/jwt
+2024-05-11 10:04:43,765 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [http-nio-9181-exec-1] Returning handler method [public java.lang.String org.ips.xml.signer.xmlsigner.controller.DigestController.getJwt(java.lang.String)]
+2024-05-11 10:04:43,816 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-1] Read [class java.lang.String] as "application/xml;charset=UTF-8" with [org.springframework.http.converter.StringHttpMessageConverter@65eabaab]
+2024-05-11 10:17:39,976 DEBUG o.s.w.c.s.StandardServletEnvironment [main] Adding [servletConfigInitParams] PropertySource with lowest search precedence
+2024-05-11 10:17:40,009 DEBUG o.s.w.c.s.StandardServletEnvironment [main] Adding [servletContextInitParams] PropertySource with lowest search precedence
+2024-05-11 10:17:40,009 DEBUG o.s.w.c.s.StandardServletEnvironment [main] Adding [systemProperties] PropertySource with lowest search precedence
+2024-05-11 10:17:40,009 DEBUG o.s.w.c.s.StandardServletEnvironment [main] Adding [systemEnvironment] PropertySource with lowest search precedence
+2024-05-11 10:17:40,010 DEBUG o.s.w.c.s.StandardServletEnvironment [main] Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
+2024-05-11 10:17:45,174 DEBUG o.s.w.c.s.StandardServletEnvironment [main] Adding [applicationConfig: [classpath:/application-prod.properties]] PropertySource with search precedence immediately lower than [applicationConfigurationProperties]
+2024-05-11 10:17:45,175 DEBUG o.s.w.c.s.StandardServletEnvironment [main] Adding [applicationConfig: [classpath:/application.properties]] PropertySource with search precedence immediately lower than [applicationConfig: [classpath:/application-prod.properties]]
+2024-05-11 10:17:45,175 DEBUG o.s.w.c.s.StandardServletEnvironment [main] Removing [applicationConfigurationProperties] PropertySource
+2024-05-11 10:17:45,175 DEBUG o.s.w.c.s.StandardServletEnvironment [main] Removing [defaultProperties] PropertySource
+2024-05-11 10:17:48,772 DEBUG o.s.w.c.ContextLoader [localhost-startStop-1] Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
+2024-05-11 10:17:48,773 INFO o.s.w.c.ContextLoader [localhost-startStop-1] Root WebApplicationContext: initialization completed in 8431 ms
+2024-05-11 10:17:48,863 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [servletConfigInitParams] PropertySource with lowest search precedence
+2024-05-11 10:17:48,863 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [servletContextInitParams] PropertySource with lowest search precedence
+2024-05-11 10:17:48,864 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [systemProperties] PropertySource with lowest search precedence
+2024-05-11 10:17:48,864 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [systemEnvironment] PropertySource with lowest search precedence
+2024-05-11 10:17:48,864 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
+2024-05-11 10:17:48,868 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [servletConfigInitParams] PropertySource with lowest search precedence
+2024-05-11 10:17:48,869 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [servletContextInitParams] PropertySource with lowest search precedence
+2024-05-11 10:17:48,869 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [systemProperties] PropertySource with lowest search precedence
+2024-05-11 10:17:48,869 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [systemEnvironment] PropertySource with lowest search precedence
+2024-05-11 10:17:48,869 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
+2024-05-11 10:17:48,886 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [servletConfigInitParams] PropertySource with lowest search precedence
+2024-05-11 10:17:48,886 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [servletContextInitParams] PropertySource with lowest search precedence
+2024-05-11 10:17:48,886 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [systemProperties] PropertySource with lowest search precedence
+2024-05-11 10:17:48,886 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [systemEnvironment] PropertySource with lowest search precedence
+2024-05-11 10:17:48,886 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
+2024-05-11 10:17:48,893 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [servletConfigInitParams] PropertySource with lowest search precedence
+2024-05-11 10:17:48,893 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [servletContextInitParams] PropertySource with lowest search precedence
+2024-05-11 10:17:48,893 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [systemProperties] PropertySource with lowest search precedence
+2024-05-11 10:17:48,893 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [systemEnvironment] PropertySource with lowest search precedence
+2024-05-11 10:17:48,893 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
+2024-05-11 10:17:48,904 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [servletConfigInitParams] PropertySource with lowest search precedence
+2024-05-11 10:17:48,904 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [servletContextInitParams] PropertySource with lowest search precedence
+2024-05-11 10:17:48,904 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [systemProperties] PropertySource with lowest search precedence
+2024-05-11 10:17:48,904 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [systemEnvironment] PropertySource with lowest search precedence
+2024-05-11 10:17:48,904 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
+2024-05-11 10:17:49,061 DEBUG o.s.w.c.s.StandardServletEnvironment [main] Replacing [servletContextInitParams] PropertySource with [servletContextInitParams]
+2024-05-11 10:17:49,690 INFO o.s.w.s.m.m.a.RequestMappingHandlerAdapter [main] Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@657c8ad9: startup date [Sat May 11 10:17:40 EAT 2024]; root of context hierarchy
+2024-05-11 10:17:49,753 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] Looking for request mappings in application context: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@657c8ad9: startup date [Sat May 11 10:17:40 EAT 2024]; root of context hierarchy
+2024-05-11 10:17:49,761 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] 3 request handler methods found on class org.ips.xml.signer.xmlsigner.controller.DigestController: {public java.lang.String org.ips.xml.signer.xmlsigner.controller.DigestController.verifyXml(java.lang.String)={[/api/verify],methods=[POST],consumes=[application/xml]}, public java.lang.String org.ips.xml.signer.xmlsigner.controller.DigestController.getJwt(java.lang.String)={[/api/jwt],methods=[POST]}, public java.lang.String org.ips.xml.signer.xmlsigner.controller.DigestController.handleXmlRequest(java.lang.String)={[/api/digest],methods=[POST],consumes=[application/xml],produces=[application/xml]}}
+2024-05-11 10:17:49,761 INFO o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] Mapped "{[/api/verify],methods=[POST],consumes=[application/xml]}" onto public java.lang.String org.ips.xml.signer.xmlsigner.controller.DigestController.verifyXml(java.lang.String)
+2024-05-11 10:17:49,762 INFO o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] Mapped "{[/api/jwt],methods=[POST]}" onto public java.lang.String org.ips.xml.signer.xmlsigner.controller.DigestController.getJwt(java.lang.String)
+2024-05-11 10:17:49,762 INFO o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] Mapped "{[/api/digest],methods=[POST],consumes=[application/xml],produces=[application/xml]}" onto public java.lang.String org.ips.xml.signer.xmlsigner.controller.DigestController.handleXmlRequest(java.lang.String)
+2024-05-11 10:17:49,763 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] 2 request handler methods found on class org.springframework.boot.autoconfigure.web.BasicErrorController: {public org.springframework.http.ResponseEntity org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)={[/error]}, public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)={[/error],produces=[text/html]}}
+2024-05-11 10:17:49,763 INFO o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2024-05-11 10:17:49,763 INFO o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2024-05-11 10:17:49,772 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Looking for URL mappings in application context: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@657c8ad9: startup date [Sat May 11 10:17:40 EAT 2024]; root of context hierarchy
+2024-05-11 10:17:49,772 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor': no URL paths identified
+2024-05-11 10:17:49,773 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor': no URL paths identified
+2024-05-11 10:17:49,773 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.context.annotation.internalRequiredAnnotationProcessor': no URL paths identified
+2024-05-11 10:17:49,773 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.context.annotation.internalCommonAnnotationProcessor': no URL paths identified
+2024-05-11 10:17:49,773 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.context.event.internalEventListenerProcessor': no URL paths identified
+2024-05-11 10:17:49,773 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.context.event.internalEventListenerFactory': no URL paths identified
+2024-05-11 10:17:49,773 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'xmlSignerApplication': no URL paths identified
+2024-05-11 10:17:49,773 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.internalCachingMetadataReaderFactory': no URL paths identified
+2024-05-11 10:17:49,773 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'digestController': no URL paths identified
+2024-05-11 10:17:49,773 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'certeficateAndKeysUtility': no URL paths identified
+2024-05-11 10:17:49,773 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'globalExceptionHandler': no URL paths identified
+2024-05-11 10:17:49,773 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'restResponse': no URL paths identified
+2024-05-11 10:17:49,773 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'certeficatClientService': no URL paths identified
+2024-05-11 10:17:49,773 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'digestServiceImpl': no URL paths identified
+2024-05-11 10:17:49,773 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'XMLDigestVerifierImpl': no URL paths identified
+2024-05-11 10:17:49,773 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'jwtSigningUtils': no URL paths identified
+2024-05-11 10:17:49,773 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'XMLFileUtility': no URL paths identified
+2024-05-11 10:17:49,773 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'xmlSignUtil': no URL paths identified
+2024-05-11 10:17:49,773 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.web.support.SpringBootServletInitializer$ErrorPageFilterConfiguration': no URL paths identified
+2024-05-11 10:17:49,773 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'errorPageFilter': no URL paths identified
+2024-05-11 10:17:49,773 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.AutoConfigurationPackages': no URL paths identified
+2024-05-11 10:17:49,773 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.context.PropertyPlaceholderAutoConfiguration': no URL paths identified
+2024-05-11 10:17:49,773 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.condition.BeanTypeRegistry': no URL paths identified
+2024-05-11 10:17:49,773 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'propertySourcesPlaceholderConfigurer': no URL paths identified
+2024-05-11 10:17:49,773 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$Jackson2ObjectMapperBuilderCustomizerConfiguration': no URL paths identified
+2024-05-11 10:17:49,773 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'standardJacksonObjectMapperBuilderCustomizer': no URL paths identified
+2024-05-11 10:17:49,773 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'spring.jackson-org.springframework.boot.autoconfigure.jackson.JacksonProperties': no URL paths identified
+2024-05-11 10:17:49,773 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor': no URL paths identified
+2024-05-11 10:17:49,773 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor.store': no URL paths identified
+2024-05-11 10:17:49,773 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$JacksonObjectMapperBuilderConfiguration': no URL paths identified
+2024-05-11 10:17:49,773 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'jacksonObjectMapperBuilder': no URL paths identified
+2024-05-11 10:17:49,773 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$JacksonObjectMapperConfiguration': no URL paths identified
+2024-05-11 10:17:49,773 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'jacksonObjectMapper': no URL paths identified
+2024-05-11 10:17:49,773 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration': no URL paths identified
+2024-05-11 10:17:49,773 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'jsonComponentModule': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.websocket.WebSocketAutoConfiguration$TomcatWebSocketConfiguration': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'websocketContainerCustomizer': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.websocket.WebSocketAutoConfiguration': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.EmbeddedServletContainerAutoConfiguration$EmbeddedTomcat': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'tomcatEmbeddedServletContainerFactory': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.EmbeddedServletContainerAutoConfiguration': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'embeddedServletContainerCustomizerBeanPostProcessor': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'errorPageRegistrarBeanPostProcessor': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.DispatcherServletAutoConfiguration$DispatcherServletConfiguration': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'dispatcherServlet': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'spring.mvc-org.springframework.boot.autoconfigure.web.WebMvcProperties': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.DispatcherServletAutoConfiguration$DispatcherServletRegistrationConfiguration': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'dispatcherServletRegistration': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.DispatcherServletAutoConfiguration': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'error': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'beanNameViewResolver': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration$DefaultErrorViewResolverConfiguration': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'conventionErrorViewResolver': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'errorAttributes': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'basicErrorController': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'errorPageCustomizer': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'preserveErrorControllerTargetClassPostProcessor': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'spring.resources-org.springframework.boot.autoconfigure.web.ResourceProperties': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration$EnableWebMvcConfiguration': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'requestMappingHandlerAdapter': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'requestMappingHandlerMapping': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'mvcPathMatcher': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'mvcUrlPathHelper': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'mvcContentNegotiationManager': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'viewControllerHandlerMapping': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'beanNameHandlerMapping': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'resourceHandlerMapping': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'mvcResourceUrlProvider': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'defaultServletHandlerMapping': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'mvcConversionService': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'mvcValidator': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'mvcUriComponentsContributor': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'httpRequestHandlerAdapter': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'simpleControllerHandlerAdapter': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'handlerExceptionResolver': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'mvcViewResolver': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter$FaviconConfiguration': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'faviconHandlerMapping': no URL paths identified
+2024-05-11 10:17:49,774 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'faviconRequestHandler': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'defaultViewResolver': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'viewResolver': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'welcomePageHandlerMapping': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'requestContextFilter': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'hiddenHttpMethodFilter': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'httpPutFormContentFilter': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.jmx.JmxAutoConfiguration': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'mbeanExporter': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'objectNamingStrategy': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'mbeanServer': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.context.ConfigurationPropertiesAutoConfiguration': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'validator': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'methodValidationPostProcessor': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.HttpMessageConvertersAutoConfiguration$StringHttpMessageConverterConfiguration': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'stringHttpMessageConverter': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'spring.http.encoding-org.springframework.boot.autoconfigure.web.HttpEncodingProperties': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.JacksonHttpMessageConvertersConfiguration$MappingJackson2HttpMessageConverterConfiguration': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'mappingJackson2HttpMessageConverter': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.JacksonHttpMessageConvertersConfiguration': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.HttpMessageConvertersAutoConfiguration': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'messageConverters': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.info.ProjectInfoAutoConfiguration': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'spring.info-org.springframework.boot.autoconfigure.info.ProjectInfoProperties': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.HttpEncodingAutoConfiguration': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'characterEncodingFilter': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'localeCharsetMappingsCustomizer': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.MultipartAutoConfiguration': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'multipartConfigElement': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'multipartResolver': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'spring.http.multipart-org.springframework.boot.autoconfigure.web.MultipartProperties': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.ServerPropertiesAutoConfiguration': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'serverProperties': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'duplicateServerPropertiesDetector': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.WebClientAutoConfiguration$RestTemplateConfiguration': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'restTemplateBuilder': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.WebClientAutoConfiguration': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'autoConfigurationReport': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'springApplicationArguments': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'springBootBanner': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'springBootLoggingSystem': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'environment': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'systemProperties': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'systemEnvironment': no URL paths identified
+2024-05-11 10:17:49,775 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importRegistry': no URL paths identified
+2024-05-11 10:17:49,776 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'messageSource': no URL paths identified
+2024-05-11 10:17:49,776 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'applicationEventMulticaster': no URL paths identified
+2024-05-11 10:17:49,776 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'servletContext': no URL paths identified
+2024-05-11 10:17:49,776 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'contextParameters': no URL paths identified
+2024-05-11 10:17:49,776 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'contextAttributes': no URL paths identified
+2024-05-11 10:17:49,781 INFO o.s.w.s.h.SimpleUrlHandlerMapping [main] Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2024-05-11 10:17:49,781 INFO o.s.w.s.h.SimpleUrlHandlerMapping [main] Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2024-05-11 10:17:49,789 DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver [main] Looking for exception mappings: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@657c8ad9: startup date [Sat May 11 10:17:40 EAT 2024]; root of context hierarchy
+2024-05-11 10:17:49,791 INFO o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver [main] Detected @ExceptionHandler methods in globalExceptionHandler
+2024-05-11 10:17:49,820 INFO o.s.w.s.h.SimpleUrlHandlerMapping [main] Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2024-05-11 10:17:49,987 DEBUG o.s.w.s.r.ResourceUrlProvider [main] Looking for resource handler mappings
+2024-05-11 10:17:49,988 DEBUG o.s.w.s.r.ResourceUrlProvider [main] Found resource handler mapping: URL pattern="/**/favicon.ico", locations=[ServletContext resource [/], class path resource [META-INF/resources/], class path resource [resources/], class path resource [static/], class path resource [public/], class path resource []], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@11ee02f8]
+2024-05-11 10:17:49,988 DEBUG o.s.w.s.r.ResourceUrlProvider [main] Found resource handler mapping: URL pattern="/webjars/**", locations=[class path resource [META-INF/resources/webjars/]], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@4102b1b1]
+2024-05-11 10:17:49,989 DEBUG o.s.w.s.r.ResourceUrlProvider [main] Found resource handler mapping: URL pattern="/**", locations=[ServletContext resource [/], class path resource [META-INF/resources/], class path resource [resources/], class path resource [static/], class path resource [public/]], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@61a5b4ae]
+2024-05-11 10:17:50,161 DEBUG o.s.w.c.s.StandardServletEnvironment [main] Adding [server.ports] PropertySource with highest search precedence
+2024-05-11 10:17:53,919 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Initializing servlet 'dispatcherServlet'
+2024-05-11 10:17:53,920 INFO o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] FrameworkServlet 'dispatcherServlet': initialization started
+2024-05-11 10:17:53,920 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Using MultipartResolver [org.springframework.web.multipart.support.StandardServletMultipartResolver@21183447]
+2024-05-11 10:17:53,923 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Unable to locate LocaleResolver with name 'localeResolver': using default [org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver@1667e6e9]
+2024-05-11 10:17:53,927 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Unable to locate ThemeResolver with name 'themeResolver': using default [org.springframework.web.servlet.theme.FixedThemeResolver@c2a2de6]
+2024-05-11 10:17:53,930 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Unable to locate RequestToViewNameTranslator with name 'viewNameTranslator': using default [org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@1d2f67a5]
+2024-05-11 10:17:53,935 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Unable to locate FlashMapManager with name 'flashMapManager': using default [org.springframework.web.servlet.support.SessionFlashMapManager@46a3c1c6]
+2024-05-11 10:17:53,935 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Published WebApplicationContext of servlet 'dispatcherServlet' as ServletContext attribute with name [org.springframework.web.servlet.FrameworkServlet.CONTEXT.dispatcherServlet]
+2024-05-11 10:17:53,935 INFO o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] FrameworkServlet 'dispatcherServlet': initialization completed in 15 ms
+2024-05-11 10:17:53,935 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Servlet 'dispatcherServlet' configured successfully
+2024-05-11 10:17:53,952 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] DispatcherServlet with name 'dispatcherServlet' processing POST request for [/api/jwt]
+2024-05-11 10:17:53,955 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [http-nio-9181-exec-1] Looking up handler method for path /api/jwt
+2024-05-11 10:17:53,956 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [http-nio-9181-exec-1] Returning handler method [public java.lang.String org.ips.xml.signer.xmlsigner.controller.DigestController.getJwt(java.lang.String)]
+2024-05-11 10:17:53,974 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-1] Read [class java.lang.String] as "application/xml;charset=UTF-8" with [org.springframework.http.converter.StringHttpMessageConverter@50687efb]
+2024-05-11 10:17:54,208 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-1] Written [eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJDQkVURVRBQVhYWCIsImNlcnRfc24iOiI5NTg5MzIwNDM1NDkwMTEyNzk2MTQwNjE4MjA3ODY5NDc4MzExMDEzOTA4NTAiLCJleHAiOjE3MTU0MTE4NzksImp0aSI6IjExMjIzMzEyNDEyMzIxIiwiY2VydF9pc3MiOiJDTj1FVFMgSVBTIFJvb3QgQ0EsTz1FdGhTd2l0Y2gsQz1FVCJ9.jyK4FOf8EwmxxD1G2zp6UywHqWDpQ_0UxDteIHCdwi3CBr4hQTqK07VMO_SJed4lld8gjdyaCwFUrIEYGXnNKnkrEZwnGHKY-g4XL0nE7FljRT_tHMuMMggX2FwbfDuXNKY7qHHsrkWpg45DI1Gj3qdBMG-MgZQVLVOhwbqtQo6f5p-c5L-i2jhgJBfP5vtl34csbtzImEO5RvLdQF4TSuRpKCCVZg31g2KSjoAhvnEXa0d_gGuWqCtI7rUrQa-vRqwwPiMT6J_uLffaYtjo29FIxN-Am2Ofw_0fbJBqr3Q-pLkix6Wrj1-V_5otuRkx2P_J8dUwHmCYq_6NanymHA] as "text/plain" using [org.springframework.http.converter.StringHttpMessageConverter@50687efb]
+2024-05-11 10:17:54,208 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Null ModelAndView returned to DispatcherServlet with name 'dispatcherServlet': assuming HandlerAdapter completed request handling
+2024-05-11 10:17:54,208 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-1] Successfully completed request

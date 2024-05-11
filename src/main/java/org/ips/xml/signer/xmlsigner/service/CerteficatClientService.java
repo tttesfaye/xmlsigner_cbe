@@ -62,7 +62,7 @@ public class CerteficatClientService {
         MultiValueMap<String, String> body = new LinkedMultiValueMap<>();
         headers.add("Content-type", "application/x-www-form-urlencoded");
         headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-        headers.add("Authorization", "Bearer token");
+        headers.add("Authorization", "Bearer " + validToken);
         HttpEntity<MultiValueMap<String, String>> httpEntity = new HttpEntity<>(body,headers);
         ResponseEntity<CerteficateInformation> responseEntity =
                 restTemplate.exchange(certeficateDownloadUrl + "?cert_iss=" +
