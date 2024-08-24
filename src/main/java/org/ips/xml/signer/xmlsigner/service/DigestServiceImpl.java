@@ -72,15 +72,11 @@ private static Logger log = LoggerFactory.getLogger(DigestService.class);
         return signedXml;
     }
 
-    public static Element createElement(Document doc, String tag, String prefix, String nsURI) {
-        String qName = prefix == null ? tag : prefix + ":" + tag;
-        return doc.createElementNS(nsURI, qName);
-    }
-
-    private String convertDocumentToString(Document doc) {
+       private String convertDocumentToString(Document doc) {
         try {
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
+            transformer.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
             StringWriter writer = new StringWriter();
             transformer.transform(new DOMSource(doc), new StreamResult(writer));
             return writer.getBuffer().toString();
@@ -90,16 +86,4 @@ private static Logger log = LoggerFactory.getLogger(DigestService.class);
         }
     }
 
-    private Document createDocumentFromString(String xmlString) {
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        factory.setNamespaceAware(true);
-        DocumentBuilder builder;
-        try {
-            builder = factory.newDocumentBuilder();
-            return builder.parse(new InputSource(new StringReader(xmlString)));
-        } catch (Exception e) {
-            log.error(e.getMessage());
-        }
-        return null;
     }
-}

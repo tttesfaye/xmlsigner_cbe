@@ -52,57 +52,8 @@ public class CerteficateAndKeysUtility {
     @Value("${security.pki.certificate.file.location}")
     private String certificateKeyPath;
 
-    private void loadKeyStore() {
-        KeyStore keyStore = null;
-        try {
-            keyStore = KeyStore.getInstance(keyStoreType);
-            keyStore.load(new FileInputStream(keyStoreFile), storePassword.toCharArray());
-            this.keyStore = keyStore;
-        } catch (KeyStoreException e) {
-            throw new RuntimeException(e);
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (CertificateException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        }
 
-    }
-
-    public PrivateKey getStoredPrivateKey(String filePath) {
-        PrivateKey privateKey = null;
-        try {
-            this.loadKeyStore();
-            privateKey = (PrivateKey) this.keyStore.getKey(participantAlias, keyPassword.toCharArray());
-        } catch (KeyStoreException e) {
-            throw new RuntimeException(e);
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        } catch (UnrecoverableKeyException e) {
-            throw new RuntimeException(e);
-        }
-        return privateKey;
-    }
-
-
-    public PublicKey getStoredPublicKey(String aliasName) {
-        PublicKey publicKey = null;
-        try {
-
-            Certificate certificate;
-            this.loadKeyStore();
-            certificate = this.keyStore.getCertificate(aliasName);
-            publicKey = certificate.getPublicKey();
-        } catch (KeyStoreException e) {
-            throw new RuntimeException(e);
-        }
-        return publicKey;
-    }
-
-    public PrivateKey loadPrivateKey() {
+     public PrivateKey loadPrivateKey() {
         PrivateKey privateKey = null;
 
         File file = new File(privateKeyPath);
@@ -132,18 +83,7 @@ public class CerteficateAndKeysUtility {
     }
 
 
-    public RSAPublicKey readX509PublicKey(File file) throws Exception {
-        KeyFactory factory = KeyFactory.getInstance("RSA");
-        FileReader keyReader = new FileReader(file);
-        PemReader pemReader = new PemReader(keyReader);
-        PemObject pemObject = pemReader.readPemObject();
-        byte[] content = pemObject.getContent();
-        X509EncodedKeySpec pubKeySpec = new X509EncodedKeySpec(content);
-        return (RSAPublicKey) factory.generatePublic(pubKeySpec);
-
-    }
-
-    public RSAPublicKey loadCerteficateFromLdpa(CerteficateInformation certeficateInformation) throws Exception {
+       public RSAPublicKey loadCerteficateFromLdpa(CerteficateInformation certeficateInformation) throws Exception {
         ResponseEntity<TokenInfo> tokenInfo = this.certeficatClientService.generateToken();
         TokenInfo token = tokenInfo.getBody();
         CerteficateInformation certeficate = this.certeficatClientService.downloadCerteficate(certeficateInformation, token.getAccess_token());

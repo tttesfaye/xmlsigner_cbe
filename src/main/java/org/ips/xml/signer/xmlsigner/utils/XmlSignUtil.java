@@ -63,10 +63,16 @@ public class XmlSignUtil {
     private final String expression = String.format("//*[local-name()='%s']", "SignedProperties");
 
     private static Set<String> securementActionSet = new HashSet<>(Arrays.asList(SECUREMENT_SINATURE_INFO_EXCLUSION, SECUREMENT_KEY_INFO_EXCLUSION, SECUREMENT_ACTION_EXCLUSION));
-    @Autowired
+
     private CerteficateAndKeysUtility certeficateAndKeysUtility;
 
+    @Autowired
+    public XmlSignUtil(CerteficateAndKeysUtility certeficateAndKeysUtility) {
+        this.certeficateAndKeysUtility = certeficateAndKeysUtility;
+    }
+
     public XmlSignUtil() {
+
     }
 
     static {
@@ -87,9 +93,12 @@ public class XmlSignUtil {
      * @param signatureInfo    - signature info which will used in signing xml payload
      * @param signatureKeyInfo - signature key info which hold private key and ski bytes to be set in X509 Data
      * @return - the signed xml document
+     * @throws XMLSecurityException
+     * @throws XPathExpressionException
      */
     public Document sign(Document document, SignatureInfo signatureInfo, SignatureKeyInfo signatureKeyInfo) throws XMLSecurityException, XPathExpressionException {
         final NodeList bahNodes = document.getElementsByTagNameNS(BAH_NAME.getNamespaceURI(), BAH_NAME.getLocalPart());
+        final NodeList rltdNodes = document.getElementsByTagNameNS(RLTD_TAG_NAME.getNamespaceURI(), RLTD_TAG_NAME.getLocalPart());
         if (bahNodes.getLength() == 0) {
             LOG.error("No BAH element is provided in request");
             throw new SecurityException("No BAH element is provided in request");
@@ -103,13 +112,19 @@ public class XmlSignUtil {
         Element SignedProperties = document.createElementNS(XADES_SIGNED_PROPERTIES_NAME.getNamespaceURI(), XADES_QUALIFYING_PROPERTIES_NAME.getPrefix() + ":" + XADES_SIGNED_PROPERTIES_NAME.getLocalPart());
         Element SignedSignatureProperties = document.createElementNS(XADES_SIGNED_SIG_PROPERTIES_NAME.getNamespaceURI(), XADES_QUALIFYING_PROPERTIES_NAME.getPrefix() + ":" + XADES_SIGNED_SIG_PROPERTIES_NAME.getLocalPart());
         Element SigningTime = document.createElementNS(XADES_SIGNED_SIGN_TIME_NAME.getNamespaceURI(), XADES_QUALIFYING_PROPERTIES_NAME.getPrefix() + ":" + XADES_SIGNED_SIGN_TIME_NAME.getLocalPart());
-        SigningTime.setTextContent("2023-11-06T11:12:25Z");
+        String dateUtil=DateUtil.iso86CurrentTime();
+        SigningTime.setTextContent(dateUtil);
         dsObject.appendChild(QualifyingProperties);
         QualifyingProperties.appendChild(SignedProperties);
         SignedProperties.appendChild(SignedSignatureProperties);
         SignedSignatureProperties.appendChild(SigningTime);
         sgntrElement.setPrefix("document");
-        bahElement.appendChild(sgntrElement);
+        if(rltdNodes!=null && rltdNodes.getLength()>0){
+            Element rltdElement = (Element) rltdNodes.item(0);
+            rltdElement.getParentNode().insertBefore(sgntrElement,rltdElement);
+        }else {
+            bahElement.appendChild(sgntrElement);
+        }
 
         final XMLSignature xmlSignature = new XMLSignature(document,
                 BAH_NAME.getNamespaceURI(),
@@ -150,10 +165,10 @@ public class XmlSignUtil {
                 xmlSignature.addDocument(null, transforms, signatureInfo.getDocumentReferenceSignInfo().getDigestMethodAlgorithm());
             } else {
                 transforms.addTransform(signatureInfo.getKeyReferenceSignInfo().getTransformAlgorithm());
-                elementToSign.setAttributeNS(null, "Id", id);
+                elementToSign.setAttributeNS(null, "Id","_"+ id);
                 elementToSign.setIdAttributeNS(null, "Id", true);
 
-                xmlSignature.addDocument("#" + id, transforms, signatureInfo.getKeyReferenceSignInfo().getDigestMethodAlgorithm());
+                xmlSignature.addDocument("#_" + id, transforms, signatureInfo.getKeyReferenceSignInfo().getDigestMethodAlgorithm());
             }
         }
 
@@ -168,6 +183,7 @@ public class XmlSignUtil {
      * @param document  - the signed payload
      * @param publicKey - the public key
      * @return - result true if sign verification is success otherwise false
+     * @throws XMLSecurityException
      */
     public boolean verify(Document document, PublicKey publicKey) throws XMLSecurityException {
         Element signatureElementInMessage = (Element) document.getElementsByTagNameNS(DS_NS, SIGNATURE_LOCAL_NAME).item(0);
@@ -183,7 +199,7 @@ public class XmlSignUtil {
     }
 
     public void engineResolveURI(Document doc) {
-        Element selectedElem;
+        Element selectedElem = null;
         NodeList documentNodes;
         try {
             XPathFactory xpf = new net.sf.saxon.xpath.XPathFactoryImpl();

@@ -1,5 +1,6 @@
 package org.ips.xml.signer.xmlsigner.controller;
 
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.ips.xml.signer.xmlsigner.service.DigestService;
 import org.ips.xml.signer.xmlsigner.service.XMLDigestVerifier;
 import org.ips.xml.signer.xmlsigner.utils.JwtSigningUtils;
