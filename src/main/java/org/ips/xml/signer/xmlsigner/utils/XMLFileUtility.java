@@ -74,6 +74,7 @@ public class XMLFileUtility {
         factory.setNamespaceAware(true);
         DocumentBuilder builder;
         try {
+            factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
             builder = factory.newDocumentBuilder();
             return builder.parse(new InputSource(new StringReader(xmlString)));
         } catch (Exception e) {
