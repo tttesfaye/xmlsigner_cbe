@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="Gradle: jakarta.el:jakarta.el-api:3.0.2">
+  <library name="Gradle: jakarta.el:jakarta.el-api:3.0.2" external-system-id="GRADLE">
     <CLASSES>
-      <root url="jar://$USER_HOME$/Desktop/IPS/gradle-7.4.2-bin/gradle-7.4.2/caches/modules-2/files-2.1/jakarta.el/jakarta.el-api/3.0.2/c0583250cc88769556525aa2072b4e7dd65804b1/jakarta.el-api-3.0.2.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/jakarta.el/jakarta.el-api/3.0.2/c0583250cc88769556525aa2072b4e7dd65804b1/jakarta.el-api-3.0.2.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

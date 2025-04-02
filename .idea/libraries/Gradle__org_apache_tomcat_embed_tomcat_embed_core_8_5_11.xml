@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="Gradle: org.apache.tomcat.embed:tomcat-embed-core:8.5.11">
+  <library name="Gradle: org.apache.tomcat.embed:tomcat-embed-core:8.5.11" external-system-id="GRADLE">
     <CLASSES>
-      <root url="jar://$USER_HOME$/Desktop/IPS/gradle-7.4.2-bin/gradle-7.4.2/caches/modules-2/files-2.1/org.apache.tomcat.embed/tomcat-embed-core/8.5.11/72761f51fc7cef3ee19d4aafc7adc605df9f611f/tomcat-embed-core-8.5.11.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.tomcat.embed/tomcat-embed-core/8.5.11/72761f51fc7cef3ee19d4aafc7adc605df9f611f/tomcat-embed-core-8.5.11.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

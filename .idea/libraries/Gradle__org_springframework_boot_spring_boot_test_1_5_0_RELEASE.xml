@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="Gradle: org.springframework.boot:spring-boot-test:1.5.0.RELEASE">
+  <library name="Gradle: org.springframework.boot:spring-boot-test:1.5.0.RELEASE" external-system-id="GRADLE">
     <CLASSES>
-      <root url="jar://$USER_HOME$/Desktop/IPS/gradle-7.4.2-bin/gradle-7.4.2/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-test/1.5.0.RELEASE/f5d6fb2ce6e53abb95dccbc76cc842fc83a6892/spring-boot-test-1.5.0.RELEASE.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-test/1.5.0.RELEASE/f5d6fb2ce6e53abb95dccbc76cc842fc83a6892/spring-boot-test-1.5.0.RELEASE.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

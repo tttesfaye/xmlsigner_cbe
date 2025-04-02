@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="Gradle: com.google.inject.extensions:guice-multibindings:2.0">
+  <library name="Gradle: com.google.inject.extensions:guice-multibindings:2.0" external-system-id="GRADLE">
     <CLASSES>
-      <root url="jar://$USER_HOME$/Desktop/IPS/gradle-7.4.2-bin/gradle-7.4.2/caches/modules-2/files-2.1/com.google.inject.extensions/guice-multibindings/2.0/bfa4c1036fd7dc58019d0aeaec3faf4e8a685474/guice-multibindings-2.0.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.inject.extensions/guice-multibindings/2.0/bfa4c1036fd7dc58019d0aeaec3faf4e8a685474/guice-multibindings-2.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

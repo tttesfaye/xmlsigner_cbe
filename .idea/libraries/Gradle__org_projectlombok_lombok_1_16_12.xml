@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="Gradle: org.projectlombok:lombok:1.16.12">
+  <library name="Gradle: org.projectlombok:lombok:1.16.12" external-system-id="GRADLE">
     <CLASSES>
-      <root url="jar://$USER_HOME$/Desktop/IPS/gradle-7.4.2-bin/gradle-7.4.2/caches/modules-2/files-2.1/org.projectlombok/lombok/1.16.12/64b2d2e8734b54ddba60a69df68a6dac627366c8/lombok-1.16.12.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.16.12/64b2d2e8734b54ddba60a69df68a6dac627366c8/lombok-1.16.12.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

@@ -1,32 +1,37 @@
-package org.ips.xml.signer.xmlsigner.service;
+package org.ips.xml.signer.xmlsigner.service.digestService;
 
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j2;
-import org.ips.xml.signer.xmlsigner.crypto.CerteficateAndKeysUtility;
 import org.ips.xml.signer.xmlsigner.models.CerteficateInformation;
+import org.ips.xml.signer.xmlsigner.service.CertificateManager;
 import org.ips.xml.signer.xmlsigner.utils.XMLFileUtility;
 import org.ips.xml.signer.xmlsigner.utils.XmlSignUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
 
 @Setter
-
+@Log4j2
 @Service
+@NoArgsConstructor
 public class XMLDigestVerifierImpl implements XMLDigestVerifier {
-    private static Logger log = LoggerFactory.getLogger(DigestService.class);
-    @Autowired
+
     XMLFileUtility xmlFileUtility;
-    @Autowired
-    CerteficateAndKeysUtility certeficateAndKeysUtility;
-    @Autowired
+
+    CertificateManager certificateManager;
+
     private XmlSignUtil signUtil;
+
+    @Autowired
+    public XMLDigestVerifierImpl(XMLFileUtility xmlFileUtility,  CertificateManager certificateManager, XmlSignUtil signUtil) {
+        this.xmlFileUtility = xmlFileUtility;
+        this.certificateManager = certificateManager;
+        this.signUtil = signUtil;
+    }
 
     @Override
     public String verify(String signedXml) {
-
 
         Document document = xmlFileUtility.createDocumentFromString(signedXml);
 
@@ -34,7 +39,7 @@ public class XMLDigestVerifierImpl implements XMLDigestVerifier {
 
         try {
             CerteficateInformation certeficateInformation = xmlFileUtility.parseCerteficateFromDocument(document);
-            validDocuemnt = signUtil.verify(document, certeficateAndKeysUtility.loadCerteficateFromLdpa(certeficateInformation));
+            validDocuemnt = signUtil.verify(document,certificateManager.getPublicKeyForMessageOrginator(certeficateInformation));
 
 
         } catch (Exception e) {
@@ -42,5 +47,10 @@ public class XMLDigestVerifierImpl implements XMLDigestVerifier {
         }
 
         return String.valueOf(validDocuemnt);
+    }
+
+    @Override
+    public void clearCache() {
+        certificateManager.clearAllCache();
     }
 }

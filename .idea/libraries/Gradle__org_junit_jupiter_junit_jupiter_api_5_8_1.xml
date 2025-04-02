@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="Gradle: org.junit.jupiter:junit-jupiter-api:5.8.1">
+  <library name="Gradle: org.junit.jupiter:junit-jupiter-api:5.8.1" external-system-id="GRADLE">
     <CLASSES>
-      <root url="jar://$USER_HOME$/Desktop/IPS/gradle-7.4.2-bin/gradle-7.4.2/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-api/5.8.1/6538b88eb8bf8811bc7b6efb5246f835c15e0bfe/junit-jupiter-api-5.8.1.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-api/5.8.1/6538b88eb8bf8811bc7b6efb5246f835c15e0bfe/junit-jupiter-api-5.8.1.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

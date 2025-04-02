@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="Gradle: javax.validation:validation-api:2.0.1.Final">
+  <library name="Gradle: javax.validation:validation-api:2.0.1.Final" external-system-id="GRADLE">
     <CLASSES>
-      <root url="jar://$USER_HOME$/Desktop/IPS/gradle-7.4.2-bin/gradle-7.4.2/caches/modules-2/files-2.1/javax.validation/validation-api/2.0.1.Final/cb855558e6271b1b32e716d24cb85c7f583ce09e/validation-api-2.0.1.Final.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.validation/validation-api/2.0.1.Final/cb855558e6271b1b32e716d24cb85c7f583ce09e/validation-api-2.0.1.Final.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

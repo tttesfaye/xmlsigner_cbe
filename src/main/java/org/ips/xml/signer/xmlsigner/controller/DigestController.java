@@ -1,10 +1,10 @@
 package org.ips.xml.signer.xmlsigner.controller;
 
-import org.apache.commons.lang3.StringEscapeUtils;
-import org.ips.xml.signer.xmlsigner.service.DigestService;
-import org.ips.xml.signer.xmlsigner.service.XMLDigestVerifier;
+import org.ips.xml.signer.xmlsigner.service.digestService.DigestService;
+import org.ips.xml.signer.xmlsigner.service.digestService.XMLDigestVerifier;
 import org.ips.xml.signer.xmlsigner.utils.JwtSigningUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.CacheManager;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,12 +17,24 @@ import java.security.NoSuchAlgorithmException;
 @RestController()
 public class DigestController {
 
-    @Autowired
+
     private DigestService digestService;
+
+
+
+
+
+    CacheManager cacheManager;
+
     @Autowired
-    private XMLDigestVerifier digestVerifier;
-    @Autowired
-    private JwtSigningUtils jwtSigningUtils;
+    DigestController(
+            DigestService digestService,
+            XMLDigestVerifier digestVerifier,
+            JwtSigningUtils jwtSigningUtils,
+            CacheManager cacheManager) {
+        this.digestService = digestService;
+        this.cacheManager = cacheManager;
+    }
 
     @PostMapping(value = "/digest", consumes = MediaType.APPLICATION_XML_VALUE, produces = MediaType.APPLICATION_XML_VALUE)
     public String handleXmlRequest(@RequestBody String request) {
@@ -31,25 +43,9 @@ public class DigestController {
         xmlResponse = xmlResponse.replace("&#xD;", "");
         return xmlResponse;
     }
-    @PostMapping(value = "/verify", consumes = MediaType.APPLICATION_XML_VALUE)
-    public String verifyXml(@RequestBody String request) {
 
-        String xmlResponse = digestVerifier.verify(request);
-        xmlResponse = xmlResponse.replace("&#xD;", "");
-        return xmlResponse;
-    }
-    @PostMapping(value = "/jwt")
-    public String getJwt(@RequestBody String request) {
 
-        String xmlResponse = null;
-        try {
-            xmlResponse = jwtSigningUtils.generateAccessToken(request);
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-        xmlResponse = xmlResponse.replace("&#xD;", "");
-        return xmlResponse;
-    }
 }
+
+
+
