@@ -7,7 +7,7 @@ plugins {
 group = 'ips-client-v1'
 version = '0.1'
 java {
-    sourceCompatibility = 'VERSION_17'
+    sourceCompatibility = 'VERSION_1.8'
 }
 configurations {
     compileOnly {
