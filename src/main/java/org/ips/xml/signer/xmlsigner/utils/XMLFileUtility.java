@@ -2,31 +2,32 @@ package org.ips.xml.signer.xmlsigner.utils;
 
 
 import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.ips.xml.signer.xmlsigner.crypto.CerteficateAndKeysUtility;
 import org.ips.xml.signer.xmlsigner.info.ReferenceSignInfo;
 import org.ips.xml.signer.xmlsigner.info.SignatureInfo;
 import org.ips.xml.signer.xmlsigner.info.SignatureKeyInfo;
 import org.ips.xml.signer.xmlsigner.models.CerteficateInformation;
-import org.ips.xml.signer.xmlsigner.service.DigestService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.ips.xml.signer.xmlsigner.repository.CertificateCacheRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.xml.sax.InputSource;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.*;
 import java.security.PrivateKey;
+import java.util.Optional;
 
 
 @Component
-
+@Slf4j
 public class XMLFileUtility {
     @Autowired
-    private CerteficateAndKeysUtility usageUtil;
-    private static Logger log = LoggerFactory.getLogger(DigestService.class);
+    private CertificateCacheRepository cacheRepository;
+
     public ReferenceSignInfo buildDocumentReferenceSignInfo() {
         return ReferenceSignInfo.builder().
                 transformAlgorithm("http://www.w3.org/2001/10/xml-exc-c14n#").
@@ -63,9 +64,10 @@ public class XMLFileUtility {
     }
 
     public SignatureKeyInfo buildSignaturePrivateKeyInfo() {
-        PrivateKey privateKey = this.usageUtil.loadPrivateKey();
-        SignatureKeyInfo signatureKeyInfo = SignatureKeyInfo.builder().privateKey(privateKey).build();
-        return signatureKeyInfo;
+        Optional<PrivateKey> privateKeyOpt=this.cacheRepository.getBankPrivatekey();
+        PrivateKey privateKey;
+        privateKey = privateKeyOpt.orElse(null);
+        return SignatureKeyInfo.builder().privateKey(privateKey).build();
     }
 
 

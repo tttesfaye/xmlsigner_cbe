@@ -24,16 +24,15 @@ public class DigestController {
 
 
 
-    CacheManager cacheManager;
+
 
     @Autowired
     DigestController(
             DigestService digestService,
             XMLDigestVerifier digestVerifier,
-            JwtSigningUtils jwtSigningUtils,
-            CacheManager cacheManager) {
+            JwtSigningUtils jwtSigningUtils) {
         this.digestService = digestService;
-        this.cacheManager = cacheManager;
+
     }
 
     @PostMapping(value = "/digest", consumes = MediaType.APPLICATION_XML_VALUE, produces = MediaType.APPLICATION_XML_VALUE)

@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="Gradle: org.assertj:assertj-core:2.6.0" external-system-id="GRADLE">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.assertj/assertj-core/2.6.0/b532c3fc4f66bcfee4989a3514f1cd56203a33ad/assertj-core-2.6.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../xmlsigner/.gradle/caches/modules-2/files-2.1/org.assertj/assertj-core/2.6.0/b532c3fc4f66bcfee4989a3514f1cd56203a33ad/assertj-core-2.6.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

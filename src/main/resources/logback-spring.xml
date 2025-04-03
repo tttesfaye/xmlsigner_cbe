@@ -1,12 +1,12 @@
 <configuration>
 
-   <!-- <springProfile name="dev">
+   <springProfile name="dev">
         <property name="HOME_LOG" value="src/main/resources/logs/app.log"/>
     </springProfile>
 
     <springProfile name="test">
         <property name="HOME_LOG" value="/var/log/app.log"/>
-    </springProfile>-->
+    </springProfile>
 
     <springProfile name="prod">
         <property name="HOME_LOG" value="src/main/resources/logs/app.log"/>

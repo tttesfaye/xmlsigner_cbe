@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="Gradle: org.junit.platform:junit-platform-commons:1.8.1" external-system-id="GRADLE">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-commons/1.8.1/1e362cbe6d0f225b066757865e233972557484/junit-platform-commons-1.8.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../xmlsigner/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-commons/1.8.1/1e362cbe6d0f225b066757865e233972557484/junit-platform-commons-1.8.1.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

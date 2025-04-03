@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="Gradle: org.springframework:spring-aop:4.3.6.RELEASE" external-system-id="GRADLE">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/4.3.6.RELEASE/d70b2393d380cd468d9a14969efaf9022c67c0/spring-aop-4.3.6.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../xmlsigner/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/4.3.6.RELEASE/d70b2393d380cd468d9a14969efaf9022c67c0/spring-aop-4.3.6.RELEASE.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

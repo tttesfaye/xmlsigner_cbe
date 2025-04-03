@@ -20,8 +20,9 @@
       <profile name="Gradle Imported" enabled="true">
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
-          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.16.12/64b2d2e8734b54ddba60a69df68a6dac627366c8/lombok-1.16.12.jar" />
+          <entry name="$PROJECT_DIR$/../../../xmlsigner/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.16.12/64b2d2e8734b54ddba60a69df68a6dac627366c8/lombok-1.16.12.jar" />
         </processorPath>
+        <module name="cbe_code.xmlsigner_cbe.ips-client-v1.main" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">

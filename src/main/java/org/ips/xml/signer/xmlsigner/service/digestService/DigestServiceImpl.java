@@ -2,6 +2,7 @@ package org.ips.xml.signer.xmlsigner.service.digestService;
 
 import lombok.NoArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.ips.xml.signer.xmlsigner.info.SignatureInfo;
 import org.ips.xml.signer.xmlsigner.info.SignatureKeyInfo;
 import org.ips.xml.signer.xmlsigner.utils.XMLFileUtility;
@@ -21,7 +22,7 @@ import javax.xml.transform.stream.StreamResult;
 import java.io.StringReader;
 import java.io.StringWriter;
 
-@Log4j2
+@Slf4j
 @Service
 @NoArgsConstructor
 public class DigestServiceImpl implements DigestService {

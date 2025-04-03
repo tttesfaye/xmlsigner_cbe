@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="Gradle: org.junit.jupiter:junit-jupiter-params:5.8.1" external-system-id="GRADLE">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-params/5.8.1/13afdb5d414cbe991fce3ef6b864de77c9644dae/junit-jupiter-params-5.8.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../xmlsigner/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-params/5.8.1/13afdb5d414cbe991fce3ef6b864de77c9644dae/junit-jupiter-params-5.8.1.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

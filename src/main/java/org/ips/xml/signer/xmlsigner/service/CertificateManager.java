@@ -7,6 +7,7 @@ import org.ips.xml.signer.xmlsigner.repository.CertificateCacheRepository;
 import org.ips.xml.signer.xmlsigner.service.apiClient.CerteficatClientService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,8 @@ import java.util.Optional;
 @Service
 public class CertificateManager {
     private static final Logger logger = LoggerFactory.getLogger(CertificateManager.class);
+
+    @Autowired
     private final CacheRepository cacheRepository;
     private final CertificateCacheRepository certificateCacheRepository;
     @Value("${ets.ips.certificate.download.url}")
@@ -46,11 +49,11 @@ public class CertificateManager {
     }
 
 
-    public CerteficateInformation getCertificate(CerteficateInformation certeficateInformation) {
+    public CerteficateInformation getCertificate(CerteficateInformation certeficateInformation) throws CertificateException {
 
         CerteficateInformation cachedCeretficate = this.getFromCache(certeficateInformation.getCertificateSerialNumber());
         TokenInfo tokenInfo = null;
-        if (cachedCeretficate == null || !StringUtils.hasText(cachedCeretficate.getCertificate())) {
+        if (cachedCeretficate == null) {
             logger.info("calling the certeficate api");
             tokenInfo = tokenGenerationManager.getToken();
             certeficateInformation.setValidToken(tokenInfo.getAccess_token());
@@ -58,11 +61,13 @@ public class CertificateManager {
             CerteficateInformation cert = this.certeficatClientService.downloadCerteficate(certeficateInformation);
             if (cert != null) {
                 certeficateInformation.setCertificate(cert.getCertificate());
-                cacheRepository.put(certeficateInformation.getCertificateSerialNumber(), certeficateInformation.getCertificate());
+                certeficateInformation.setX509Certificate(this.convertBase64StringToCerteficate(cert.getCertificate()));
+                cacheRepository.put(certeficateInformation.getCertificateSerialNumber(), certeficateInformation.getX509Certificate());
                 logger.info(cert.toString());
             }
         } else {
             certeficateInformation.setCertificate(cachedCeretficate.getCertificate());
+            certeficateInformation.setX509Certificate(cachedCeretficate.getX509Certificate());
         }
         return certeficateInformation;
 
@@ -74,7 +79,7 @@ public class CertificateManager {
         try {
             certeficate = this.getCertificate(certeficateInformation);
             if (certeficate != null) {
-                x509Certificate = convertBase64StringToCerteficate(certeficate);
+                x509Certificate = certeficate.getX509Certificate();
                 publicKey = (RSAPublicKey) x509Certificate.getPublicKey();
 
             }
@@ -86,19 +91,19 @@ public class CertificateManager {
 
     }
     public CerteficateInformation getFromCache(String serialNumber) {
-        Optional<String> s = cacheRepository.get(serialNumber);
+        Optional<X509Certificate> s = cacheRepository.get(serialNumber);
         CerteficateInformation certeficateInformation = null;
         if (s.isPresent()) {
             logger.debug("Found the key in cache {} ", s.get());
             certeficateInformation = new CerteficateInformation();
-            certeficateInformation.setCertificate(s.get());
+            certeficateInformation.setX509Certificate(s.get());
 
         }
         return certeficateInformation;
     }
 
-    public X509Certificate convertBase64StringToCerteficate(CerteficateInformation certeficate) throws CertificateException {
-        String certificateString = certeficate.getCertificate();
+    public X509Certificate convertBase64StringToCerteficate(String certificateString) throws CertificateException {
+
         X509Certificate certificate = null;
         CertificateFactory cf = null;
         try {

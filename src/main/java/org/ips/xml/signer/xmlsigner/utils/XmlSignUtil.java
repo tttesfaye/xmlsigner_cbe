@@ -29,6 +29,7 @@ import org.ips.xml.signer.xmlsigner.context.DSNamespaceContext;
 import org.ips.xml.signer.xmlsigner.crypto.CerteficateAndKeysUtility;
 import org.ips.xml.signer.xmlsigner.info.SignatureInfo;
 import org.ips.xml.signer.xmlsigner.info.SignatureKeyInfo;
+import org.ips.xml.signer.xmlsigner.repository.CertificateCacheRepository;
 import org.ips.xml.signer.xmlsigner.resolvers.XmlSignBAHResolver;
 import org.ips.xml.signer.xmlsigner.resolvers.XmlSignDocumentResolver;
 import org.slf4j.Logger;
@@ -44,12 +45,10 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 import java.math.BigInteger;
+import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.cert.X509Certificate;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 
 import static org.ips.xml.signer.xmlsigner.context.Constants.*;
 
@@ -63,12 +62,12 @@ public class XmlSignUtil {
     private final String expression = String.format("//*[local-name()='%s']", "SignedProperties");
 
     private static Set<String> securementActionSet = new HashSet<>(Arrays.asList(SECUREMENT_SINATURE_INFO_EXCLUSION, SECUREMENT_KEY_INFO_EXCLUSION, SECUREMENT_ACTION_EXCLUSION));
-
-    private CerteficateAndKeysUtility certeficateAndKeysUtility;
+@Autowired
+    private CertificateCacheRepository cacheRepository;
 
     @Autowired
-    public XmlSignUtil(CerteficateAndKeysUtility certeficateAndKeysUtility) {
-        this.certeficateAndKeysUtility = certeficateAndKeysUtility;
+    public XmlSignUtil(CertificateCacheRepository cacheRepository) {
+        this.cacheRepository = cacheRepository;
     }
 
     public XmlSignUtil() {
@@ -139,40 +138,43 @@ public class XmlSignUtil {
         KeyInfo ki = xmlSignature.getKeyInfo();
 
         ki.add(new X509Data(document));
-        X509Certificate key = certeficateAndKeysUtility.getStoredCerteficate();
-        BigInteger serialNumber = key.getSerialNumber();
-        String issuer = key.getIssuerX500Principal().getName();
-        ki.itemX509Data(0).addIssuerSerial(issuer, serialNumber);
+        Optional<X509Certificate> optionalBankCertificate= cacheRepository.getBankCertificate();
+        if(optionalBankCertificate.isPresent()) {
+            X509Certificate key = optionalBankCertificate.get();
+            BigInteger serialNumber = key.getSerialNumber();
+            String issuer = key.getIssuerX500Principal().getName();
+            ki.itemX509Data(0).addIssuerSerial(issuer, serialNumber);
 
 
-        XPathFactory xpf = new net.sf.saxon.xpath.XPathFactoryImpl();
-        XPath xpath = xpf.newXPath();
-        xpath.setNamespaceContext(new DSNamespaceContext());
-        NodeList elementsToSign = (NodeList) xpath.evaluate(EXPRESSION, document, XPathConstants.NODESET);
-        for (int i = 0; i < elementsToSign.getLength(); i++) {
-            Element elementToSign = (Element) elementsToSign.item(i);
-            String elementName = elementToSign.getLocalName();
-            String id = UUID.randomUUID().toString();
-            Transforms transforms = getSecurementTransformer(document);
-            if (SECUREMENT_SINATURE_INFO_EXCLUSION.equals(elementName)) {
+            XPathFactory xpf = new net.sf.saxon.xpath.XPathFactoryImpl();
+            XPath xpath = xpf.newXPath();
+            xpath.setNamespaceContext(new DSNamespaceContext());
+            NodeList elementsToSign = (NodeList) xpath.evaluate(EXPRESSION, document, XPathConstants.NODESET);
+            for (int i = 0; i < elementsToSign.getLength(); i++) {
+                Element elementToSign = (Element) elementsToSign.item(i);
+                String elementName = elementToSign.getLocalName();
+                String id = UUID.randomUUID().toString();
+                Transforms transforms = getSecurementTransformer(document);
+                if (SECUREMENT_SINATURE_INFO_EXCLUSION.equals(elementName)) {
 
-                transforms.addTransform(signatureInfo.getSignatureExclusionTransformer());
-                elementToSign.setAttributeNS(null, "Id", id);
-                elementToSign.setIdAttributeNS(null, "Id", true);
-                xmlSignature.addDocument("#" + id, transforms, signatureInfo.getAppHdrReferenceSignInfo().getDigestMethodAlgorithm(), null, "http://uri.etsi.org/01903/v1.3.2#SignedProperties");
-            } else if (SECUREMENT_ACTION_EXCLUSION.equals(elementName)) {
-                transforms.addTransform(signatureInfo.getDocumentReferenceSignInfo().getTransformAlgorithm());
-                xmlSignature.addDocument(null, transforms, signatureInfo.getDocumentReferenceSignInfo().getDigestMethodAlgorithm());
-            } else {
-                transforms.addTransform(signatureInfo.getKeyReferenceSignInfo().getTransformAlgorithm());
-                elementToSign.setAttributeNS(null, "Id","_"+ id);
-                elementToSign.setIdAttributeNS(null, "Id", true);
+                    transforms.addTransform(signatureInfo.getSignatureExclusionTransformer());
+                    elementToSign.setAttributeNS(null, "Id", id);
+                    elementToSign.setIdAttributeNS(null, "Id", true);
+                    xmlSignature.addDocument("#" + id, transforms, signatureInfo.getAppHdrReferenceSignInfo().getDigestMethodAlgorithm(), null, "http://uri.etsi.org/01903/v1.3.2#SignedProperties");
+                } else if (SECUREMENT_ACTION_EXCLUSION.equals(elementName)) {
+                    transforms.addTransform(signatureInfo.getDocumentReferenceSignInfo().getTransformAlgorithm());
+                    xmlSignature.addDocument(null, transforms, signatureInfo.getDocumentReferenceSignInfo().getDigestMethodAlgorithm());
+                } else {
+                    transforms.addTransform(signatureInfo.getKeyReferenceSignInfo().getTransformAlgorithm());
+                    elementToSign.setAttributeNS(null, "Id", "_" + id);
+                    elementToSign.setIdAttributeNS(null, "Id", true);
 
-                xmlSignature.addDocument("#_" + id, transforms, signatureInfo.getKeyReferenceSignInfo().getDigestMethodAlgorithm());
+                    xmlSignature.addDocument("#_" + id, transforms, signatureInfo.getKeyReferenceSignInfo().getDigestMethodAlgorithm());
+                }
             }
-        }
 
-        xmlSignature.sign(signatureKeyInfo.getPrivateKey());
+            xmlSignature.sign(signatureKeyInfo.getPrivateKey());
+        }
         return document;
     }
 

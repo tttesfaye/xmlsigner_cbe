@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="Gradle: org.apache.santuario:xmlsec:2.1.2" external-system-id="GRADLE">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.santuario/xmlsec/2.1.2/328ca2bb1711bec4d3ed03d6d80a7e27a4c967e6/xmlsec-2.1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../xmlsigner/.gradle/caches/modules-2/files-2.1/org.apache.santuario/xmlsec/2.1.2/328ca2bb1711bec4d3ed03d6d80a7e27a4c967e6/xmlsec-2.1.2.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

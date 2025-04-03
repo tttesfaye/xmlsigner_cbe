@@ -3,6 +3,7 @@ package org.ips.xml.signer.xmlsigner.service.digestService;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.ips.xml.signer.xmlsigner.models.CerteficateInformation;
 import org.ips.xml.signer.xmlsigner.service.CertificateManager;
 import org.ips.xml.signer.xmlsigner.utils.XMLFileUtility;
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
 
 @Setter
-@Log4j2
+@Slf4j
 @Service
 @NoArgsConstructor
 public class XMLDigestVerifierImpl implements XMLDigestVerifier {
