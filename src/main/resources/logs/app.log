@@ -4469,3 +4469,452 @@ wdg4huBq6elv4kHkdq17mMPmQtU/QBJaAvIqjCKDQ/T4ZXCPtomPF/9QGQqFmqCZdn0WLyGVNbID
 2025-04-03 11:43:19,389 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-2] Written [true] as "text/plain" using [org.springframework.http.converter.StringHttpMessageConverter@63b3ee82]
 2025-04-03 11:43:19,391 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Null ModelAndView returned to DispatcherServlet with name 'dispatcherServlet': assuming HandlerAdapter completed request handling
 2025-04-03 11:43:19,391 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-2] Successfully completed request
+2025-04-03 15:23:50,691 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-5] DispatcherServlet with name 'dispatcherServlet' processing POST request for [/api/digest]
+2025-04-03 15:23:50,788 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [http-nio-9181-exec-5] Looking up handler method for path /api/digest
+2025-04-03 15:23:50,939 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [http-nio-9181-exec-5] Returning handler method [public java.lang.String org.ips.xml.signer.xmlsigner.controller.DigestController.handleXmlRequest(java.lang.String)]
+2025-04-03 15:23:51,228 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-5] Read [class java.lang.String] as "application/xml;charset=UTF-8" with [org.springframework.http.converter.StringHttpMessageConverter@63b3ee82]
+2025-04-03 15:24:18,910 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-5] Written [<?xml version="1.0" encoding="UTF-8"?><FPEnvelope xmlns="urn:iso:std:iso:20022:tech:xsd:payment_response" xmlns:document="urn:iso:std:iso:20022:tech:xsd:pacs.002.001.12" xmlns:header="urn:iso:std:iso:20022:tech:xsd:head.001.001.03">
+    <header:AppHdr>
+        <header:Fr>
+            <header:FIId>
+                <header:FinInstnId>
+                    <header:Othr>
+                        <header:Id>FP</header:Id>
+                    </header:Othr>
+                </header:FinInstnId>
+            </header:FIId>
+        </header:Fr>
+        <header:To>
+            <header:FIId>
+                <header:FinInstnId>
+                    <header:Othr>
+                        <header:Id>ETSETAA</header:Id>
+                    </header:Othr>
+                </header:FinInstnId>
+            </header:FIId>
+        </header:To>
+        <header:BizMsgIdr>ETSETAA507910266346349567778</header:BizMsgIdr>
+        <header:MsgDefIdr>pacs.002.001.12</header:MsgDefIdr>
+        <header:CreDt>2025-03-20T10:57:46.046Z</header:CreDt>
+
+        <document:Sgntr xmlns:document="urn:iso:std:iso:20022:tech:xsd:head.001.001.03"><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+<ds:SignedInfo>
+<ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+<ds:Reference URI="#_a11e4d8d-dfc8-458e-a503-6bea9b27454e">
+<ds:Transforms>
+<ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+</ds:Transforms>
+<ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+<ds:DigestValue>Bj+wu2u42nN8AnBeSXiGaCLbYpsNxLVFSR48/I/0r3A=</ds:DigestValue>
+</ds:Reference>
+<ds:Reference Type="http://uri.etsi.org/01903/v1.3.2#SignedProperties" URI="#f0ea1e56-4b6c-475b-b3b1-690a17ae0201">
+<ds:Transforms>
+<ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+</ds:Transforms>
+<ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+<ds:DigestValue>cP7fegigIHo21JPfMbBD0kMCC4bu38df7pZYaeVdHB8=</ds:DigestValue>
+</ds:Reference>
+<ds:Reference>
+<ds:Transforms>
+<ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+</ds:Transforms>
+<ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+<ds:DigestValue>7I7N0rZ/xpUJMU+6usN74FiwneSYJP9JPGL8HaHhRoI=</ds:DigestValue>
+</ds:Reference>
+</ds:SignedInfo>
+<ds:SignatureValue>
+Y8ngZdI7pNDrwIc/24IMW+k0Ni7FmAVdNm2e2Acg/0DvHNGYx8GdRodk3BydQ/aIYOuoQB+7csUQ
+zU42VuWC4Hvl0ZRiEwOeB/sDjxmaXxqTjDEz4c1Ti5SSFXAUvGNFHqXVr50K6KFzVr+F5ZNYmiYp
+8YXEjH390LktXfM+KvmTu2HWHUsiFmXSqjIhA5t36SQsjf3LYdLekmwI3C6W9mRKzdXb3xNNaI1l
+eCbKcHLjZOodgkgqynN1ZLDyqfeDV00yQLCTAYpddgdf063qvLZqETExTyu8MFMKLXVkRjPdPrmg
+bLa52AOMlEIXv+pXNaM2GqCz0ZWPPYO+ZOm1fQ==
+</ds:SignatureValue>
+<ds:KeyInfo Id="_a11e4d8d-dfc8-458e-a503-6bea9b27454e">
+<ds:X509Data>
+<ds:X509IssuerSerial>
+<ds:X509IssuerName>CN=TEST ETS IPS Issuing CA,O=EthSwitch,C=ET</ds:X509IssuerName>
+<ds:X509SerialNumber>423714158916038225117618563593098199125983259</ds:X509SerialNumber>
+</ds:X509IssuerSerial>
+</ds:X509Data>
+</ds:KeyInfo>
+<ds:Object><xades:QualifyingProperties xmlns:xades="http://uri.etsi.org/01903/v1.3.2#"><xades:SignedProperties Id="f0ea1e56-4b6c-475b-b3b1-690a17ae0201"><xades:SignedSignatureProperties><xades:SigningTime>2025-04-03T12:24:09.125Z</xades:SigningTime></xades:SignedSignatureProperties></xades:SignedProperties></xades:QualifyingProperties></ds:Object></ds:Signature></document:Sgntr><header:Rltd>
+            <header:Fr>
+                <header:FIId>
+                    <header:FinInstnId>
+                        <header:Othr>
+                            <header:Id>ETSETAA</header:Id>
+                        </header:Othr>
+                    </header:FinInstnId>
+                </header:FIId>
+            </header:Fr>
+            <header:To>
+                <header:FIId>
+                    <header:FinInstnId>
+                        <header:Othr>
+                            <header:Id>FP</header:Id>
+                        </header:Othr>
+                    </header:FinInstnId>
+                </header:FIId>
+            </header:To>
+            <header:BizMsgIdr>ETSETAA19343d31f83843689</header:BizMsgIdr>
+            <header:MsgDefIdr>pacs.008.001.10</header:MsgDefIdr>
+            <header:CreDt>2025-03-20T10:57:44.044Z</header:CreDt>
+        </header:Rltd>
+    </header:AppHdr>
+    <document:Document>
+        <document:FIToFIPmtStsRpt>
+            <document:GrpHdr>
+                <document:MsgId>ETSETAA507910266346349567778</document:MsgId>
+                <document:CreDtTm>2025-03-20T10:57:46.440+03:00</document:CreDtTm>
+                <document:InstgAgt>
+                    <document:FinInstnId>
+                        <document:Othr>
+                            <document:Id>ETSETAA</document:Id>
+                        </document:Othr>
+                    </document:FinInstnId>
+                </document:InstgAgt>
+                <document:InstdAgt>
+                    <document:FinInstnId>
+                        <document:Othr>
+                            <document:Id>ETSETAA</document:Id>
+                        </document:Othr>
+                    </document:FinInstnId>
+                </document:InstdAgt>
+            </document:GrpHdr>
+            <document:OrgnlGrpInfAndSts>
+                <document:OrgnlMsgId>ETSETAA19343d31f83843689</document:OrgnlMsgId>
+                <document:OrgnlMsgNmId>pacs.008.001.10</document:OrgnlMsgNmId>
+                <document:OrgnlCreDtTm>2025-03-20T08:58:07.430465595+01:00</document:OrgnlCreDtTm>
+            </document:OrgnlGrpInfAndSts>
+            <document:TxInfAndSts>
+                <document:OrgnlEndToEndId>ETSETAAffa3a624eef6474ab</document:OrgnlEndToEndId>
+                <document:OrgnlTxId>ETSETAAe4303a40330e4d898</document:OrgnlTxId>
+                <document:TxSts>ACSC</document:TxSts>
+                <document:AccptncDtTm>2025-03-20T07:58:07.430504893Z</document:AccptncDtTm>
+                <document:OrgnlTxRef>
+                    <document:IntrBkSttlmAmt Ccy="ETB">25.0</document:IntrBkSttlmAmt>
+                    <document:Amt>
+                        <document:InstdAmt Ccy="ETB">25.0</document:InstdAmt>
+                    </document:Amt>
+                    <document:PmtTpInf>
+                        <document:CtgyPurp>
+                            <document:Prtry>C2BSQR</document:Prtry>
+                        </document:CtgyPurp>
+                    </document:PmtTpInf>
+                    <document:RmtInf>
+                        <document:Ustrd>ggg</document:Ustrd>
+                        <document:Strd>
+                            <document:RfrdDocAmt>
+                                <document:DuePyblAmt Ccy="ETB">0</document:DuePyblAmt>
+                            </document:RfrdDocAmt>
+                        </document:Strd>
+                    </document:RmtInf>
+                    <document:Dbtr>
+                        <document:Pty>
+                            <document:Nm>Axum Electronics</document:Nm>
+                            <document:PstlAdr>
+                                <document:AdrLine>Addis Ababa Sarbet8</document:AdrLine>
+                            </document:PstlAdr>
+                            <document:Id>
+                                <document:PrvtId>
+                                    <document:Othr>
+                                        <document:Id>MOBN</document:Id>
+                                        <document:SchmeNm>
+                                            <document:Prtry>LPNB</document:Prtry>
+                                        </document:SchmeNm>
+                                    </document:Othr>
+                                </document:PrvtId>
+                            </document:Id>
+                            <document:CtctDtls>
+                                <document:MobNb>+251-910988905</document:MobNb>
+                                <document:EmailAdr>email@customer.com</document:EmailAdr>
+                            </document:CtctDtls>
+                        </document:Pty>
+                    </document:Dbtr>
+                    <document:DbtrAcct>
+                        <document:Id>
+                            <document:Othr>
+                                <document:Id>5678901234</document:Id>
+                                <document:SchmeNm>
+                                    <document:Prtry>ACCT</document:Prtry>
+                                </document:SchmeNm>
+                                <document:Issr>C</document:Issr>
+                            </document:Othr>
+                        </document:Id>
+                    </document:DbtrAcct>
+                    <document:Cdtr>
+                        <document:Pty>
+                            <document:Nm>ABC Store</document:Nm>
+                            <document:PstlAdr>
+                                <document:StrtNm>Tito St.</document:StrtNm>
+                                <document:BldgNb>17</document:BldgNb>
+                                <document:PstCd>18444</document:PstCd>
+                                <document:TwnNm>Addis Ababa</document:TwnNm>
+                                <document:Ctry>AA</document:Ctry>
+                                <document:AdrLine>Kazanchis</document:AdrLine>
+                            </document:PstlAdr>
+                            <document:Id>
+                                <document:OrgId>
+                                    <document:Othr>
+                                        <document:Id>5411</document:Id>
+                                    </document:Othr>
+                                </document:OrgId>
+                            </document:Id>
+                            <document:CtryOfRes>ET</document:CtryOfRes>
+                            <document:CtctDtls>
+                                <document:Nm>ABC Store</document:Nm>
+
+                                <document:Othr>
+                                    <document:ChanlTp>QRCP</document:ChanlTp>
+
+                                </document:Othr>
+                            </document:CtctDtls>
+                        </document:Pty>
+                    </document:Cdtr>
+                    <document:CdtrAcct>
+                        <document:Id>
+                            <document:Othr>
+                                <document:Id>1234567890</document:Id>
+                                <document:SchmeNm>
+                                    <document:Prtry>ACCT</document:Prtry>
+                                </document:SchmeNm>
+                            </document:Othr>
+                        </document:Id>
+                    </document:CdtrAcct>
+                    <document:UltmtCdtr>
+                        <document:Pty>
+                            <document:Id>
+                                <document:PrvtId>
+                                    <document:Othr>
+                                        <document:Id>MOBN</document:Id>
+                                        <document:SchmeNm>
+                                            <document:Prtry>MOBN</document:Prtry>
+                                        </document:SchmeNm>
+                                    </document:Othr>
+                                </document:PrvtId>
+                            </document:Id>
+                        </document:Pty>
+                    </document:UltmtCdtr>
+                    <document:Purp>
+                        <document:Prtry>GOVTP</document:Prtry>
+                    </document:Purp>
+                </document:OrgnlTxRef>
+            </document:TxInfAndSts>
+        </document:FIToFIPmtStsRpt>
+    </document:Document>
+</FPEnvelope>] as "application/xml" using [org.springframework.http.converter.StringHttpMessageConverter@63b3ee82]
+2025-04-03 15:24:18,917 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-5] Null ModelAndView returned to DispatcherServlet with name 'dispatcherServlet': assuming HandlerAdapter completed request handling
+2025-04-03 15:24:18,918 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-5] Successfully completed request
+2025-04-03 15:24:47,686 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-6] DispatcherServlet with name 'dispatcherServlet' processing POST request for [/api/verify]
+2025-04-03 15:24:47,688 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [http-nio-9181-exec-6] Looking up handler method for path /api/verify
+2025-04-03 15:24:47,693 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [http-nio-9181-exec-6] Returning handler method [public java.lang.String org.ips.xml.signer.xmlsigner.controller.MessageDigestVerificationController.verifyXml(java.lang.String)]
+2025-04-03 15:24:47,705 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-6] Read [class java.lang.String] as "application/xml;charset=UTF-8" with [org.springframework.http.converter.StringHttpMessageConverter@63b3ee82]
+2025-04-03 15:26:04,089 DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor [http-nio-9181-exec-6] Written [true] as "text/plain" using [org.springframework.http.converter.StringHttpMessageConverter@63b3ee82]
+2025-04-03 15:26:04,089 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-6] Null ModelAndView returned to DispatcherServlet with name 'dispatcherServlet': assuming HandlerAdapter completed request handling
+2025-04-03 15:26:04,091 DEBUG o.s.w.s.DispatcherServlet [http-nio-9181-exec-6] Successfully completed request
+2025-04-03 15:28:11,974 DEBUG o.s.w.c.s.StandardServletEnvironment [main] Adding [servletConfigInitParams] PropertySource with lowest search precedence
+2025-04-03 15:28:11,984 DEBUG o.s.w.c.s.StandardServletEnvironment [main] Adding [servletContextInitParams] PropertySource with lowest search precedence
+2025-04-03 15:28:11,984 DEBUG o.s.w.c.s.StandardServletEnvironment [main] Adding [systemProperties] PropertySource with lowest search precedence
+2025-04-03 15:28:11,984 DEBUG o.s.w.c.s.StandardServletEnvironment [main] Adding [systemEnvironment] PropertySource with lowest search precedence
+2025-04-03 15:28:11,985 DEBUG o.s.w.c.s.StandardServletEnvironment [main] Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
+2025-04-03 15:28:16,408 DEBUG o.s.w.c.s.StandardServletEnvironment [main] Adding [applicationConfig: [classpath:/application-dev.properties]] PropertySource with search precedence immediately lower than [applicationConfigurationProperties]
+2025-04-03 15:28:16,410 DEBUG o.s.w.c.s.StandardServletEnvironment [main] Adding [applicationConfig: [classpath:/application.properties]] PropertySource with search precedence immediately lower than [applicationConfig: [classpath:/application-dev.properties]]
+2025-04-03 15:28:16,410 DEBUG o.s.w.c.s.StandardServletEnvironment [main] Removing [applicationConfigurationProperties] PropertySource
+2025-04-03 15:28:16,417 DEBUG o.s.w.c.s.StandardServletEnvironment [main] Removing [defaultProperties] PropertySource
+2025-04-03 15:28:20,132 DEBUG o.s.w.c.ContextLoader [localhost-startStop-1] Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
+2025-04-03 15:28:20,134 INFO o.s.w.c.ContextLoader [localhost-startStop-1] Root WebApplicationContext: initialization completed in 7391 ms
+2025-04-03 15:28:20,479 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [servletConfigInitParams] PropertySource with lowest search precedence
+2025-04-03 15:28:20,480 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [servletContextInitParams] PropertySource with lowest search precedence
+2025-04-03 15:28:20,483 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [systemProperties] PropertySource with lowest search precedence
+2025-04-03 15:28:20,485 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [systemEnvironment] PropertySource with lowest search precedence
+2025-04-03 15:28:20,486 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
+2025-04-03 15:28:20,515 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [servletConfigInitParams] PropertySource with lowest search precedence
+2025-04-03 15:28:20,515 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [servletContextInitParams] PropertySource with lowest search precedence
+2025-04-03 15:28:20,516 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [systemProperties] PropertySource with lowest search precedence
+2025-04-03 15:28:20,516 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [systemEnvironment] PropertySource with lowest search precedence
+2025-04-03 15:28:20,516 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
+2025-04-03 15:28:20,632 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [servletConfigInitParams] PropertySource with lowest search precedence
+2025-04-03 15:28:20,632 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [servletContextInitParams] PropertySource with lowest search precedence
+2025-04-03 15:28:20,632 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [systemProperties] PropertySource with lowest search precedence
+2025-04-03 15:28:20,634 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [systemEnvironment] PropertySource with lowest search precedence
+2025-04-03 15:28:20,634 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
+2025-04-03 15:28:20,683 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [servletConfigInitParams] PropertySource with lowest search precedence
+2025-04-03 15:28:20,683 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [servletContextInitParams] PropertySource with lowest search precedence
+2025-04-03 15:28:20,683 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [systemProperties] PropertySource with lowest search precedence
+2025-04-03 15:28:20,683 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [systemEnvironment] PropertySource with lowest search precedence
+2025-04-03 15:28:20,683 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
+2025-04-03 15:28:20,760 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [servletConfigInitParams] PropertySource with lowest search precedence
+2025-04-03 15:28:20,761 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [servletContextInitParams] PropertySource with lowest search precedence
+2025-04-03 15:28:20,762 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [systemProperties] PropertySource with lowest search precedence
+2025-04-03 15:28:20,762 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Adding [systemEnvironment] PropertySource with lowest search precedence
+2025-04-03 15:28:20,762 DEBUG o.s.w.c.s.StandardServletEnvironment [localhost-startStop-1] Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
+2025-04-03 15:28:20,887 DEBUG o.s.w.c.s.StandardServletEnvironment [main] Replacing [servletContextInitParams] PropertySource with [servletContextInitParams]
+2025-04-03 15:30:46,278 INFO o.s.w.s.m.m.a.RequestMappingHandlerAdapter [main] Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@700fb871: startup date [Thu Apr 03 15:28:12 EAT 2025]; root of context hierarchy
+2025-04-03 15:30:46,642 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] Looking for request mappings in application context: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@700fb871: startup date [Thu Apr 03 15:28:12 EAT 2025]; root of context hierarchy
+2025-04-03 15:30:46,726 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] 1 request handler methods found on class org.ips.xml.signer.xmlsigner.controller.DigestController: {public java.lang.String org.ips.xml.signer.xmlsigner.controller.DigestController.handleXmlRequest(java.lang.String)={[/api/digest],methods=[POST],consumes=[application/xml],produces=[application/xml]}}
+2025-04-03 15:30:46,728 INFO o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] Mapped "{[/api/digest],methods=[POST],consumes=[application/xml],produces=[application/xml]}" onto public java.lang.String org.ips.xml.signer.xmlsigner.controller.DigestController.handleXmlRequest(java.lang.String)
+2025-04-03 15:30:46,735 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] 1 request handler methods found on class org.ips.xml.signer.xmlsigner.controller.JWTController: {public org.springframework.http.ResponseEntity org.ips.xml.signer.xmlsigner.controller.JWTController.getJwt(java.lang.String)={[/api/jwt],methods=[POST]}}
+2025-04-03 15:30:46,736 INFO o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] Mapped "{[/api/jwt],methods=[POST]}" onto public org.springframework.http.ResponseEntity<org.ips.xml.signer.xmlsigner.response.RestResponse> org.ips.xml.signer.xmlsigner.controller.JWTController.getJwt(java.lang.String)
+2025-04-03 15:30:46,740 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] 2 request handler methods found on class org.ips.xml.signer.xmlsigner.controller.MessageDigestVerificationController: {public java.lang.String org.ips.xml.signer.xmlsigner.controller.MessageDigestVerificationController.verifyXml(java.lang.String)={[/api/verify],methods=[POST],consumes=[application/xml]}, public java.lang.String org.ips.xml.signer.xmlsigner.controller.MessageDigestVerificationController.evictCach()={[/api/evictCache],methods=[POST]}}
+2025-04-03 15:30:46,741 INFO o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] Mapped "{[/api/verify],methods=[POST],consumes=[application/xml]}" onto public java.lang.String org.ips.xml.signer.xmlsigner.controller.MessageDigestVerificationController.verifyXml(java.lang.String)
+2025-04-03 15:30:46,742 INFO o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] Mapped "{[/api/evictCache],methods=[POST]}" onto public java.lang.String org.ips.xml.signer.xmlsigner.controller.MessageDigestVerificationController.evictCach()
+2025-04-03 15:30:46,748 DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] 2 request handler methods found on class org.springframework.boot.autoconfigure.web.BasicErrorController: {public org.springframework.http.ResponseEntity org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)={[/error]}, public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)={[/error],produces=[text/html]}}
+2025-04-03 15:30:46,749 INFO o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2025-04-03 15:30:46,750 INFO o.s.w.s.m.m.a.RequestMappingHandlerMapping [main] Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2025-04-03 15:30:46,843 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Looking for URL mappings in application context: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@700fb871: startup date [Thu Apr 03 15:28:12 EAT 2025]; root of context hierarchy
+2025-04-03 15:30:46,844 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor': no URL paths identified
+2025-04-03 15:30:46,844 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor': no URL paths identified
+2025-04-03 15:30:46,844 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.context.annotation.internalRequiredAnnotationProcessor': no URL paths identified
+2025-04-03 15:30:46,845 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.context.annotation.internalCommonAnnotationProcessor': no URL paths identified
+2025-04-03 15:30:46,845 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.context.event.internalEventListenerProcessor': no URL paths identified
+2025-04-03 15:30:46,845 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.context.event.internalEventListenerFactory': no URL paths identified
+2025-04-03 15:30:46,845 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'xmlSignerApplication': no URL paths identified
+2025-04-03 15:30:46,845 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.internalCachingMetadataReaderFactory': no URL paths identified
+2025-04-03 15:30:46,845 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'restClientConfig': no URL paths identified
+2025-04-03 15:30:46,845 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'digestController': no URL paths identified
+2025-04-03 15:30:46,845 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'JWTController': no URL paths identified
+2025-04-03 15:30:46,845 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'messageDigestVerificationController': no URL paths identified
+2025-04-03 15:30:46,845 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'certeficateAndKeysUtility': no URL paths identified
+2025-04-03 15:30:46,845 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'globalExceptionHandler': no URL paths identified
+2025-04-03 15:30:46,848 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'certificateCacheRepository': no URL paths identified
+2025-04-03 15:30:46,848 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'restResponse': no URL paths identified
+2025-04-03 15:30:46,848 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'callBackApiClientService': no URL paths identified
+2025-04-03 15:30:46,848 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'certeficatClientService': no URL paths identified
+2025-04-03 15:30:46,848 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'tokenGenerationClientService': no URL paths identified
+2025-04-03 15:30:46,849 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'certificateManager': no URL paths identified
+2025-04-03 15:30:46,849 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'digestServiceImpl': no URL paths identified
+2025-04-03 15:30:46,849 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'XMLDigestVerifierImpl': no URL paths identified
+2025-04-03 15:30:46,849 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'JWTManager': no URL paths identified
+2025-04-03 15:30:46,849 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'tokenGenerationManager': no URL paths identified
+2025-04-03 15:30:46,849 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'jwtSigningUtils': no URL paths identified
+2025-04-03 15:30:46,849 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'XMLFileUtility': no URL paths identified
+2025-04-03 15:30:46,849 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'xmlSignUtil': no URL paths identified
+2025-04-03 15:30:46,849 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'restTemplate': no URL paths identified
+2025-04-03 15:30:46,849 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.scheduling.annotation.ProxyAsyncConfiguration': no URL paths identified
+2025-04-03 15:30:46,849 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.context.annotation.internalAsyncAnnotationProcessor': no URL paths identified
+2025-04-03 15:30:46,850 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.web.support.SpringBootServletInitializer$ErrorPageFilterConfiguration': no URL paths identified
+2025-04-03 15:30:46,850 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'errorPageFilter': no URL paths identified
+2025-04-03 15:30:46,850 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.AutoConfigurationPackages': no URL paths identified
+2025-04-03 15:30:46,850 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.context.PropertyPlaceholderAutoConfiguration': no URL paths identified
+2025-04-03 15:30:46,850 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.condition.BeanTypeRegistry': no URL paths identified
+2025-04-03 15:30:46,850 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'propertySourcesPlaceholderConfigurer': no URL paths identified
+2025-04-03 15:30:46,850 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$Jackson2ObjectMapperBuilderCustomizerConfiguration': no URL paths identified
+2025-04-03 15:30:46,850 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'standardJacksonObjectMapperBuilderCustomizer': no URL paths identified
+2025-04-03 15:30:46,850 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'spring.jackson-org.springframework.boot.autoconfigure.jackson.JacksonProperties': no URL paths identified
+2025-04-03 15:30:46,850 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor': no URL paths identified
+2025-04-03 15:30:46,850 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor.store': no URL paths identified
+2025-04-03 15:30:46,851 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$JacksonObjectMapperBuilderConfiguration': no URL paths identified
+2025-04-03 15:30:46,851 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'jacksonObjectMapperBuilder': no URL paths identified
+2025-04-03 15:30:46,851 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$JacksonObjectMapperConfiguration': no URL paths identified
+2025-04-03 15:30:46,851 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'jacksonObjectMapper': no URL paths identified
+2025-04-03 15:30:46,851 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration': no URL paths identified
+2025-04-03 15:30:46,852 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'jsonComponentModule': no URL paths identified
+2025-04-03 15:30:46,852 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.websocket.WebSocketAutoConfiguration$TomcatWebSocketConfiguration': no URL paths identified
+2025-04-03 15:30:46,852 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'websocketContainerCustomizer': no URL paths identified
+2025-04-03 15:30:46,852 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.websocket.WebSocketAutoConfiguration': no URL paths identified
+2025-04-03 15:30:46,852 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.EmbeddedServletContainerAutoConfiguration$EmbeddedTomcat': no URL paths identified
+2025-04-03 15:30:46,852 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'tomcatEmbeddedServletContainerFactory': no URL paths identified
+2025-04-03 15:30:46,853 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.EmbeddedServletContainerAutoConfiguration': no URL paths identified
+2025-04-03 15:30:46,853 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'embeddedServletContainerCustomizerBeanPostProcessor': no URL paths identified
+2025-04-03 15:30:46,853 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'errorPageRegistrarBeanPostProcessor': no URL paths identified
+2025-04-03 15:30:46,853 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.DispatcherServletAutoConfiguration$DispatcherServletConfiguration': no URL paths identified
+2025-04-03 15:30:46,853 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'dispatcherServlet': no URL paths identified
+2025-04-03 15:30:46,853 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'spring.mvc-org.springframework.boot.autoconfigure.web.WebMvcProperties': no URL paths identified
+2025-04-03 15:30:46,853 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.DispatcherServletAutoConfiguration$DispatcherServletRegistrationConfiguration': no URL paths identified
+2025-04-03 15:30:46,853 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'dispatcherServletRegistration': no URL paths identified
+2025-04-03 15:30:46,853 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.DispatcherServletAutoConfiguration': no URL paths identified
+2025-04-03 15:30:46,853 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration': no URL paths identified
+2025-04-03 15:30:46,853 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'error': no URL paths identified
+2025-04-03 15:30:46,854 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'beanNameViewResolver': no URL paths identified
+2025-04-03 15:30:46,854 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration$DefaultErrorViewResolverConfiguration': no URL paths identified
+2025-04-03 15:30:46,854 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'conventionErrorViewResolver': no URL paths identified
+2025-04-03 15:30:46,854 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration': no URL paths identified
+2025-04-03 15:30:46,854 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'errorAttributes': no URL paths identified
+2025-04-03 15:30:46,854 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'basicErrorController': no URL paths identified
+2025-04-03 15:30:46,854 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'errorPageCustomizer': no URL paths identified
+2025-04-03 15:30:46,854 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'preserveErrorControllerTargetClassPostProcessor': no URL paths identified
+2025-04-03 15:30:46,854 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'spring.resources-org.springframework.boot.autoconfigure.web.ResourceProperties': no URL paths identified
+2025-04-03 15:30:46,854 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration$EnableWebMvcConfiguration': no URL paths identified
+2025-04-03 15:30:46,854 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'requestMappingHandlerAdapter': no URL paths identified
+2025-04-03 15:30:46,855 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'requestMappingHandlerMapping': no URL paths identified
+2025-04-03 15:30:46,855 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'mvcPathMatcher': no URL paths identified
+2025-04-03 15:30:46,855 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'mvcUrlPathHelper': no URL paths identified
+2025-04-03 15:30:46,855 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'mvcContentNegotiationManager': no URL paths identified
+2025-04-03 15:30:46,859 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'viewControllerHandlerMapping': no URL paths identified
+2025-04-03 15:30:46,859 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'beanNameHandlerMapping': no URL paths identified
+2025-04-03 15:30:46,859 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'resourceHandlerMapping': no URL paths identified
+2025-04-03 15:30:46,859 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'mvcResourceUrlProvider': no URL paths identified
+2025-04-03 15:30:46,859 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'defaultServletHandlerMapping': no URL paths identified
+2025-04-03 15:30:46,860 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'mvcConversionService': no URL paths identified
+2025-04-03 15:30:46,869 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'mvcValidator': no URL paths identified
+2025-04-03 15:30:46,869 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'mvcUriComponentsContributor': no URL paths identified
+2025-04-03 15:30:46,869 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'httpRequestHandlerAdapter': no URL paths identified
+2025-04-03 15:30:46,869 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'simpleControllerHandlerAdapter': no URL paths identified
+2025-04-03 15:30:46,869 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'handlerExceptionResolver': no URL paths identified
+2025-04-03 15:30:46,869 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'mvcViewResolver': no URL paths identified
+2025-04-03 15:30:46,870 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter$FaviconConfiguration': no URL paths identified
+2025-04-03 15:30:46,870 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'faviconHandlerMapping': no URL paths identified
+2025-04-03 15:30:46,870 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'faviconRequestHandler': no URL paths identified
+2025-04-03 15:30:46,870 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter': no URL paths identified
+2025-04-03 15:30:46,870 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'defaultViewResolver': no URL paths identified
+2025-04-03 15:30:46,870 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'viewResolver': no URL paths identified
+2025-04-03 15:30:46,870 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'welcomePageHandlerMapping': no URL paths identified
+2025-04-03 15:30:46,870 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'requestContextFilter': no URL paths identified
+2025-04-03 15:30:46,877 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration': no URL paths identified
+2025-04-03 15:30:46,877 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'hiddenHttpMethodFilter': no URL paths identified
+2025-04-03 15:30:46,877 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'httpPutFormContentFilter': no URL paths identified
+2025-04-03 15:30:46,877 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.jmx.JmxAutoConfiguration': no URL paths identified
+2025-04-03 15:30:46,877 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'mbeanExporter': no URL paths identified
+2025-04-03 15:30:46,877 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'objectNamingStrategy': no URL paths identified
+2025-04-03 15:30:46,877 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'mbeanServer': no URL paths identified
+2025-04-03 15:30:46,877 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.context.ConfigurationPropertiesAutoConfiguration': no URL paths identified
+2025-04-03 15:30:46,877 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration': no URL paths identified
+2025-04-03 15:30:46,878 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'validator': no URL paths identified
+2025-04-03 15:30:46,878 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'methodValidationPostProcessor': no URL paths identified
+2025-04-03 15:30:46,878 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.HttpMessageConvertersAutoConfiguration$StringHttpMessageConverterConfiguration': no URL paths identified
+2025-04-03 15:30:46,879 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'stringHttpMessageConverter': no URL paths identified
+2025-04-03 15:30:46,879 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'spring.http.encoding-org.springframework.boot.autoconfigure.web.HttpEncodingProperties': no URL paths identified
+2025-04-03 15:30:46,879 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.JacksonHttpMessageConvertersConfiguration$MappingJackson2HttpMessageConverterConfiguration': no URL paths identified
+2025-04-03 15:30:46,879 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'mappingJackson2HttpMessageConverter': no URL paths identified
+2025-04-03 15:30:46,880 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.JacksonHttpMessageConvertersConfiguration': no URL paths identified
+2025-04-03 15:30:46,886 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.HttpMessageConvertersAutoConfiguration': no URL paths identified
+2025-04-03 15:30:46,886 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'messageConverters': no URL paths identified
+2025-04-03 15:30:46,886 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.info.ProjectInfoAutoConfiguration': no URL paths identified
+2025-04-03 15:30:46,886 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'spring.info-org.springframework.boot.autoconfigure.info.ProjectInfoProperties': no URL paths identified
+2025-04-03 15:30:46,886 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.HttpEncodingAutoConfiguration': no URL paths identified
+2025-04-03 15:30:46,886 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'characterEncodingFilter': no URL paths identified
+2025-04-03 15:30:46,886 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'localeCharsetMappingsCustomizer': no URL paths identified
+2025-04-03 15:30:46,886 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.MultipartAutoConfiguration': no URL paths identified
+2025-04-03 15:30:46,886 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'multipartConfigElement': no URL paths identified
+2025-04-03 15:30:46,886 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'multipartResolver': no URL paths identified
+2025-04-03 15:30:46,888 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'spring.http.multipart-org.springframework.boot.autoconfigure.web.MultipartProperties': no URL paths identified
+2025-04-03 15:30:46,888 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.ServerPropertiesAutoConfiguration': no URL paths identified
+2025-04-03 15:30:46,888 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'serverProperties': no URL paths identified
+2025-04-03 15:30:46,888 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'duplicateServerPropertiesDetector': no URL paths identified
+2025-04-03 15:30:46,888 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.WebClientAutoConfiguration$RestTemplateConfiguration': no URL paths identified
+2025-04-03 15:30:46,888 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'restTemplateBuilder': no URL paths identified
+2025-04-03 15:30:46,888 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.boot.autoconfigure.web.WebClientAutoConfiguration': no URL paths identified
+2025-04-03 15:30:46,888 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'autoConfigurationReport': no URL paths identified
+2025-04-03 15:30:46,888 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'springApplicationArguments': no URL paths identified
+2025-04-03 15:30:46,888 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'springBootBanner': no URL paths identified
+2025-04-03 15:30:46,888 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'springBootLoggingSystem': no URL paths identified
+2025-04-03 15:30:46,888 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'environment': no URL paths identified
+2025-04-03 15:30:46,889 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'systemProperties': no URL paths identified
+2025-04-03 15:30:46,889 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'systemEnvironment': no URL paths identified
+2025-04-03 15:30:46,889 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importRegistry': no URL paths identified
+2025-04-03 15:30:46,889 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'messageSource': no URL paths identified
+2025-04-03 15:30:46,889 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'applicationEventMulticaster': no URL paths identified
+2025-04-03 15:30:46,889 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'servletContext': no URL paths identified
+2025-04-03 15:30:46,889 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'contextParameters': no URL paths identified
+2025-04-03 15:30:46,889 DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping [main] Rejected bean name 'contextAttributes': no URL paths identified
+2025-04-03 15:30:46,961 INFO o.s.w.s.h.SimpleUrlHandlerMapping [main] Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2025-04-03 15:30:46,962 INFO o.s.w.s.h.SimpleUrlHandlerMapping [main] Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2025-04-03 15:30:47,076 DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver [main] Looking for exception mappings: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@700fb871: startup date [Thu Apr 03 15:28:12 EAT 2025]; root of context hierarchy
+2025-04-03 15:30:47,094 INFO o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver [main] Detected @ExceptionHandler methods in globalExceptionHandler
+2025-04-03 15:30:47,222 INFO o.s.w.s.h.SimpleUrlHandlerMapping [main] Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2025-04-03 15:30:48,974 DEBUG o.s.w.s.r.ResourceUrlProvider [main] Looking for resource handler mappings
+2025-04-03 15:30:48,976 DEBUG o.s.w.s.r.ResourceUrlProvider [main] Found resource handler mapping: URL pattern="/**/favicon.ico", locations=[ServletContext resource [/], class path resource [META-INF/resources/], class path resource [resources/], class path resource [static/], class path resource [public/], class path resource []], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@765ffb14]
+2025-04-03 15:30:48,976 DEBUG o.s.w.s.r.ResourceUrlProvider [main] Found resource handler mapping: URL pattern="/webjars/**", locations=[class path resource [META-INF/resources/webjars/]], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@57562473]
+2025-04-03 15:30:48,977 DEBUG o.s.w.s.r.ResourceUrlProvider [main] Found resource handler mapping: URL pattern="/**", locations=[ServletContext resource [/], class path resource [META-INF/resources/], class path resource [resources/], class path resource [static/], class path resource [public/]], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@7a360554]
+2025-04-03 15:30:50,720 DEBUG o.s.w.c.s.StandardServletEnvironment [main] Adding [server.ports] PropertySource with highest search precedence

@@ -20,8 +20,7 @@ public class TokenGenerationManager {
     private String userName;
     @Value("${ets.ips.password}")
     private String password;
-    @Value("${ets.ips.signed.jwt}")
-    private String signeJWT;
+
     TokenGenerationClientService service;
     JWTManager jwtManager;
 

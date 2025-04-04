@@ -46,3 +46,15 @@ This command will display information about the keystore's contents.
 Note: If you have an existing certificate chain (e.g., intermediate and root certificates), you can include them in the PKCS#12 file by appending them to the public_certificate.pem file or specifying them with the -certfile option. This ensures the entire chain is included in the keystore.​
 
 By following these steps, you can successfully import your RSA private key and public certificate into a PKCS#12 keystore using OpenSSL
+
+
+
+openssl pkcs12 -export -out C:/etswitch/national_payment_gateway/certs/keys/participants/wegagen/keystore.p12 -inkey C:/etswitch/xmlSigner_2/xmlSigner/src/main/resources/xml/JWT_Private.key -in C:/etswitch/xmlSigner_2/xmlSigner/src/main/resources/xml/certnew.cer -name "CBETETAA" -legacy
+
+
+
+openssl pkcs12 -export   -out C:/etswitch/national_payment_gateway/certs/keys/participants/wegagen/keystore1.p12   -inkey C:/etswitch/xmlSigner_2/xmlSigner/src/main/resources/xml/JWT_Private.key   -in C:/etswitch/xmlSigner_2/xmlSigner/src/main/resources/xml/certnew.cer   -name "CBETETAA"   -legacy
+
+
+keytool -delete -alias  "CBETETAA" -keystore  C:/etswitch/national_payment_gateway/certs/keys/participants/wegagen/keystore.p12
+
