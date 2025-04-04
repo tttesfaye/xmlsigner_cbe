@@ -79,16 +79,5 @@ public class DigestServiceImpl implements DigestService {
         }
     }
 
-    private Document createDocumentFromString(String xmlString) {
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        factory.setNamespaceAware(true);
-        DocumentBuilder builder;
-        try {
-            builder = factory.newDocumentBuilder();
-            return builder.parse(new InputSource(new StringReader(xmlString)));
-        } catch (Exception e) {
-            log.error(e.getMessage());
-        }
-        return null;
-    }
+
 }
