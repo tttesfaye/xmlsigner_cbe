@@ -1,7 +1,7 @@
 <configuration>
 
    <springProfile name="dev">
-        <property name="HOME_LOG" value="src/main/resources/logs/app.log"/>
+        <property name="HOME_LOG" value="src/main/resources/logs/ap1p.log"/>
     </springProfile>
 
     <springProfile name="test">

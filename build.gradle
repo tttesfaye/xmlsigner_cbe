@@ -1,56 +1,83 @@
 plugins {
     id 'java'
-    id 'jar'
+    id 'war' // ✅ required for WebSphere
     id 'org.springframework.boot' version '1.5.0.RELEASE'
     id 'io.spring.dependency-management' version '1.1.0'
+    id 'org.owasp.dependencycheck' version '8.4.0' // ✅ OWASP plugin for CVE checks
 }
+
 group = 'ips-client-v1'
 version = '0.1'
+
 java {
-    sourceCompatibility = 'VERSION_1.8'
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
-configurations {
-    compileOnly {
-        extendsFrom annotationProcessor
+
+dependencyCheck {
+    failBuildOnCVSS = 7.0
+    suppressionFile = 'dependency-check-suppress.xml'
+    analyzers {
+        assemblyEnabled = false
     }
 }
+
+configurations {
+    providedRuntime
+}
+
 repositories {
     mavenCentral()
     maven { url 'https://repo.spring.io/milestone' }
     maven { url 'https://repo.spring.io/snapshot' }
 }
+
 dependencies {
-//
-    implementation 'org.springframework.boot:spring-boot-starter-web'
+    // ✅ Explicitly use provided servlet API (compile-time only, not packaged in WAR)
+    providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
+
+    // ✅ Use web starter without embedded Tomcat
     implementation('org.springframework.boot:spring-boot-starter-web') {
-        exclude group: 'org.glassfish', module: 'jakarta.el'
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
     }
 
+    // ✅ Manually declare logging, validation, etc.
     implementation 'javax.validation:validation-api:2.0.1.Final'
     implementation 'org.hibernate.validator:hibernate-validator:6.1.0.Final'
     implementation 'org.apache.tomcat.embed:tomcat-embed-el'
     implementation 'jakarta.el:jakarta.el-api:3.0.2'
     implementation group: 'org.apache.santuario', name: 'xmlsec', version: '2.1.2'
     implementation 'net.sf.saxon:Saxon-HE:9.9.1-1'
-    implementation  'ch.qos.logback:logback-core'
+    implementation 'ch.qos.logback:logback-core'
     implementation 'wsdl4j:wsdl4j'
-    implementation group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.12.3'
-    testImplementation 'junit:junit:4.13.1'
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
-    runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.12.3'
-    runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.12.3'
-    implementation 'com.fasterxml.jackson.core:jackson-databind'
+    implementation 'io.jsonwebtoken:jjwt-api:0.12.3'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.3'
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.3'
+
+    // ✅ Downgraded Jackson to 2.8.x for compatibility with Spring Boot 1.5.0
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.8.11.1'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.8.11'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.8.11'
+
     implementation 'com.auth0:java-jwt:3.1.0'
-    testImplementation 'org.slf4j:slf4j-api'
     implementation 'com.googlecode.xades4j:xades4j:1.5.1'
     implementation 'org.apache.commons:commons-lang3:3.13.0'
-    testImplementation('org.springframework.boot:spring-boot-starter-test')
+
+    // Testing
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // Lombok
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
-    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api'
 }
-//tasks.named('testClasses') {
-//    useJUnitPlatform()
-//}
+
+// ✅ Force Jackson alignment just in case transitive conflicts arise
+configurations.all {
+    resolutionStrategy {
+        force 'com.fasterxml.jackson.core:jackson-databind:2.8.11.1'
+        force 'com.fasterxml.jackson.core:jackson-core:2.8.11'
+        force 'com.fasterxml.jackson.core:jackson-annotations:2.8.11'
+    }
+}
