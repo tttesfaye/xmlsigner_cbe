@@ -34,10 +34,6 @@ public class CertificateCacheRepository implements CacheRepository {
 
     private volatile boolean cacheLoaded = false;
 
-    public boolean isCacheLoaded() {
-        return cacheLoaded;
-    }
-
 
     @Value("${security.pki.keystore.type}")
     private String keystoreType;
@@ -71,10 +67,12 @@ public class CertificateCacheRepository implements CacheRepository {
         try (FileInputStream keystoreStream = new FileInputStream(keystorePath)) {
             KeyStore keystore = KeyStore.getInstance(keystoreType);
             keystore.load(keystoreStream, keystorePassword.toCharArray());
-
+            log.info(" the path to the keystore is :" + keystorePath);
             Enumeration<String> aliases = keystore.aliases();
+            log.info("found  key file and there are  " + aliases.toString());
             while (aliases.hasMoreElements()) {
                 String alias = aliases.nextElement();
+                log.info("catching certificate for   " + alias);
                 Certificate certificate = keystore.getCertificate(alias);
                 if (certificate instanceof X509Certificate) {
                     certificateCache.put(alias, (X509Certificate) certificate);
@@ -82,19 +80,20 @@ public class CertificateCacheRepository implements CacheRepository {
             }
 
             // Retrieve the private key
-            Key bankPrivateKey = keystore.getKey(bankBic, keystorePassword.toCharArray());
+            Key bankPrivateKey = keystore.getKey(bankBic.toLowerCase(), keystorePassword.toCharArray());
             X509Certificate bankCertificate = certificateCache.get(bankBic.toLowerCase());
             if (bankPrivateKey instanceof PrivateKey) {
                 PrivateKey privateKey = (PrivateKey) bankPrivateKey;
                 pairCache.put("keys", new KeyCertificatePair(privateKey, bankCertificate));
-                System.out.println("Private Key Algorithm: " + privateKey.getAlgorithm());
+                log.info("catching pair of keys for   " + bankBic);
                 // Further processing of the private key
             } else {
+                log.info(" instance is " +bankPrivateKey!=null? bankPrivateKey.getClass().getCanonicalName():"");
                 log.info("No private key found with the alias: " + bankBic);
             }
-            cacheLoaded=true;
+            cacheLoaded = true;
         } catch (Exception e) {
-            cacheLoaded=false;
+            cacheLoaded = false;
             log.error("Error while loading certificates from keystore", e);
             throw new CertificateCacheException("Error while loading certificates from keystore", e);
 
@@ -108,10 +107,10 @@ public class CertificateCacheRepository implements CacheRepository {
      * @return cached certificate
      */
     public Optional<X509Certificate> get(String alias) {
-        if(!cacheLoaded){
+        if (!cacheLoaded) {
             refreshCache();
-        }else {
-            log.info(" the file is already loaded ....... trying to bet the bank private key");
+        } else {
+            log.info(" the file is already loaded ....... trying to bet the bank private key and the catched size is " + certificateCache.size());
         }
         return Optional.ofNullable(certificateCache.get(alias));
     }
@@ -164,7 +163,7 @@ public class CertificateCacheRepository implements CacheRepository {
     /**
      * Scheduled task to refresh the cache at fixed intervals
      */
-    @Scheduled(fixedRateString = "${certificate.cache.refreshInterval:3600000}")
+    @Scheduled(fixedRateString = "${certificate.cache.refreshInterval:10000}")
     public void refreshCache() {
         log.debug(" trying to refresh the cache");
         loadCertificatesFromKeystore();
@@ -180,16 +179,16 @@ public class CertificateCacheRepository implements CacheRepository {
     }
 
     public Optional<PrivateKey> getBankPrivatekey() {
-        if(!cacheLoaded){
+        if (!cacheLoaded) {
             refreshCache();
-        }else {
-            log.info(" the file is already loaded ....... trying to bet the bank private key");
+        } else {
+            log.info(" the file is already loaded ....... trying to bet the bank private key and the catched size is " + certificateCache.size());
         }
         return Optional.ofNullable(this.pairCache.get("keys").getPrivateKey());
     }
 
     public Optional<X509Certificate> getBankCertificate() {
-        if(!cacheLoaded){
+        if (!cacheLoaded) {
             refreshCache();
         }
         return Optional.ofNullable(this.pairCache.get("keys").getCertificate());

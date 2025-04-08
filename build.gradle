@@ -35,6 +35,7 @@ dependencies {
     implementation  'ch.qos.logback:logback-core'
     implementation 'wsdl4j:wsdl4j'
     implementation group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.12.3'
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
     testImplementation 'junit:junit:4.13.1'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
     runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.12.3'
