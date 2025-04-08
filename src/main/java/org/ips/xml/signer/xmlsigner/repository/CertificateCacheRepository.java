@@ -1,5 +1,6 @@
 package org.ips.xml.signer.xmlsigner.repository;
 
+import lombok.extern.slf4j.Slf4j;
 import org.ips.xml.signer.xmlsigner.exceptions.CertificateCacheException;
 import org.ips.xml.signer.xmlsigner.models.KeyCertificatePair;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,7 @@ import java.util.Optional;
 import java.util.Map;
 
 @Repository
+@Slf4j
 public class CertificateCacheRepository implements CacheRepository {
 
     private final long ttl;
@@ -29,6 +31,13 @@ public class CertificateCacheRepository implements CacheRepository {
     private final String keystorePassword;
     private final Map<String, X509Certificate> certificateCache;
     private final ConcurrentHashMap<String, KeyCertificatePair> pairCache;
+
+    private volatile boolean cacheLoaded = false;
+
+    public boolean isCacheLoaded() {
+        return cacheLoaded;
+    }
+
 
     @Value("${security.pki.keystore.type}")
     private String keystoreType;
@@ -81,10 +90,14 @@ public class CertificateCacheRepository implements CacheRepository {
                 System.out.println("Private Key Algorithm: " + privateKey.getAlgorithm());
                 // Further processing of the private key
             } else {
-                System.out.println("No private key found with the alias: " + bankBic);
+                log.info("No private key found with the alias: " + bankBic);
             }
+            cacheLoaded=true;
         } catch (Exception e) {
+            cacheLoaded=false;
+            log.error("Error while loading certificates from keystore", e);
             throw new CertificateCacheException("Error while loading certificates from keystore", e);
+
         }
     }
 
@@ -95,6 +108,9 @@ public class CertificateCacheRepository implements CacheRepository {
      * @return cached certificate
      */
     public Optional<X509Certificate> get(String alias) {
+        if(!cacheLoaded){
+            refreshCache();
+        }
         return Optional.ofNullable(certificateCache.get(alias));
     }
 
@@ -161,10 +177,16 @@ public class CertificateCacheRepository implements CacheRepository {
     }
 
     public Optional<PrivateKey> getBankPrivatekey() {
+        if(!cacheLoaded){
+            refreshCache();
+        }
         return Optional.ofNullable(this.pairCache.get("keys").getPrivateKey());
     }
 
     public Optional<X509Certificate> getBankCertificate() {
+        if(!cacheLoaded){
+            refreshCache();
+        }
         return Optional.ofNullable(this.pairCache.get("keys").getCertificate());
     }
 }
