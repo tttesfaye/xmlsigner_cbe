@@ -36,7 +36,12 @@ public class DigestController {
 
     }
 
-    @PostMapping(value = "/digest", consumes = MediaType.APPLICATION_XML_VALUE, produces = MediaType.APPLICATION_XML_VALUE)
+    @PostMapping(
+            value = "/digest",
+            consumes = MediaType.APPLICATION_XML_VALUE,
+            produces = {MediaType.APPLICATION_XML_VALUE, MediaType.ALL_VALUE}
+    )
+
     public String handleXmlRequest(@RequestBody String request) {
         // Sanitize XML input
         if (!isValidXml(request)) {
