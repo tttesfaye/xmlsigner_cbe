@@ -110,6 +110,8 @@ public class CertificateCacheRepository implements CacheRepository {
     public Optional<X509Certificate> get(String alias) {
         if(!cacheLoaded){
             refreshCache();
+        }else {
+            log.info(" the file is already loaded ....... trying to bet the bank private key");
         }
         return Optional.ofNullable(certificateCache.get(alias));
     }
@@ -164,6 +166,7 @@ public class CertificateCacheRepository implements CacheRepository {
      */
     @Scheduled(fixedRateString = "${certificate.cache.refreshInterval:3600000}")
     public void refreshCache() {
+        log.debug(" trying to refresh the cache");
         loadCertificatesFromKeystore();
     }
 
@@ -179,6 +182,8 @@ public class CertificateCacheRepository implements CacheRepository {
     public Optional<PrivateKey> getBankPrivatekey() {
         if(!cacheLoaded){
             refreshCache();
+        }else {
+            log.info(" the file is already loaded ....... trying to bet the bank private key");
         }
         return Optional.ofNullable(this.pairCache.get("keys").getPrivateKey());
     }
