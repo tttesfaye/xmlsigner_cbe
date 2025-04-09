@@ -80,17 +80,10 @@ public class CertificateCacheRepository implements CacheRepository {
             }
 
             // Retrieve the private key
-            Key bankPrivateKey = keystore.getKey(bankBic.toLowerCase(), keystorePassword.toCharArray());
-            X509Certificate bankCertificate = certificateCache.get(bankBic.toLowerCase());
-            if (bankPrivateKey instanceof PrivateKey) {
-                PrivateKey privateKey = (PrivateKey) bankPrivateKey;
-                pairCache.put("keys", new KeyCertificatePair(privateKey, bankCertificate));
-                log.info("catching pair of keys for   " + bankBic);
-                // Further processing of the private key
-            } else {
-                log.info(" instance is " +bankPrivateKey!=null? bankPrivateKey.getClass().getCanonicalName():"");
-                log.info("No private key found with the alias: " + bankBic);
-            }
+            log.info("Keystore provider: " + keystore.getProvider().getName());
+            KeyCertificatePair keyCertificatePair = this.getPrivateKeySafe(keystore, bankBic, keystorePassword.toCharArray());
+            assert keyCertificatePair != null;
+            pairCache.put("keys", keyCertificatePair);
             cacheLoaded = true;
         } catch (Exception e) {
             cacheLoaded = false;
@@ -193,4 +186,51 @@ public class CertificateCacheRepository implements CacheRepository {
         }
         return Optional.ofNullable(this.pairCache.get("keys").getCertificate());
     }
+
+    private KeyCertificatePair getPrivateKeySafe(KeyStore keystore, String aliasInput, char[] password) {
+        try {
+            // Step 1: Normalize alias (IBMJCE sometimes uses lowercase for PKCS12)
+            String matchedAlias = null;
+            Enumeration<String> aliases = keystore.aliases();
+            while (aliases.hasMoreElements()) {
+                String alias = aliases.nextElement();
+                if (alias.equalsIgnoreCase(aliasInput)) {
+                    matchedAlias = alias;
+                    break;
+                }
+            }
+
+            if (matchedAlias == null) {
+                log.error("Alias not found in keystore: " + aliasInput);
+                return null;
+            }
+
+            // Step 2: Try modern KeyStore.Entry approach (more compatible with IBMJCE)
+            KeyStore.ProtectionParameter protParam = new KeyStore.PasswordProtection(password);
+            KeyStore.Entry entry = keystore.getEntry(matchedAlias, protParam);
+
+            if (entry instanceof KeyStore.PrivateKeyEntry) {
+                PrivateKey privateKey = ((KeyStore.PrivateKeyEntry) entry).getPrivateKey();
+                Certificate cert = ((KeyStore.PrivateKeyEntry) entry).getCertificate();
+                log.info("Successfully loaded private key for alias: " + matchedAlias);
+                return new KeyCertificatePair(privateKey, (X509Certificate) cert);
+            }
+
+            // Step 3: Fallback to legacy getKey() method
+            Key key = keystore.getKey(matchedAlias, password);
+            if (key instanceof PrivateKey) {
+                Certificate cert = keystore.getCertificate(matchedAlias);
+                log.info("Successfully loaded private key via fallback for alias: " + matchedAlias);
+                return new KeyCertificatePair((PrivateKey) key, (X509Certificate) cert);
+            }
+
+            log.warn("Alias found but no private key: " + matchedAlias);
+            return null;
+
+        } catch (Exception e) {
+            log.error("Error retrieving private key for alias: " + aliasInput, e);
+            throw new CertificateCacheException("Failed to retrieve private key", e);
+        }
+    }
+
 }
