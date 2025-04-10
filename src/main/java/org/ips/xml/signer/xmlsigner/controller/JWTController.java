@@ -25,7 +25,7 @@ public class JWTController {
 
 
     @PostMapping(value = "/jwt")
-    public ResponseEntity<RestResponse> getJwt(@RequestBody String userName) {
+    public ResponseEntity<RestResponse> getJwt(@RequestBody String inputString) {
 
         ResponseEntity<RestResponse> xmlResponse = null;
         JWTInfo jwtInfo = null;
