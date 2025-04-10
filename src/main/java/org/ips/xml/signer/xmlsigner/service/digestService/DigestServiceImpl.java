@@ -69,6 +69,7 @@ public class DigestServiceImpl implements DigestService {
     private String convertDocumentToString(Document doc) {
         try {
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            transformerFactory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
             Transformer transformer = transformerFactory.newTransformer();
             StringWriter writer = new StringWriter();
             transformer.transform(new DOMSource(doc), new StreamResult(writer));

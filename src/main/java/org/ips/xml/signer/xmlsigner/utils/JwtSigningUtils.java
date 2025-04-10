@@ -3,7 +3,6 @@ package org.ips.xml.signer.xmlsigner.utils;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import lombok.NoArgsConstructor;
-import org.ips.xml.signer.xmlsigner.crypto.CerteficateAndKeysUtility;
 import org.ips.xml.signer.xmlsigner.models.JWTInfo;
 import org.ips.xml.signer.xmlsigner.repository.CertificateCacheRepository;
 import org.springframework.beans.factory.annotation.Autowired;

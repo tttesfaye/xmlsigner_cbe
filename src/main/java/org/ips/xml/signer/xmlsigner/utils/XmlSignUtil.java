@@ -26,7 +26,7 @@ import org.apache.xml.security.keys.content.X509Data;
 import org.apache.xml.security.signature.XMLSignature;
 import org.apache.xml.security.transforms.Transforms;
 import org.ips.xml.signer.xmlsigner.context.DSNamespaceContext;
-import org.ips.xml.signer.xmlsigner.crypto.CerteficateAndKeysUtility;
+
 import org.ips.xml.signer.xmlsigner.info.SignatureInfo;
 import org.ips.xml.signer.xmlsigner.info.SignatureKeyInfo;
 import org.ips.xml.signer.xmlsigner.repository.CertificateCacheRepository;

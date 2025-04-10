@@ -3,7 +3,7 @@ package org.ips.xml.signer.xmlsigner.utils;
 
 import lombok.extern.log4j.Log4j2;
 import lombok.extern.slf4j.Slf4j;
-import org.ips.xml.signer.xmlsigner.crypto.CerteficateAndKeysUtility;
+
 import org.ips.xml.signer.xmlsigner.info.ReferenceSignInfo;
 import org.ips.xml.signer.xmlsigner.info.SignatureInfo;
 import org.ips.xml.signer.xmlsigner.info.SignatureKeyInfo;
