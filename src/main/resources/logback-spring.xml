@@ -2,7 +2,7 @@
 
     <!-- Define properties per Spring profile -->
     <springProfile name="dev">
-        <property name="HOME_LOG" value="src/main/resources/logs/ap1p.log"/>
+        <property name="HOME_LOG" value="src/main/resources/logs/app.log"/>
     </springProfile>
 
     <springProfile name="test">
