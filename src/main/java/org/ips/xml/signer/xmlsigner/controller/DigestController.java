@@ -44,9 +44,9 @@ public class DigestController {
 
     public String handleXmlRequest(@RequestBody String request) {
         // Sanitize XML input
-        if (!isValidXml(request)) {
-            return HttpStatus.BAD_REQUEST +"Invalid XML input";
-        }
+        // if (!isValidXml(request)) {
+        //     return HttpStatus.BAD_REQUEST +"Invalid XML input";
+        // }
 
         // Securely parse XML inside digestService.signDocument()
         String xmlResponse = digestService.signDocument(request);
